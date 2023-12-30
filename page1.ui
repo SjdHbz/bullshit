@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>page1</class>
+ <widget class="QMainWindow" name="page1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>page1</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>801</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/new/prefix1/Lovepik_com-380031521-autumn-wheat-field-vector-material-creative-wheat-field.png);</string>
+    </property>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>90</y>
+       <width>69</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>@gmail.com</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>@email.com</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>@mail.um.ac</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>10</y>
+       <width>681</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 16pt &quot;W_bita&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Enter email, password, username,existing card, phone number to login.</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>90</y>
+       <width>161</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="placeholderText">
+      <string>Email</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>90</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <stylestrategy>PreferDefault</stylestrategy>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>password</string>
+     </property>
+     <property name="cursorMoveStyle">
+      <enum>Qt::LogicalMoveStyle</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>90</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/eye6.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>90</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/notyeey.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radioButton">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>90</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_5">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>140</y>
+       <width>331</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>User name</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_6">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>200</y>
+       <width>331</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string> inventory</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_7">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>260</y>
+       <width>241</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="placeholderText">
+      <string>Phone number</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_3">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>260</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 194, 0, 255), stop:1 rgba(0, 205, 0, 255));</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>iran +98</string>
+      </property>
+      <property name="icon">
+       <iconset theme="iran" resource="page1.qrc">
+        <normaloff>:/new/prefix1/iran.png</normaloff>:/new/prefix1/iran.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Afg +93</string>
+      </property>
+      <property name="icon">
+       <iconset theme="AFG" resource="page1.qrc">
+        <normaloff>:/new/prefix1/AFG.png</normaloff>:/new/prefix1/AFG.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Italy ‎+39</string>
+      </property>
+      <property name="icon">
+       <iconset theme="Italy" resource="page1.qrc">
+        <normaloff>:/new/prefix1/italia.png</normaloff>:/new/prefix1/italia.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pakistan +92</string>
+      </property>
+      <property name="icon">
+       <iconset theme="Pakistan" resource="page1.qrc">
+        <normaloff>:/new/prefix1/Pakistan.png</normaloff>:/new/prefix1/Pakistan.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>china +86</string>
+      </property>
+      <property name="icon">
+       <iconset theme="china" resource="page1.qrc">
+        <normaloff>:/new/prefix1/chine.png</normaloff>:/new/prefix1/chine.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string> USA +1</string>
+      </property>
+      <property name="icon">
+       <iconset theme="USA" resource="page1.qrc">
+        <normaloff>:/new/prefix1/USA.png</normaloff>:/new/prefix1/USA.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>England +44</string>
+      </property>
+      <property name="icon">
+       <iconset theme="England" resource="page1.qrc">
+        <normaloff>:/new/prefix1/astralia.png</normaloff>:/new/prefix1/astralia.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>India +91</string>
+      </property>
+      <property name="icon">
+       <iconset theme="India" resource="page1.qrc">
+        <normaloff>:/new/prefix1/india.png</normaloff>:/new/prefix1/india.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Japan +81</string>
+      </property>
+      <property name="icon">
+       <iconset theme="Japan" resource="page1.qrc">
+        <normaloff>:/new/prefix1/japan.png</normaloff>:/new/prefix1/japan.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Palestine +970</string>
+      </property>
+      <property name="icon">
+       <iconset resource="page1.qrc">
+        <normaloff>:/new/prefix1/palsten.png</normaloff>:/new/prefix1/palsten.png</iconset>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>340</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>340</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/new/prefix1/refresh.jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>440</y>
+       <width>181</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(45, 116, 98);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>LOG IN!</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="captchaLabel">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>320</y>
+       <width>141</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>530</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>next</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox5">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>170</y>
+       <width>191</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>.</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>1 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>3 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>5 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>6 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>7 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8 player</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>9  player</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>230</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(45, 116, 98);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>GO!</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>50</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>90</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="page1.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>comboBox5</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>387</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>458</x>
+     <y>195</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_5</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>401</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>389</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>181</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>276</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
