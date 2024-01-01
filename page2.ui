@@ -78,11 +78,17 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
+      <x>0</x>
+      <y>30</y>
       <width>451</width>
       <height>351</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Store: You can get the materials you want from the store&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/new/prefix1/1703803682811.jpg);</string>
@@ -199,10 +205,10 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>240</y>
-      <width>391</width>
-      <height>341</height>
+      <x>1050</x>
+      <y>640</y>
+      <width>221</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -215,10 +221,10 @@
    <widget class="QPushButton" name="pushButton_1">
     <property name="geometry">
      <rect>
-      <x>1040</x>
-      <y>590</y>
-      <width>221</width>
-      <height>181</height>
+      <x>140</x>
+      <y>730</y>
+      <width>91</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -231,30 +237,14 @@
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>600</y>
-      <width>221</width>
-      <height>181</height>
+      <x>140</x>
+      <y>660</y>
+      <width>91</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/new/prefix1/11 (2).jpg);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>690</y>
-      <width>131</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/11 (4).jpg);</string>
     </property>
     <property name="text">
      <string/>
@@ -275,6 +265,86 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>690</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/7 (2).jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>380</y>
+      <width>361</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/1703803682775.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>530</y>
+      <width>131</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/1703803682828.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>670</y>
+      <width>801</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>lands</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>71</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/new/prefix1/11 (4).jpg);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

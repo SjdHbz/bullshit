@@ -6,9 +6,9 @@
 
 int coin;
 int number_of_chicken;
-int number_of_cows;
-int number_of_cows_meat;
-int number_of_cows_milk;
+int number_of_cow;
+int number_of_cow_meat;
+int number_of_cow_milk;
 int number_of_sheep;
 int number_of_sheep_milk;
 int number_of_sheep_meat;
@@ -24,10 +24,6 @@ shop::shop(QWidget *parent) :
 {
     ui->setupUi(this);
     QFile file("D:/faz2/faz2/coin.txt");
-    QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
-    QFile cow("D:/faz2/faz2/number_of_cows.txt");
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
-    QTextStream out(&file);
     QTextStream in(&file);
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> coin;
@@ -35,26 +31,6 @@ shop::shop(QWidget *parent) :
     }else{
         QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
     }
-    if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
-        in >> number_of_chicken;
-        chicken.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-    }
-    if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
-        in >> number_of_cows;
-        cow.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-    }
-    if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
-        in >> number_of_sheep;
-        sheep.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-    }
-
-
 }
 
 shop::~shop()
@@ -232,36 +208,51 @@ void shop::on_spinBox_cron_valueChanged(int arg1)
 //}
 void shop::on_pushButton_chicken_clicked()
 {
-    int selectedQuantity = ui->spinBox_chicken->value();                              // تعداد انتخاب شده توسط کاربر از spinBox
-    int totalPrice = selectedQuantity * 3;                                           // محاسبه مجموعه آن جنس
-    number_of_chicken = number_of_chicken + totalPrice/3;
+    int selectedQuantity = ui->spinBox_chicken->value(); // تعداد انتخاب شده توسط کاربر از spinBox
+    int totalPrice = selectedQuantity * 5; // محاسبه مجموعه آن جنس
     QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
+    QTextStream in(&chicken);
+    QTextStream out(&chicken);
+
+    if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in >> number_of_chicken;
+        chicken.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        return;
+    }
+    number_of_chicken += selectedQuantity;
     if (chicken.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream out(&chicken);
         out << number_of_chicken;
         chicken.close();
-    }else {
-                                                                                     // اعلام خطا از نظر تعداد سکه
+    }else {                                                                              // اعلام خطا از نظر تعداد سکه
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+        return;
     }
     if (coin >= totalPrice) {
         coin -= totalPrice; // کم کردن سکه‌ها
         // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
         QFile file("D:/faz2/faz2/coin.txt");
+
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;
             file.close();
         }
-                                                                                     // تاکید بر نکاتی برای UI
-        ui->spinBox_chicken->setValue(0);                                            // تنظیم مقدار spinBox به 0
-        ui->lineEdit_chicken->setText(QString::number(totalPrice));                  // نمایش مجموعه آن جنس در lineEdit
+     else {
+        // اعلام خطا از نظر تعداد سکه
+        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+        return;
+      }
+        // تاکید بر نکاتی برای UI
+        ui->spinBox_chicken->setValue(0); // تنظیم مقدار spinBox به 0
         ui->lineEdit_coins->setText(QString::number(coin));
-    } else {
-                                                                                     // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "You don't have enough coins");
-    }
         ui->lineEdit_chicken->clear();
+        }else {
+       // اعلام خطا از نظر تعداد سکه
+           QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+
+    }
 }
 
 //void shop::on_pushButton_cow_clicked()
@@ -269,9 +260,9 @@ void shop::on_pushButton_chicken_clicked()
 //    if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
 //    if(coin>=7){
 //    int k = ui->lineEdit_cow->text().toInt();
-////    push.number_of_cows=push.number_of_cows+k/7;
+//    push.number_of_cows=push.number_of_cows+k/7;
 //    coin = coin - k;
-////    men.set_coin(set);
+//    men.set_coin(set);
 //    out >> coin;
 //    ui->spinBox_cow->clear();
 //    ui->lineEdit_cow->clear();
@@ -292,33 +283,49 @@ void shop::on_pushButton_chicken_clicked()
 void shop::on_pushButton_cow_clicked(){
     int selectedQuantity = ui->spinBox_cow->value(); // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 7; // محاسبه مجموعه آن جنس
-    number_of_cows = number_of_cows + totalPrice/7;
-    QFile cow("D:/faz2/faz2/number_of_cows.txt");
-    if (cow.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream out(&cow);
-        out << number_of_cows;
+    QFile cow("D:/faz2/faz2/number_of_cow.txt");
+    QTextStream in(&cow);
+    QTextStream out(&cow);
+
+    if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in >> number_of_cow;
         cow.close();
-    }else {
-                                                                                     // اعلام خطا از نظر تعداد سکه
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        return;
+    }
+    number_of_cow += selectedQuantity;
+    if (cow.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        out << number_of_cow;
+        cow.close();
+    }else{                                                                              // اعلام خطا از نظر تعداد سکه
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+        return;
     }
     if (coin >= totalPrice) {
         coin -= totalPrice; // کم کردن سکه‌ها
         // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
         QFile file("D:/faz2/faz2/coin.txt");
+
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;
             file.close();
         }
+     else {
+        // اعلام خطا از نظر تعداد سکه
+        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+        return;
+      }
         // تاکید بر نکاتی برای UI
         ui->spinBox_cow->setValue(0); // تنظیم مقدار spinBox به 0
         ui->lineEdit_coins->setText(QString::number(coin));
-    } else {
-        // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+        ui->lineEdit_cow->clear();
+        }else{
+       // اعلام خطا از نظر تعداد سکه
+           QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+
     }
-    ui->lineEdit_cow->clear();
 }
 
 //void shop::on_pushButton_sheep_clicked()
@@ -326,9 +333,9 @@ void shop::on_pushButton_cow_clicked(){
 //    if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
 //    if(coin>=5){
 //    int k = ui->lineEdit_sheep->text().toInt();
-////    push.number_of_sheep=push.number_of_sheep+k/5;
+//    push.number_of_sheep=push.number_of_sheep+k/5;
 //    coin = coin-k;
-////    men.set_coin(set);
+//    men.set_coin(set);
 //    out >> coin;
 //    ui->spinBox_sheep->clear();
 //    ui->lineEdit_sheep->clear();
@@ -350,17 +357,27 @@ void shop::on_pushButton_cow_clicked(){
 
 void shop::on_pushButton_sheep_clicked()
 {
+
     int selectedQuantity = ui->spinBox_sheep->value(); // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 5; // محاسبه مجموعه آن جنس
-    number_of_cows = number_of_cows + totalPrice/7;
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
-    if (sheep.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream out(&sheep);
-        out << number_of_cows;
+    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");   
+    QTextStream in(&sheep);
+    QTextStream out(&sheep);
+
+    if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in >> number_of_sheep;
         sheep.close();
-    }else {
-                                                                                     // اعلام خطا از نظر تعداد سکه
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        return;
+    }
+    number_of_sheep += selectedQuantity;
+    if (sheep.open(QIODevice::WriteOnly | QIODevice::Text)) {       
+        out << number_of_sheep;
+        sheep.close();
+    }else {                                                                              // اعلام خطا از نظر تعداد سکه
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+        return;
     }
     if (coin >= totalPrice) {
         coin -= totalPrice; // کم کردن سکه‌ها
@@ -371,15 +388,21 @@ void shop::on_pushButton_sheep_clicked()
             QTextStream out(&file);
             out << coin;
             file.close();
-        }
+        }    
+     else {
+        // اعلام خطا از نظر تعداد سکه
+        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+        return;
+      }
         // تاکید بر نکاتی برای UI
         ui->spinBox_sheep->setValue(0); // تنظیم مقدار spinBox به 0
         ui->lineEdit_coins->setText(QString::number(coin));
-    } else {
-        // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+        ui->lineEdit_sheep->clear();
+        }else {
+       // اعلام خطا از نظر تعداد سکه
+           QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+
     }
-    ui->lineEdit_sheep->clear();
 }
 
 
@@ -415,6 +438,7 @@ void shop::on_pushButton_wheat_buy_clicked()
     if (coin >= totalPrice) {
         coin -= totalPrice; // کم کردن سکه‌ها
         // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+
         QFile file("D:/faz2/faz2/coin.txt");
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);

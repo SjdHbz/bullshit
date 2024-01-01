@@ -13,8 +13,6 @@ public:
     explicit sheep(QWidget *parent = nullptr);
     ~sheep();
 
-private slots:
-    void on_pushButton_sheep_clicked();
 
 private:
     Ui::sheep *ui;

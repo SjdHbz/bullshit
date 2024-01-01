@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>sheep</class>
- <widget class="QMainWindow" name="sheep">
+ <class>chicken</class>
+ <widget class="QMainWindow" name="chicken">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>230</width>
-    <height>292</height>
+    <width>182</width>
+    <height>253</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,11 @@
    <string notr="true">border-image: url(:/new/prefix1/download (2).png);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>10</x>
+      <y>10</y>
       <width>151</width>
       <height>181</height>
      </rect>
@@ -29,23 +29,23 @@
     <property name="title">
      <string>Sheep</string>
     </property>
-    <widget class="QLabel" name="label_19">
+    <widget class="QLabel" name="label_21">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>131</width>
+       <width>101</width>
        <height>111</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/sheep.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/morg.png);</string>
      </property>
      <property name="text">
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_20">
+    <widget class="QLabel" name="label_22">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -55,13 +55,13 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Sheep&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Chicken&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::AutoText</enum>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_sheep">
+    <widget class="QLineEdit" name="lineEdit_chicken">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -78,7 +78,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>230</width>
+     <width>182</width>
      <height>21</height>
     </rect>
    </property>

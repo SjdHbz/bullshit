@@ -37,6 +37,10 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_10_clicked();
+
 private:
     Ui::page2 *ui;
 

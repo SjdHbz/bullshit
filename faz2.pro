@@ -10,6 +10,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chicken.cpp \
     cow.cpp \
     hous.cpp \
     land.cpp \
@@ -18,21 +19,23 @@ SOURCES += \
     page1.cpp \
     page2.cpp \
     sheep.cpp \
-    shop.cpp
+    shop.cpp \
+    worker.cpp
 
 HEADERS += \
-    Score.h \
+    chicken.h \
     cow.h \
-    first.h \
     hous.h \
     land.h \
     mland.h \
     page1.h \
     page2.h \
     sheep.h \
-    shop.h
+    shop.h \
+    worker.h
 
 FORMS += \
+    chicken.ui \
     cow.ui \
     hous.ui \
     land.ui \
@@ -40,7 +43,8 @@ FORMS += \
     page1.ui \
     page2.ui \
     sheep.ui \
-    shop.ui
+    shop.ui \
+    worker.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
