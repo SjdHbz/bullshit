@@ -14,6 +14,7 @@ class page2 : public QMainWindow
 
 public:
     explicit page2(QWidget *parent = nullptr);
+     QTimer *timer;
     ~page2();
 
 private slots:

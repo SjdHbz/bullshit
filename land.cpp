@@ -1,6 +1,5 @@
 #include "land.h"
 #include "ui_land.h"
-
 #include "QFile"
 #include "QTextStream"
 #include "QMessageBox"

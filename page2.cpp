@@ -1,6 +1,5 @@
 #include "page2.h"
 #include "ui_page2.h"
-#include "first.h"
 #include <QTime>
 #include <QTimer>
 #include "time.h"
@@ -47,7 +46,7 @@ page2::page2(QWidget *parent) :
 //    int number_of_corn;
 //    int number_of_land;
 //    int number_of_worker;
-    QTimer *timer = new QTimer(this);
+    timer = new QTimer(this);
     connect(timer,&QTimer::timeout,this,&page2::updateTime);
     timer->start(1000);
        ui->lineEdit_coin->setReadOnly(true);
@@ -84,14 +83,19 @@ page2::page2(QWidget *parent) :
 
 void page2::updateTime()
 {
+//    QTime currentTime = QTime::currentTime();
+//    int minutes = currentTime.minute();
+//    int seconds = currentTime.second();
     static int seconds = 0;
     seconds++;
-
-    if (seconds == 180) // check if 3 minutes have passed
+//time.elapsed()
+    if (seconds == 10) // check if 3 minutes have passed
     {
 
-
-//         QApplication::quit(); // quit the application
+//        QTimer *timer = new QTimer(this);
+//        connect(timer,&QTimer::timeout,this,&page2::updateTime);
+//        timer->stop();
+//        timer->start(1000);
     }
 
     int minutes = seconds / 60;
