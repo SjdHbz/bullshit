@@ -1,6 +1,8 @@
 #ifndef SHEEP_H
 #define SHEEP_H
 #include <QMainWindow>
+#include <QMediaPlayer>
+
 namespace Ui {
 class sheep;
 }
@@ -14,8 +16,13 @@ public:
     ~sheep();
 
 
+private slots:
+    void on_toolButton_clicked();
+
 private:
     Ui::sheep *ui;
+    QMediaPlayer *player = new
+    QMediaPlayer;
 };
 
 #endif // SHEEP_H

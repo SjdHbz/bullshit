@@ -40,6 +40,9 @@ private slots:
 
     void on_pushButton_10_clicked();
 
+    void on_pushButton_5_clicked();
+
+
 private:
     Ui::page2 *ui;
     QTimer *timer;

@@ -2,7 +2,7 @@
 #define MLAND_H
 
 #include <QMainWindow>
-
+#include <QMediaPlayer>
 namespace Ui {
 class mland;
 }
@@ -15,8 +15,13 @@ public:
     explicit mland(QWidget *parent = nullptr);
     ~mland();
 
+private slots:
+    void on_toolButton_clicked();
+
 private:
     Ui::mland *ui;
+    QMediaPlayer *player = new
+    QMediaPlayer;
 };
 
 #endif // MLAND_H

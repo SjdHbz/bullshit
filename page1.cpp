@@ -32,7 +32,7 @@ page1::page1(QWidget *parent)
     , ui(new Ui::page1)
 {
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/garm.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/garm.mp3"));
     player->setVolume(50);
     player->play();
     ui->pushButton->setEnabled(false);

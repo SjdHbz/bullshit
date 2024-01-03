@@ -4,12 +4,17 @@
 #include "QFile"
 #include "QTextStream"
 #include "QMessageBox"
+#include <QMediaPlayer>
 
 sheep::sheep(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::sheep)
 {
+
     ui->setupUi(this);
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/sheepsound.mp3"));
+    player->setVolume(100);
+    player->play();
     ui->lineEdit_sheep->setReadOnly(true);
     int number_of_sheep;
     QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
@@ -29,4 +34,10 @@ sheep::~sheep()
 }
 
 
+
+
+void sheep::on_toolButton_clicked()
+{
+    player->stop();
+}
 

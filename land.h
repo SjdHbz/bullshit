@@ -2,6 +2,7 @@
 #define LAND_H
 
 #include <QMainWindow>
+#include <QMediaPlayer>
 
 namespace Ui {
 class land;
@@ -26,8 +27,12 @@ private slots:
 
     void on_pushButton_worker_clicked();
 
+    void on_toolButton_clicked();
+
 private:
     Ui::land *ui;
+    QMediaPlayer *player = new
+    QMediaPlayer;
 };
 
 #endif // LAND_H

@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>644</width>
-    <height>482</height>
+    <width>497</width>
+    <height>404</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_2">
@@ -231,8 +234,8 @@ QPushButton:hover{
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>120</y>
+      <x>20</x>
+      <y>280</y>
       <width>141</width>
       <height>71</height>
      </rect>
@@ -311,9 +314,9 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>30</y>
+      <y>280</y>
       <width>141</width>
-      <height>81</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="title">
@@ -323,7 +326,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>50</y>
+       <y>40</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -350,7 +353,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>-10</x>
-       <y>20</y>
+       <y>10</y>
        <width>81</width>
        <height>51</height>
       </rect>
@@ -366,7 +369,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>20</y>
+       <y>10</y>
        <width>21</width>
        <height>20</height>
       </rect>
@@ -376,7 +379,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>20</y>
+       <y>10</y>
        <width>42</width>
        <height>22</height>
       </rect>
@@ -392,7 +395,7 @@ QPushButton:hover{
       <x>160</x>
       <y>40</y>
       <width>20</width>
-      <height>241</height>
+      <height>321</height>
      </rect>
     </property>
     <property name="orientation">
@@ -404,7 +407,7 @@ QPushButton:hover{
      <rect>
       <x>0</x>
       <y>270</y>
-      <width>341</width>
+      <width>491</width>
       <height>16</height>
      </rect>
     </property>
@@ -417,7 +420,7 @@ QPushButton:hover{
      <rect>
       <x>0</x>
       <y>190</y>
-      <width>341</width>
+      <width>491</width>
       <height>16</height>
      </rect>
     </property>
@@ -430,7 +433,7 @@ QPushButton:hover{
      <rect>
       <x>0</x>
       <y>110</y>
-      <width>341</width>
+      <width>491</width>
       <height>16</height>
      </rect>
     </property>
@@ -456,7 +459,7 @@ QPushButton:hover{
      <rect>
       <x>170</x>
       <y>30</y>
-      <width>171</width>
+      <width>321</width>
       <height>16</height>
      </rect>
     </property>
@@ -467,7 +470,417 @@ QPushButton:hover{
    <widget class="Line" name="line_5">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>310</x>
+      <y>40</y>
+      <width>20</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>40</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>10</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/5222963.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_chicken_egg">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(84, 84, 84);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>ُSale</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_chicken_egg">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background-color: rgb(130, 130, 130);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_chicken_egg">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>50</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>10</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/images.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_chickn_mat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(84, 84, 84);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>ُSale</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_chickn_mat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_chickn_mat">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background-color: rgb(130, 130, 130);</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>10</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/link.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_cow_milk">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(84, 84, 84);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>ُSale</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_cow_milk">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(130, 130, 130);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_cow_milk">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_6">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>120</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>10</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_cow_mat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_cow_mat">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(130, 130, 130);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_cow_mat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(84, 84, 84);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>ُSale</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_7">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>190</y>
+      <width>141</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>20</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/link.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_sheep_milk">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(84, 84, 84);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>ُSale</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_sheep_milk">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>20</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(130, 130, 130);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_sheep_milk">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="Line" name="line_17">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
       <y>40</y>
       <width>20</width>
       <height>241</height>
@@ -477,14 +890,109 @@ QPushButton:hover{
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QOpenGLWidget" name="openGLWidget">
+   <widget class="QGroupBox" name="groupBox_8">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>330</x>
       <y>200</y>
-      <width>151</width>
+      <width>141</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>-20</x>
+       <y>10</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_sheep_mat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(84, 84, 84);
+border :1px solit;
+border-radiux:3px;
+}
+QPushButton:hover{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(57, 143, 0);
+}</string>
+     </property>
+     <property name="text">
+      <string>ُSale</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_sheep_mat">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(130, 130, 130);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_sheep_mat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>10</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="Line" name="line_8">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>350</y>
+      <width>321</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>0</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
     </property>
    </widget>
   </widget>
@@ -493,7 +1001,7 @@ QPushButton:hover{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>644</width>
+     <width>497</width>
      <height>21</height>
     </rect>
    </property>
@@ -501,5 +1009,22 @@ QPushButton:hover{
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>toolButton</sender>
+   <signal>clicked()</signal>
+   <receiver>hous</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>484</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>29</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

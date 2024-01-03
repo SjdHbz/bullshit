@@ -2,7 +2,7 @@
 #define SHOP_H
 
 #include <QMainWindow>
-
+#include <QMediaPlayer>
 namespace Ui {
 class shop;
 }
@@ -50,8 +50,12 @@ private slots:
     void on_pushButton_cron_buy_clicked();
 
 
+    void on_toolButton_clicked();
+
 private:
     Ui::shop *ui;
+    QMediaPlayer *player = new
+    QMediaPlayer;
 };
 
 #endif // SHOP_H

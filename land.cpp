@@ -9,6 +9,9 @@ land::land(QWidget *parent) :
     ui(new Ui::land)
 {
     ui->setupUi(this);
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/lansvoic.mp3"));
+    player->setVolume(100);
+    player->play();
     ui->lineEdit_coin->setReadOnly(true);
     ui->lineEdit_land->setReadOnly(true);
     ui->lineEdit_worker->setReadOnly(true);
@@ -185,4 +188,10 @@ void land::on_pushButton_worker_clicked()
 
 }
 
+
+
+void land::on_toolButton_clicked()
+{
+    player->stop();
+}
 

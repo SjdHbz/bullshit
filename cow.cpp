@@ -9,6 +9,9 @@ cow::cow(QWidget *parent) :
     ui(new Ui::cow)
 {
     ui->setupUi(this);
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/cow_voic.mp3"));
+    player->setVolume(100);
+    player->play();
     ui->lineEdit_cow->setReadOnly(true);
     int number_of_cow;
     QFile cow("D:/faz2/faz2/number_of_cow.txt");
@@ -26,3 +29,9 @@ cow::~cow()
 {
     delete ui;
 }
+
+void cow::on_toolButton_clicked()
+{
+    player->stop();
+}
+
