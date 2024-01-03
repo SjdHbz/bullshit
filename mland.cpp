@@ -8,6 +8,8 @@ mland::mland(QWidget *parent) :
     ui(new Ui::mland)
 {
     ui->setupUi(this);
+    ui->lineEdit_land->setReadOnly(true);
+
     int number_of_land;
     QFile land("D:/faz2/faz2/number_of_land.txt");
     QTextStream in(&land);

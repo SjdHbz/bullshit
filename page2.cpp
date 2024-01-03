@@ -22,7 +22,9 @@ page2::page2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::page2)
 {
+    int play=1;
     ui->setupUi(this);
+    ui->label_player->setText("Lpgin Page Player" + QString::number(play));
     QFile file("D:/faz2/faz2/coin.txt");
     QTextStream out(&file);
     int coin = 200;
@@ -51,7 +53,6 @@ page2::page2(QWidget *parent) :
     timer->start(1000);
        ui->lineEdit_coin->setReadOnly(true);
        ui->lineEdit_worker->setReadOnly(true);
-       ui->lineEdit_land->setReadOnly(true);
 //       QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
 //       QFile cow("D:/faz2/faz2/number_of_cows.txt");
 //       QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
@@ -88,20 +89,44 @@ void page2::updateTime()
 //    int seconds = currentTime.second();
     static int seconds = 0;
     seconds++;
+    int play = 1;
+
 //time.elapsed()
-    if (seconds == 10) // check if 3 minutes have passed
+    if (seconds == 18) // check if 3 minutes have passed
     {
-
-//        QTimer *timer = new QTimer(this);
-//        connect(timer,&QTimer::timeout,this,&page2::updateTime);
-//        timer->stop();
+        seconds = 0;
 //        timer->start(1000);
+        elapsedTimer.restart();
+        play++;
+        QString message = QString("gfsddjg % 1").arg(play);
+        QMessageBox::information(this,"jafs",message);
+        ui->label_player->setText("Lpgin Page Player" + QString::number(play));
     }
-
+//    int elapsedSeconds = elapsedTimer.elapsed() / 1000;
     int minutes = seconds / 60;
-    int remainingSeconds = seconds % 60;
-
+    int remainingSeconds = seconds % 60;  
     ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
+
+
+
+    QFile file("D:/faz2/faz2/coin.txt");
+    QFile worker("D:/faz2/faz2/number_of_worker.txt");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    worker.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in(&file);
+    QTextStream stream(&worker);
+
+    int coin;
+    int number_of_worker;
+    in >> coin;
+    stream >> number_of_worker;
+    file.close();
+    worker.close();
+    ui->lineEdit_coin->setText(" = " + QString::number(coin));
+    ui->lineEdit_worker->setText(" = " + QString::number(number_of_worker));
+
+
+
 }
 page2::~page2()
 {
@@ -139,19 +164,6 @@ void page2::on_pushButton_clicked()
     land* LAND = new land();
     LAND->show();
 
-}
-
-
-void page2::on_pushButton_5_clicked()
-{
-    QFile file("D:/faz2/faz2/coin.txt");
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    QTextStream in(&file);
-    int coin;
-    in >> coin;
-    ui->lineEdit_coin->setText(" = " + QString::number(coin));
-    ui->lineEdit_worker->setText(" = " + QString::number(coin));
-    ui->lineEdit_land->setText(" = " + QString::number(coin));
 }
 
 

@@ -9,6 +9,7 @@ chicken::chicken(QWidget *parent) :
     ui(new Ui::chicken)
 {
     ui->setupUi(this);
+    ui->lineEdit_chicken->setReadOnly(true);
     int number_of_chicken;
     QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
     QTextStream in(&chicken);

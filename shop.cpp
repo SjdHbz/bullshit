@@ -23,6 +23,21 @@ shop::shop(QWidget *parent) :
     ui(new Ui::shop)
 {
     ui->setupUi(this);
+    ui->lineEdit_chicken->setReadOnly(true);
+    ui->lineEdit_chicken_egg->setReadOnly(true);
+    ui->lineEdit_chickn_mat->setReadOnly(true);
+    ui->lineEdit_coins->setReadOnly(true);
+    ui->lineEdit_cow->setReadOnly(true);
+    ui->lineEdit_cow_mat->setReadOnly(true);
+    ui->lineEdit_cow_milk->setReadOnly(true);
+    ui->lineEdit_cron_buy->setReadOnly(true);
+    ui->lineEdit_cron_sale->setReadOnly(true);
+    ui->lineEdit_sheep->setReadOnly(true);
+    ui->lineEdit_sheep_mat->setReadOnly(true);
+    ui->lineEdit_sheep_milk->setReadOnly(true);
+    ui->lineEdit_wheat_buy->setReadOnly(true);
+    ui->lineEdit_wheat_sale->setReadOnly(true);
+
     QFile file("D:/faz2/faz2/coin.txt");
     QTextStream in(&file);
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){

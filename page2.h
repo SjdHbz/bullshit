@@ -3,7 +3,7 @@
 #include <QTime>
 #include <QTimer>
 #include <QMainWindow>
-
+#include <QElapsedTimer>
 namespace Ui {
 class page2;
 }
@@ -15,6 +15,7 @@ class page2 : public QMainWindow
 public:
     explicit page2(QWidget *parent = nullptr);
      QTimer *timer;
+     QElapsedTimer elapsedTimer;
     ~page2();
 
 private slots:
@@ -27,8 +28,6 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
-
-    void on_pushButton_5_clicked();
 
     void on_pushButton_6_clicked();
 

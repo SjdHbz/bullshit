@@ -9,8 +9,9 @@ sheep::sheep(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::sheep)
 {
-    int number_of_sheep;
     ui->setupUi(this);
+    ui->lineEdit_sheep->setReadOnly(true);
+    int number_of_sheep;
     QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
     QTextStream in(&sheep);
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){

@@ -8,6 +8,7 @@ worker::worker(QWidget *parent) :
     ui(new Ui::worker)
 {
     ui->setupUi(this);
+    ui->lineEdit_worker->setReadOnly(true);
     int number_of_worker;
     QFile worker("D:/faz2/faz2/number_of_worker.txt");
     QTextStream in(&worker);

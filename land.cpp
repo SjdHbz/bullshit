@@ -9,7 +9,9 @@ land::land(QWidget *parent) :
     ui(new Ui::land)
 {
     ui->setupUi(this);
-
+    ui->lineEdit_coin->setReadOnly(true);
+    ui->lineEdit_land->setReadOnly(true);
+    ui->lineEdit_worker->setReadOnly(true);
 }
 
 land::~land()
