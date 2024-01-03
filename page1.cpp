@@ -82,6 +82,14 @@ page1::~page1()
 
 void page1::on_pushButton_5_clicked()
 {
+    QFile player("D:/faz2/faz2/number_of_players.txt");
+    QTextStream stream(&player);
+    if(player.open(QIODevice::WriteOnly | QIODevice::Text)){
+        stream << players;
+        player.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
     ui->label->show();
     ui->label_2->show();
     ui->comboBox->show();
@@ -181,6 +189,7 @@ void page1::on_pushButton_clicked()         //گزینه لاگین
         ema=0;
     }
     QString compare= ui->lineEdit_2->text();
+    ui->lineEdit_2->setText(actual);
     if(compare!=actual){
         QMessageBox::warning(this,"EROR","The captcha code was entered incorrectly");
         ui->lineEdit_2->clear();

@@ -14,8 +14,7 @@ class page2 : public QMainWindow
 
 public:
     explicit page2(QWidget *parent = nullptr);
-     QTimer *timer;
-     QElapsedTimer elapsedTimer;
+
     ~page2();
 
 private slots:
@@ -43,6 +42,9 @@ private slots:
 
 private:
     Ui::page2 *ui;
+    QTimer *timer;
+    QElapsedTimer elapsedTimer;
+    int play = 1;
 
 };
 
