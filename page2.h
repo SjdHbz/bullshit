@@ -4,6 +4,9 @@
 #include <QTimer>
 #include <QMainWindow>
 #include <QElapsedTimer>
+#include "QMap"
+#include "QPushButton"
+#include "QLabel"
 namespace Ui {
 class page2;
 }
@@ -19,6 +22,14 @@ public:
 
 private slots:
     void updateTime();
+
+    void updatewheat();
+
+    void refresh();
+
+    void outcoin(int coin);
+
+    void basketss(int pric);
 
     void on_pushButton_3_clicked();
 
@@ -43,11 +54,23 @@ private slots:
     void on_pushButton_5_clicked();
 
 
+    void on_pushButton_basket_clicked();
+
+    void on_pushButton_9_clicked();
+
 private:
     Ui::page2 *ui;
     QTimer *timer;
+    QTimer *wheat;
     QElapsedTimer elapsedTimer;
+    QElapsedTimer elapsedwheat;
+    int sw;
     int play = 1;
+    QMap < int , QPushButton *> buttonmap;
+    QMap < int , QLabel *> milk;
+    QMap < int , QLabel *> cows;
+    int number=0;
+
 
 };
 

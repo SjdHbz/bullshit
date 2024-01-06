@@ -9,6 +9,9 @@ chicken::chicken(QWidget *parent) :
     ui(new Ui::chicken)
 {
     ui->setupUi(this);
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/chicknvoic.mp3"));
+    player->setVolume(100);
+    player->play();
     ui->lineEdit_chicken->setReadOnly(true);
     int number_of_chicken;
     QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
@@ -26,3 +29,9 @@ chicken::~chicken()
 {
     delete ui;
 }
+
+void chicken::on_toolButton_clicked()
+{
+    player->stop();
+}
+

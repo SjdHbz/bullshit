@@ -8,6 +8,9 @@ worker::worker(QWidget *parent) :
     ui(new Ui::worker)
 {
     ui->setupUi(this);
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/workrvoic.mp3"));
+    player->setVolume(100);
+    player->play();
     ui->lineEdit_worker->setReadOnly(true);
     int number_of_worker;
     QFile worker("D:/faz2/faz2/number_of_worker.txt");
@@ -25,3 +28,9 @@ worker::~worker()
 {
     delete ui;
 }
+
+void worker::on_toolButton_clicked()
+{
+     player->stop();
+}
+

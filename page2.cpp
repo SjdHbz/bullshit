@@ -18,40 +18,45 @@
 #include "QTextStream"
 #include "QMessageBox"
 #include "sheep.h"
+#include "QMap"
 page2::page2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::page2)
 {
+
+    buttonmap[1]=ui->pushButton_7;
+    buttonmap[2]=ui->pushButton_9;
+    milk[1]=ui->label_milk;
+    milk[2]=ui->label_milk_2;
+    cows[1]=ui->label_cow;
+    cows[2]=ui->label_cow_2;
+//    basket[1]=ui->pushButton_basket;
+//    basket[2]=ui->pushButton_basket_2;
+
     ui->setupUi(this);
+    ui->pushButton_basket->hide();
+    ui->label_cow->hide();
+    ui->label_milk->hide();
+    ui->pushButton_basket_2->hide();
+    ui->label_cow_2->hide();
+    ui->label_milk_2->hide();
+    ui->label_2->hide();
+
+    ui->label->hide();
+    refresh();
     ui->label_player->setText("Login Page Player" + QString::number(play));
-    QFile file("D:/faz2/faz2/coin.txt");
-    QTextStream out(&file);
-    int coin = 200;
-    if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
-        out<<coin;
-        file.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        ui->pushButton->setEnabled(false);
-    }
-    int number_of_chicken;
-    int number_of_cow;
-//    int number_of_cow_meat;
-//    int number_of_cow_milk;
-    int number_of_sheep;
-//    int number_of_sheep_milk;
-//    int number_of_sheep_meat;
-//    int number_of_chicken_egg;
-//    int number_of_chicken_meat;
-    int number_of_wheat;
-    int number_of_cron;
-    int number_of_land=1;
-    int number_of_worker=1;
     timer = new QTimer(this);
     connect(timer,&QTimer::timeout,this,&page2::updateTime);
     timer->start(1000);
+
+}
+
+
+void page2::refresh()
+{
        ui->lineEdit_coin->setReadOnly(true);
        ui->lineEdit_worker->setReadOnly(true);
+       QFile file("D:/faz2/faz2/coin.txt");
        QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
        QFile cow("D:/faz2/faz2/number_of_cow.txt");
        QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
@@ -59,65 +64,167 @@ page2::page2(QWidget *parent) :
        QFile land("D:/faz2/faz2/number_of_land.txt");
        QFile wheat("D:/faz2/faz2/number_of_wheat.txt");
        QFile cron("D:/faz2/faz2/number_of_cron.txt");
+       QFile chicken_egg("D:/faz2/faz2/number_of_chicken_egg.txt");
+       QFile chicken_mat("D:/faz2/faz2/number_of_chicken_mat.txt");
+       QFile cow_mat("D:/faz2/faz2/number_of_cow_mat.txt");
+       QFile cow_milk("D:/faz2/faz2/number_of_cow_milk.txt");
+       QFile sheep_milk("D:/faz2/faz2/number_of_sheep_milk.txt");
+       QFile sheep_mat("D:/faz2/faz2/number_of_sheep_milk.txt");
+
 
        QTextStream stream(&chicken);
+       QTextStream out(&file);
        QTextStream out2(&cow);
        QTextStream out3(&sheep);
        QTextStream out4(&worker);
        QTextStream out5(&land);
        QTextStream out6(&wheat);
        QTextStream out7(&cron);
+       QTextStream out8(&chicken_egg);
+       QTextStream out9(&chicken_mat);
+       QTextStream out10(&cow_mat);
+       QTextStream out11(&cow_milk);
+       QTextStream out12(&sheep_milk);
+       QTextStream out13(&sheep_mat);
 
-       number_of_chicken = 0;
+       int coin = 200;
+       if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out<<coin;
+           file.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           ui->pushButton->setEnabled(false);
+       }
+       int number_of_chicken = 0;
        if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
            stream << number_of_chicken;
            chicken.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
-       number_of_cow = 0;
+       int number_of_cow = 0;
        if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
            out2 << number_of_cow;
            cow.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
-       number_of_sheep = 0;
+       int number_of_sheep = 0;
        if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
            out3 << number_of_sheep;
            sheep.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
-       number_of_worker = 0;
+       int number_of_worker = 1;
        if(worker.open(QIODevice::WriteOnly | QIODevice::Text)){
            out4 << number_of_worker;
            worker.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
-       number_of_land = 0;
+       int number_of_land = 1;
        if(land.open(QIODevice::WriteOnly | QIODevice::Text)){
            out5 << number_of_land;
            land.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
-       number_of_wheat = 0;
+       int number_of_wheat = 0;
        if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
            out6 << number_of_wheat;
            wheat.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
-       number_of_cron = 0;
+       int number_of_cron = 0;
        if(cron.open(QIODevice::WriteOnly | QIODevice::Text)){
            out7 << number_of_cron;
            cron.close();
        }else{
            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
        }
+       int number_of_chicken_egg = 0;
+       if(chicken_egg.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out8 << number_of_chicken_egg;
+           chicken_egg.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+       }
+       int number_of_chicken_mat = 0;
+       if(chicken_mat.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out9 << number_of_chicken_mat;
+           chicken_mat.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+       }
+       int number_of_cow_mat = 0;
+       if(cow_mat.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out10 << number_of_cow_mat;
+           cow_mat.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+       }
+       int number_of_cow_milk = 0;
+       if(cow_milk.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out11 << number_of_cow_milk;
+           cow_milk.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+       }
+       int number_of_sheep_milk = 0;
+       if(sheep_milk.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out12 << number_of_sheep_milk;
+           sheep_milk.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+       }
+       int number_of_sheep_mat = 0;
+       if(sheep_mat.open(QIODevice::WriteOnly | QIODevice::Text)){
+           out13 << number_of_sheep_mat;
+           sheep_mat.close();
+       }else{
+           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+       }
+}
 
+
+void page2::basketss(int pric)
+{
+    QFile file("D:/faz2/faz2/coin.txt");
+    QTextStream in(&file);
+    QTextStream out(&file);
+    QTextStream out2(&file);
+
+    int coin;
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in >> coin;
+        file.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    coin = coin + pric;
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
+       out << coin;
+       file.close();
+   }else{
+       QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+   }
+
+}
+
+void page2::outcoin(int coin)
+{
+
+        QFile file("D:/faz2/faz2/coin.txt");
+        QTextStream out(&file);
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
+            out<<coin;
+            file.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            ui->pushButton->setEnabled(false);
+        }
 }
 
 
@@ -126,6 +233,182 @@ void page2::updateTime()
     static int seconds = 0;
     seconds++;
     int players=0;
+    QString cultivations;
+    QFile cultivation("D:/faz2/faz2/cultivation.txt");
+    QTextStream stream2(&cultivation);
+    if(cultivation.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream2 >> cultivations;
+        cultivation.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+
+
+
+    if (cultivations=="wheat"){
+        static int seconds2 = 0;
+        seconds2++;
+        if(seconds2 == 1){
+//            ui->pushButton_7->setEnabled(false);
+//            ui->pushButton_7->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+            buttonmap[number]->setEnabled(false);
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+
+        }
+        if(seconds2 == 15){
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (5).png)");
+        }
+        if (seconds2 == 25 ){
+             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/ppcorn.png);");
+//             basket[number]->show();
+             seconds2 = 0;
+             cultivations = "0";
+             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
+                 stream2 << cultivations;
+                 cultivation.close();
+             }else{
+                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             }
+        }
+
+
+
+    }
+    if (cultivations=="corn"){
+
+        static int seconds1 = 0,secondscount = 0;
+        secondscount++ ;
+        seconds1++ ;
+
+        if(seconds1 == 1){
+            buttonmap[number]->setEnabled(false);
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+        }
+        if(seconds1 == 10){
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (5).png)");
+        }
+        if (seconds1 == 20 ){
+             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/rsi.png)");
+//             basket[number]->show();
+             seconds1 = 0;
+             cultivations = "0";
+             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
+                 stream2 << cultivations;
+                 cultivation.close();
+             }else{
+                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             }
+        }
+        //         if(secondscount==25||secondscount==30||secondscount==35){
+        //            ui->label->show();
+        //            int coin;
+        //            QFile file("D:/faz2/faz2/coin.txt");
+        //            QTextStream in(&file);
+        //            if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        //                in>>coin;
+        //                file.close();
+        //            }else{
+        //                QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        //            }
+        //            coin--;
+        //            if(secondscount==35){
+        //                secondscount=0;
+        //                coin++;
+        //            }
+        //            outcoin(coin);
+        //        }
+    }
+
+
+
+
+    if(cultivations=="chicken"){
+        static int seconds2 = 0;
+        seconds2++;
+        if(seconds2 == 1){
+            buttonmap[number]->setEnabled(false);
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+            cows[number]->show();
+            cows[number]->setStyleSheet("");
+            cows[number]->setStyleSheet("border-image: url(:/new/prefix1/favpng_chicken-rooster-icon.png)");
+        }
+        if (seconds2 == 20 ){
+//            basket[number]->show();
+            milk[number]->show();
+            milk[number]->setStyleSheet("");
+            milk[number]->setStyleSheet("border-image: url(:/new/prefix1/favpng_chicken-egg-icon.png)");
+
+             seconds2 = 0;
+             cultivations = "0";
+             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
+                 stream2 << cultivations;
+                 cultivation.close();
+             }else{
+                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             }
+        }
+    }
+
+
+
+
+    if(cultivations=="sheep"){
+        static int seconds2 = 0;
+        seconds2++;
+        if(seconds2 == 1){
+            buttonmap[number]->setEnabled(false);
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+            cows[number]->show();
+            cows[number]->setStyleSheet("");
+            cows[number]->setStyleSheet("border-image: url(:/new/prefix1/sheepgoat.png)");
+        }
+        if (seconds2 == 15 ){
+//             basket[number]->show();
+             milk[number]->show();
+             milk[number]->setStyleSheet("");
+             milk[number]->setStyleSheet("border-image: url(:/new/prefix1/milk-bucket-7808176-6347464.webp)");
+
+             seconds2 = 0;
+             cultivations = "0";
+             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
+                 stream2 << cultivations;
+                 cultivation.close();
+             }else{
+                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             }
+        }
+    }
+    if(cultivations=="cow"){
+        static int seconds2 = 0;
+        seconds2++;
+        if(seconds2 == 1){
+            buttonmap[number]->setEnabled(false);
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+            cows[number]->show();
+            cows[number]->setStyleSheet("");
+            cows[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-401736967-cow.png)");
+
+        }
+        if (seconds2 == 20 ){
+//             basket[number]->show();
+             milk[number]->show();
+             milk[number]->setStyleSheet("");
+             milk[number]->setStyleSheet("border-image: url(:/new/prefix1/milk-bucket-7808176-6347464.webp)");
+             seconds2 = 0;
+             cultivations = "0";
+             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
+                 stream2 << cultivations;
+                 cultivation.close();
+             }else{
+                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             }
+        }
+    }
+
+
+
+
+
     QFile player("D:/faz2/faz2/number_of_players.txt");
     QTextStream stream1(&player);
     if(player.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -140,89 +423,14 @@ void page2::updateTime()
         seconds = 0;
         play++;
         elapsedTimer.restart();
-
         QString message = QString("gfsddjg % 1").arg(play);
         QMessageBox::information(this,"jafs",message);
 
         ui->label_player->setText("Login Page Player" + QString::number(play));
+        refresh();
+    }else{
 
-        QFile file("D:/faz2/faz2/coin.txt");
-        QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
-        QFile cow("D:/faz2/faz2/number_of_cow.txt");
-        QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
-        QFile worker("D:/faz2/faz2/number_of_worker.txt");
-        QFile land("D:/faz2/faz2/number_of_land.txt");
-        QFile wheat("D:/faz2/faz2/number_of_wheat.txt");
-        QFile cron("D:/faz2/faz2/number_of_cron.txt");
-
-        QTextStream out(&file);
-        QTextStream stream2(&chicken);
-        QTextStream out2(&cow);
-        QTextStream out3(&sheep);
-        QTextStream out4(&worker);
-        QTextStream out5(&land);
-        QTextStream out6(&wheat);
-        QTextStream out7(&cron);
-
-        int coin = 200;
-        if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out<<coin;
-            file.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-            ui->pushButton->setEnabled(false);
-        }
-        int number_of_chicken = 0;
-        if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
-            stream2 << number_of_chicken;
-            chicken.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
-        int number_of_cow = 0;
-        if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out2 << number_of_cow;
-            cow.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
-        int number_of_sheep = 0;
-        if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out3 << number_of_sheep;
-            sheep.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
-        int number_of_worker = 0;
-        if(worker.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out4 << number_of_worker;
-            worker.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
-        int number_of_land = 0;
-        if(land.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out5 << number_of_land;
-            land.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
-        int number_of_wheat = 0;
-        if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out6 << number_of_wheat;
-            wheat.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
-        int number_of_cron = 0;
-        if(cron.open(QIODevice::WriteOnly | QIODevice::Text)){
-            out7 << number_of_cron;
-            cron.close();
-        }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        }
     }
-//    int elapsedSeconds = elapsedTimer.elapsed() / 1000;
     int minutes = seconds / 60;
     int remainingSeconds = seconds % 60;  
     ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
@@ -253,6 +461,28 @@ void page2::updateTime()
     ui->lineEdit_land->setText(" = " + QString::number(number_of_land));
 
 }
+
+
+
+
+
+void page2::updatewheat()
+{
+    static int seconds = 0;
+    seconds++;
+    if (seconds == 20) // check if 3 minutes have passed
+    {
+        seconds = 0;
+        elapsedTimer.restart();
+
+        QMessageBox::information(this,"jafs","کشت تمام شد");
+
+    }
+}
+
+
+
+
 page2::~page2()
 {
     delete ui;
@@ -308,6 +538,7 @@ void page2::on_pushButton_7_clicked()
 {
     mland* MLAND = new mland();
     MLAND ->show();
+    number = 1 ;
 }
 
 
@@ -338,4 +569,151 @@ void page2::on_pushButton_5_clicked()
     LAND->show();
 }
 
+
+void page2::on_pushButton_basket_clicked()
+{
+    ui->label->hide();
+    cows[number]->hide();
+    milk[number]->hide();
+//    ui->pushButton_7->setEnabled(true);
+    if(buttonmap.contains(number)){
+      buttonmap[number]->setEnabled(true);
+    }
+    QFile file("D:/faz2/faz2/coin.txt");
+    QTextStream in(&file);
+    QTextStream out(&file);
+    QTextStream out2(&file);
+
+    int coin;
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in >> coin;
+        file.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    QString baskets;
+    QFile baskett("D:/faz2/faz2/basket.txt");
+    QTextStream stream2(&baskett);
+    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream2 >> baskets;
+        baskett.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    if(baskets == "corn" ){
+        basketss(2);
+        QFile corn("D:/faz2/faz2/number_of_cron.txt");
+        QTextStream stream8(&corn);
+
+        int number_of_corn = 0;
+        if(corn.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream8 >> number_of_corn;
+            corn.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+        number_of_corn++;
+        if(corn.open(QIODevice::WriteOnly | QIODevice::Text)){
+              stream8 << number_of_corn;
+              corn.close();
+        }else{
+              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+    }
+    if(baskets == "wheat" ){
+        basketss(3);
+        QFile wheat("D:/faz2/faz2/number_of_wheat.txt");
+        QTextStream stream7(&wheat);
+
+        int number_of_wheat = 0;
+        if(wheat.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream7 >> number_of_wheat;
+            wheat.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+        number_of_wheat++;
+        if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
+              stream7 << number_of_wheat;
+              wheat.close();
+        }else{
+              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+    }
+    if(baskets == "cow" ){
+        basketss(5);
+        QFile cow("D:/faz2/faz2/number_of_cow.txt");
+        QTextStream stream8(&cow);
+
+        int number_of_cow = 0;
+        if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream8 >> number_of_cow;
+            cow.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+        number_of_cow++;
+        if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
+              stream8 << number_of_cow;
+              cow.close();
+        }else{
+              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+
+    }
+    if(baskets == "sheep" ){
+        basketss(3);
+        QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+        QTextStream stream8(&sheep);
+
+        int number_of_sheep= 0;
+        if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream8 >> number_of_sheep;
+            sheep.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+        number_of_sheep++;
+        if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
+              stream8 << number_of_sheep;
+              sheep.close();
+        }else{
+              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+    }
+    if(baskets == "chicken" ){
+        basketss(3);
+        QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
+        QTextStream stream8(&chicken);
+
+        int number_of_chicken= 0;
+        if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream8 >> number_of_chicken;
+            chicken.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+        number_of_chicken++;
+        if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
+              stream8 << number_of_chicken;
+              chicken.close();
+        }else{
+              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+    }
+//    basket[number]->hide();
+    buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/lanppc.png)");
+}
+
+
+
+
+
+
+void page2::on_pushButton_9_clicked()
+{
+    mland* MLAND = new mland();
+    MLAND ->show();
+    number=2;
+}
 

@@ -263,57 +263,17 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_cron">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(130, 130, 130);</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_cron_sale">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>Sale</string>
      </property>
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>170</x>
       <y>280</y>
       <width>141</width>
       <height>71</height>
@@ -322,33 +282,6 @@ QPushButton:hover{
     <property name="title">
      <string/>
     </property>
-    <widget class="QPushButton" name="pushButton_wheat_sale">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>Sale</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_25">
      <property name="geometry">
       <rect>
@@ -369,23 +302,10 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_wheat">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(130, 130, 130);</string>
      </property>
     </widget>
    </widget>
@@ -508,52 +428,11 @@ QPushButton:hover{
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_chicken_egg">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>ُSale</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_chicken_egg">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background-color: rgb(130, 130, 130);</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_chicken_egg">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
@@ -564,7 +443,7 @@ background-color: rgb(130, 130, 130);</string>
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>50</y>
+      <y>40</y>
       <width>141</width>
       <height>71</height>
      </rect>
@@ -588,55 +467,14 @@ background-color: rgb(130, 130, 130);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_chickn_mat">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>ُSale</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_chickn_mat">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_chickn_mat">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background-color: rgb(130, 130, 130);</string>
      </property>
     </widget>
    </widget>
@@ -668,51 +506,11 @@ background-color: rgb(130, 130, 130);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_cow_milk">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>ُSale</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_cow_milk">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(130, 130, 130);</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_cow_milk">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
@@ -751,50 +549,10 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_cow_mat">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(130, 130, 130);</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_cow_mat">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>ُSale</string>
      </property>
     </widget>
    </widget>
@@ -826,51 +584,11 @@ QPushButton:hover{
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_sheep_milk">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>50</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>ُSale</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_sheep_milk">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>20</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(130, 130, 130);</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_sheep_milk">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>20</y>
+       <y>30</y>
        <width>21</width>
        <height>20</height>
       </rect>
@@ -918,51 +636,11 @@ QPushButton:hover{
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_sheep_mat">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	
-	background-color: rgb(84, 84, 84);
-border :1px solit;
-border-radiux:3px;
-}
-QPushButton:hover{
-	
-	color: rgb(255, 255, 255);
-	background-color: rgb(57, 143, 0);
-}</string>
-     </property>
-     <property name="text">
-      <string>ُSale</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_sheep_mat">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(130, 130, 130);</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_sheep_mat">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>20</height>
       </rect>
@@ -973,7 +651,7 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>350</y>
+      <y>340</y>
       <width>321</width>
       <height>20</height>
      </rect>

@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QMediaPlayer>
+//#include <QTime>
+//#include <QTimer>
+//#include <QElapsedTimer>
+
 namespace Ui {
 class mland;
 }
@@ -18,10 +22,26 @@ public:
 private slots:
     void on_toolButton_clicked();
 
+//    void on_pushButton_5_clicked();
+
+//    void updateTime();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_10_clicked();
+
 private:
     Ui::mland *ui;
     QMediaPlayer *player = new
     QMediaPlayer;
+//    QTimer *timer;
+//    QElapsedTimer elapsedTimer;
 };
 
 #endif // MLAND_H

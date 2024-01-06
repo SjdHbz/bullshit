@@ -16,12 +16,11 @@ public:
     ~shop();
 
 private slots:
-
     void on_spinBox_chicken_valueChanged(int arg1);
 
     void on_spinBox_chicken_egg_valueChanged(int arg1);
 
-    void on_spinBox_chickn_mat_valueChanged(int arg1);
+    void on_spinBox_chicken_mat_valueChanged(int arg1);
 
     void on_spinBox_cow_valueChanged(int arg1);
 
@@ -49,8 +48,43 @@ private slots:
 
     void on_pushButton_cron_buy_clicked();
 
-
     void on_toolButton_clicked();
+
+    void on_pushButton_sheep_milk_buy_clicked();
+
+    void on_spinBox_sheep_milk_sale_valueChanged(int arg1);
+
+    void on_pushButton_sheep_milk_sale_clicked();
+
+    void on_spinBox_sheep_mat_sale_valueChanged(int arg1);
+
+    void on_pushButton_sheep_mat_sale_clicked();
+
+    void on_pushButton_sheep_mat_clicked();
+
+    void on_pushButton_cow_milk_clicked();
+
+    void on_spinBox_cow_milk_sale_valueChanged(int arg1);
+
+    void on_pushButton_cow_milk_sale_clicked();
+
+    void on_pushButton_cow_mat_clicked();
+
+    void on_spinBox_cow_mat_sale_valueChanged(int arg1);
+
+    void on_pushButton_cow_mat_sale_clicked();
+
+    void on_pushButton_chicken_egg_clicked();
+
+    void on_pushButton_chicken_mat_clicked();
+
+    void on_spinBox_chicken_egg_sale_valueChanged(int arg1);
+
+    void on_pushButton_chicken_egg_sale_clicked();
+
+    void on_spinBox_chicken_mat_sale_valueChanged(int arg1);
+
+    void on_pushButton_chicken_mat_sale_clicked();
 
 private:
     Ui::shop *ui;

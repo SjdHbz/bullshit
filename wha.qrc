@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>wheat.png</file>
+        <file>corn.png</file>
+        <file>1043472.png</file>
+        <file>ppcorn.png</file>
+        <file>Lovepik_com-401736967-cow.png</file>
+        <file>milk-bucket-7808176-6347464.webp</file>
+        <file>sheepgoat.png</file>
+        <file>favpng_chicken-rooster-icon.png</file>
+        <file>favpng_chicken-egg-icon.png</file>
+    </qresource>
+</RCC>

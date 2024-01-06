@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>230</width>
-    <height>292</height>
+    <width>181</width>
+    <height>205</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,14 +20,14 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>-10</x>
+      <y>-20</y>
       <width>151</width>
       <height>181</height>
      </rect>
     </property>
     <property name="title">
-     <string>Sheep</string>
+     <string/>
     </property>
     <widget class="QLabel" name="label_19">
      <property name="geometry">
@@ -75,7 +75,7 @@
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>160</x>
       <y>0</y>
       <width>25</width>
       <height>19</height>
@@ -91,7 +91,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>230</width>
+     <width>181</width>
      <height>21</height>
     </rect>
    </property>

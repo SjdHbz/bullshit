@@ -42,14 +42,14 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>50</y>
-       <width>91</width>
+       <x>170</x>
+       <y>40</y>
+       <width>71</width>
        <height>71</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/download.jpg);</string>
+      <string notr="true">border-image: url(:/new/prefix1/workiconm.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -128,7 +128,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/77-771462_agriculture-agricultural-land-farm-computer-icons-field-rice.jpg);</string>
+      <string notr="true">border-image: url(:/new/prefix1/lanppc.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -218,7 +218,7 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/download (1).jpg);</string>
+     <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
     </property>
     <property name="text">
      <string/>

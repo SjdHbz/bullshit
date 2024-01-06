@@ -13,22 +13,39 @@ hous::hous(QWidget *parent) :
     player->play();
     int number_of_chicken;
     int number_of_cow;
-//    int number_of_cow_meat;
-//    int number_of_cow_milk;
+    int number_of_cow_mat;
+    int number_of_cow_milk;
     int number_of_sheep;
-//    int number_of_sheep_milk;
-//    int number_of_sheep_meat;
-//    int number_of_chicken_egg;
-//    int number_of_chicken_meat;
-//    int number_of_wheat;
-//    int number_of_corn;
+    int number_of_sheep_milk;
+    int number_of_sheep_mat;
+    int number_of_chicken_egg;
+    int number_of_chicken_mat;
+    int number_of_wheat;
+    int number_of_corn;
 
     QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
     QFile cow("D:/faz2/faz2/number_of_cow.txt");
     QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+    QFile cow_mat("D:/faz2/faz2/number_of_cow_mat.txt");
+    QFile cow_milk("D:/faz2/faz2/number_of_cow_milk.txt");
+    QFile sheep_milk("D:/faz2/faz2/number_of_sheep_milk.txt");
+    QFile sheep_mat("D:/faz2/faz2/number_of_sheep_mat.txt");
+    QFile chicken_egg("D:/faz2/faz2/number_of_chicken_egg.txt");
+    QFile chicken_mat("D:/faz2/faz2/number_of_chicken_mat.txt");
+    QFile wheat("D:/faz2/faz2/number_of_wheat.txt");
+    QFile corn("D:/faz2/faz2/number_of_cron.txt");
+
     QTextStream stream(&chicken);
     QTextStream in2(&cow);
     QTextStream in3(&sheep);
+    QTextStream stream1(&cow_mat);
+    QTextStream stream2(&cow_milk);
+    QTextStream stream3(&sheep_milk);
+    QTextStream stream4(&sheep_mat);
+    QTextStream stream5(&chicken_egg);
+    QTextStream stream6(&chicken_mat);
+    QTextStream stream7(&wheat);
+    QTextStream stream8(&corn);
 
 
     number_of_chicken = 0;
@@ -52,10 +69,76 @@ hous::hous(QWidget *parent) :
     }else{
         QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
     }
+    number_of_cow_mat = 0;
+    if(cow_mat.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream1 >> number_of_cow_mat;
+        sheep.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_cow_milk = 0;
+    if(cow_milk.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream2 >> number_of_cow_milk;
+        cow_milk.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_sheep_milk = 0;
+    if(sheep_milk.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream3 >> number_of_sheep_milk;
+        sheep_milk.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_sheep_mat = 0;
+    if(sheep_mat.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream4 >> number_of_sheep_mat;
+        sheep_mat.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_chicken_egg = 0;
+    if(chicken_egg.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream5 >> number_of_chicken_egg;
+        chicken_egg.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_chicken_mat = 0;
+    if(chicken_mat.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream6 >> number_of_chicken_mat;
+        chicken_mat.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_wheat = 0;
+    if(wheat.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream7 >> number_of_wheat;
+        wheat.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    number_of_corn = 0;
+    if(corn.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream8 >> number_of_corn;
+        corn.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
 
     ui->lineEdit_chicken->setText(QString::number(number_of_chicken));
     ui->lineEdit_cow->setText(QString::number(number_of_cow));
     ui->lineEdit_sheep->setText(QString::number(number_of_sheep));
+    ui->lineEdit_chicken_egg->setText(QString::number(number_of_chicken_egg));
+    ui->lineEdit_chickn_mat->setText(QString::number(number_of_chicken_mat));
+    ui->lineEdit_sheep_mat->setText(QString::number(number_of_sheep_mat));
+    ui->lineEdit_sheep_milk->setText(QString::number(number_of_sheep_milk));
+    ui->lineEdit_cow_mat->setText(QString::number(number_of_cow_mat));
+    ui->lineEdit_cow_milk->setText(QString::number(number_of_cow_milk));
+    ui->lineEdit_cron_sale->setText(QString::number(number_of_corn));
+    ui->lineEdit_wheat_sale->setText(QString::number(number_of_wheat));
+
+
 
 
 

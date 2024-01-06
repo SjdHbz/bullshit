@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>cowppc.png</file>
+        <file>shppc.png</file>
+        <file>rsi.png</file>
+        <file>lanppc.png</file>
+        <file>Lovepik_com-610179079-Cartoon 2d farm vector picture.png</file>
+        <file>butcher shop.png</file>
+        <file>storshop.png</file>
+        <file>chicpcc.png</file>
+        <file>coinicon.png</file>
+        <file>workiconm.png</file>
+        <file>Isometric Icons Vector.png</file>
+    </qresource>
+</RCC>
