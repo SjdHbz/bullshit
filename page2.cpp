@@ -23,6 +23,10 @@ page2::page2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::page2)
 {
+    QMap < int , QPushButton *> buttonmap;
+    QMap < int , QLabel *> milk;
+    QMap < int , QLabel *> cows;
+    QMap < int , QPushButton *> basket;
 
     buttonmap[1]=ui->pushButton_7;
     buttonmap[2]=ui->pushButton_9;
@@ -30,8 +34,8 @@ page2::page2(QWidget *parent) :
     milk[2]=ui->label_milk_2;
     cows[1]=ui->label_cow;
     cows[2]=ui->label_cow_2;
-//    basket[1]=ui->pushButton_basket;
-//    basket[2]=ui->pushButton_basket_2;
+    basket[1]=ui->pushButton_basket;
+    basket[2]=ui->pushButton_basket_2;
 
     ui->setupUi(this);
     ui->pushButton_basket->hide();
@@ -44,7 +48,8 @@ page2::page2(QWidget *parent) :
 
     ui->label->hide();
     refresh();
-    ui->label_player->setText("Login Page Player" + QString::number(play));
+//    ui->label_player->setText("Login Page Player" + QString::number(play));
+
     timer = new QTimer(this);
     connect(timer,&QTimer::timeout,this,&page2::updateTime);
     timer->start(1000);
@@ -230,6 +235,29 @@ void page2::outcoin(int coin)
 
 void page2::updateTime()
 {
+    int number;
+    QFile numbers("D:/faz2/faz2/number.txt");
+    QTextStream in1(&numbers);
+
+    if(numbers.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in1 >> number;
+        numbers.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+    QMap < int , QPushButton *> buttonmap;
+    QMap < int , QLabel *> milk;
+    QMap < int , QLabel *> cows;
+    QMap < int , QPushButton *>  basket;
+
+    buttonmap[1]=ui->pushButton_7;
+    buttonmap[2]=ui->pushButton_9;
+    milk[1]=ui->label_milk;
+    milk[2]=ui->label_milk_2;
+    cows[1]=ui->label_cow;
+    cows[2]=ui->label_cow_2;
+    basket[1]=ui->pushButton_basket;
+    basket[2]=ui->pushButton_basket_2;
     static int seconds = 0;
     seconds++;
     int players=0;
@@ -246,50 +274,24 @@ void page2::updateTime()
 
 
     if (cultivations=="wheat"){
-        static int seconds2 = 0;
-        seconds2++;
-        if(seconds2 == 1){
+//        updatewheat();
+
+
+        static int seconds1 = 0;
+        seconds1++;
+        if(seconds1 == 1){
 //            ui->pushButton_7->setEnabled(false);
 //            ui->pushButton_7->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
             buttonmap[number]->setEnabled(false);
             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
 
         }
-        if(seconds2 == 15){
+        if(seconds1 == 15){
             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (5).png)");
         }
-        if (seconds2 == 25 ){
+        if (seconds1 == 25 ){
              buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/ppcorn.png);");
-//             basket[number]->show();
-             seconds2 = 0;
-             cultivations = "0";
-             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-                 stream2 << cultivations;
-                 cultivation.close();
-             }else{
-                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-             }
-        }
-
-
-
-    }
-    if (cultivations=="corn"){
-
-        static int seconds1 = 0,secondscount = 0;
-        secondscount++ ;
-        seconds1++ ;
-
-        if(seconds1 == 1){
-            buttonmap[number]->setEnabled(false);
-            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
-        }
-        if(seconds1 == 10){
-            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (5).png)");
-        }
-        if (seconds1 == 20 ){
-             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/rsi.png)");
-//             basket[number]->show();
+             basket[number]->show();
              seconds1 = 0;
              cultivations = "0";
              if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
@@ -299,46 +301,71 @@ void page2::updateTime()
                  QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
              }
         }
-        //         if(secondscount==25||secondscount==30||secondscount==35){
-        //            ui->label->show();
-        //            int coin;
-        //            QFile file("D:/faz2/faz2/coin.txt");
-        //            QTextStream in(&file);
-        //            if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        //                in>>coin;
-        //                file.close();
-        //            }else{
-        //                QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-        //            }
-        //            coin--;
-        //            if(secondscount==35){
-        //                secondscount=0;
-        //                coin++;
-        //            }
-        //            outcoin(coin);
-        //        }
+
+
+
     }
-
-
-
-
-    if(cultivations=="chicken"){
+    else if (cultivations=="corn"){
+//           updatecorn();
         static int seconds2 = 0;
-        seconds2++;
+        seconds2++ ;
+
         if(seconds2 == 1){
+            buttonmap[number]->setEnabled(false);
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
+        }
+        if(seconds2 == 10){
+            buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (5).png)");
+        }
+        if (seconds2 == 20 ){
+             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/rsi.png)");
+             basket[number]->show();
+             seconds2 = 0;
+             cultivations = "0";
+             if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
+                 stream2 << cultivations;
+                 cultivation.close();
+             }else{
+                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             }
+        }
+//                 if(secondscount==25||secondscount==30||secondscount==35){
+//                    ui->label->show();
+//                    int coin;
+//                    QFile file("D:/faz2/faz2/coin.txt");
+//                    QTextStream in(&file);
+//                    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+//                        in>>coin;
+//                        file.close();
+//                    }else{
+//                        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+//                    }
+//                    coin--;
+//                    if(secondscount==35){
+//                        secondscount=0;
+//                        coin++;
+//                    }
+//                    outcoin(coin);
+//                }
+    }
+    else if(cultivations=="chicken"){
+//        updatechicken();
+        static int seconds3 = 0;
+        seconds3++;
+        if(seconds3 == 1){
             buttonmap[number]->setEnabled(false);
             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
             cows[number]->show();
             cows[number]->setStyleSheet("");
             cows[number]->setStyleSheet("border-image: url(:/new/prefix1/favpng_chicken-rooster-icon.png)");
         }
-        if (seconds2 == 20 ){
-//            basket[number]->show();
+        if (seconds3 == 20 ){
+            basket[number]->show();
             milk[number]->show();
             milk[number]->setStyleSheet("");
             milk[number]->setStyleSheet("border-image: url(:/new/prefix1/favpng_chicken-egg-icon.png)");
 
-             seconds2 = 0;
+             seconds3 = 0;
              cultivations = "0";
              if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
                  stream2 << cultivations;
@@ -348,27 +375,24 @@ void page2::updateTime()
              }
         }
     }
-
-
-
-
-    if(cultivations=="sheep"){
-        static int seconds2 = 0;
-        seconds2++;
-        if(seconds2 == 1){
+    else if(cultivations=="sheep"){
+//        updatesheep();
+        static int seconds4 = 0;
+        seconds4++;
+        if(seconds4 == 1){
             buttonmap[number]->setEnabled(false);
             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
             cows[number]->show();
             cows[number]->setStyleSheet("");
             cows[number]->setStyleSheet("border-image: url(:/new/prefix1/sheepgoat.png)");
         }
-        if (seconds2 == 15 ){
-//             basket[number]->show();
+        if (seconds4 == 15 ){
+             basket[number]->show();
              milk[number]->show();
              milk[number]->setStyleSheet("");
              milk[number]->setStyleSheet("border-image: url(:/new/prefix1/milk-bucket-7808176-6347464.webp)");
 
-             seconds2 = 0;
+             seconds4 = 0;
              cultivations = "0";
              if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
                  stream2 << cultivations;
@@ -378,10 +402,11 @@ void page2::updateTime()
              }
         }
     }
-    if(cultivations=="cow"){
-        static int seconds2 = 0;
-        seconds2++;
-        if(seconds2 == 1){
+    else if(cultivations=="cow"){
+//        updatecow();
+        static int seconds5 = 0;
+        seconds5++;
+        if(seconds5 == 1){
             buttonmap[number]->setEnabled(false);
             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
             cows[number]->show();
@@ -389,12 +414,12 @@ void page2::updateTime()
             cows[number]->setStyleSheet("border-image: url(:/new/prefix1/Lovepik_com-401736967-cow.png)");
 
         }
-        if (seconds2 == 20 ){
-//             basket[number]->show();
+        if (seconds5 == 20 ){
+             basket[number]->show();
              milk[number]->show();
              milk[number]->setStyleSheet("");
              milk[number]->setStyleSheet("border-image: url(:/new/prefix1/milk-bucket-7808176-6347464.webp)");
-             seconds2 = 0;
+             seconds5 = 0;
              cultivations = "0";
              if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
                  stream2 << cultivations;
@@ -432,7 +457,7 @@ void page2::updateTime()
 
     }
     int minutes = seconds / 60;
-    int remainingSeconds = seconds % 60;  
+    int remainingSeconds = seconds % 60;
     ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
 
 
@@ -466,19 +491,6 @@ void page2::updateTime()
 
 
 
-void page2::updatewheat()
-{
-    static int seconds = 0;
-    seconds++;
-    if (seconds == 20) // check if 3 minutes have passed
-    {
-        seconds = 0;
-        elapsedTimer.restart();
-
-        QMessageBox::information(this,"jafs","کشت تمام شد");
-
-    }
-}
 
 
 
@@ -536,9 +548,18 @@ void page2::on_pushButton_1_clicked()
 
 void page2::on_pushButton_7_clicked()
 {
+    int number=1;
+    QFile numbers("D:/faz2/faz2/number.txt");
+    QTextStream stream(&numbers);
+
+    if(numbers.open(QIODevice::WriteOnly | QIODevice::Text)){
+        stream << number;
+        numbers.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
     mland* MLAND = new mland();
     MLAND ->show();
-    number = 1 ;
 }
 
 
@@ -572,6 +593,30 @@ void page2::on_pushButton_5_clicked()
 
 void page2::on_pushButton_basket_clicked()
 {
+    int number;
+    QFile numbers("D:/faz2/faz2/number.txt");
+    QTextStream in1(&numbers);
+
+    if(numbers.open(QIODevice::ReadOnly | QIODevice::Text)){
+        in1 >> number;
+        numbers.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
+
+    QMap < int , QPushButton *> buttonmap;
+    QMap < int , QPushButton *> basket;
+
+    QMap < int , QLabel *> milk;
+    QMap < int , QLabel *> cows;
+    buttonmap[1]=ui->pushButton_7;
+    buttonmap[2]=ui->pushButton_9;
+    milk[1]=ui->label_milk;
+    milk[2]=ui->label_milk_2;
+    cows[1]=ui->label_cow;
+    cows[2]=ui->label_cow_2;
+    basket[1]=ui->pushButton_basket;
+    basket[2]=ui->pushButton_basket_2;
     ui->label->hide();
     cows[number]->hide();
     milk[number]->hide();
@@ -701,7 +746,7 @@ void page2::on_pushButton_basket_clicked()
               QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
         }
     }
-//    basket[number]->hide();
+    basket[number]->hide();
     buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/lanppc.png)");
 }
 
@@ -712,8 +757,17 @@ void page2::on_pushButton_basket_clicked()
 
 void page2::on_pushButton_9_clicked()
 {
+    int number=2;
+    QFile numbers("D:/faz2/faz2/number.txt");
+    QTextStream stream(&numbers);
+
+    if(numbers.open(QIODevice::WriteOnly | QIODevice::Text)){
+        stream << number;
+        numbers.close();
+    }else{
+        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+    }
     mland* MLAND = new mland();
     MLAND ->show();
-    number=2;
 }
 

@@ -23,7 +23,15 @@ public:
 private slots:
     void updateTime();
 
-    void updatewheat();
+//    void updatewheat();
+
+//    void updatecorn();
+
+//    void updatecow();
+
+//    void updatesheep();
+
+//    void updatechicken();
 
     void refresh();
 
@@ -53,7 +61,6 @@ private slots:
 
     void on_pushButton_5_clicked();
 
-
     void on_pushButton_basket_clicked();
 
     void on_pushButton_9_clicked();
@@ -66,10 +73,7 @@ private:
     QElapsedTimer elapsedwheat;
     int sw;
     int play = 1;
-    QMap < int , QPushButton *> buttonmap;
-    QMap < int , QLabel *> milk;
-    QMap < int , QLabel *> cows;
-    int number=0;
+
 
 
 };

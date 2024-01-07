@@ -554,5 +554,22 @@ color: rgb(255, 0, 0);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_basket_2</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_basket</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>203</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>53</x>
+     <y>155</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
