@@ -54,7 +54,7 @@ page1::page1(QWidget *parent)
     ui->radioButton->hide();
     QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName("d:\\paigafaz12.db");
+    database.setDatabaseName("d:/faz2/faz2/paigafaz12.db");
     database.open();
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
     ui->lineEdit_3->setEnabled(false);
@@ -88,7 +88,7 @@ void page1::on_pushButton_5_clicked()
         stream << players;
         player.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label->show();
     ui->label_2->show();

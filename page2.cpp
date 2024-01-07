@@ -98,7 +98,7 @@ void page2::refresh()
            out<<coin;
            file.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
            ui->pushButton->setEnabled(false);
        }
        int number_of_chicken = 0;
@@ -106,91 +106,91 @@ void page2::refresh()
            stream << number_of_chicken;
            chicken.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_cow = 0;
        if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
            out2 << number_of_cow;
            cow.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_sheep = 0;
        if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
            out3 << number_of_sheep;
            sheep.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_worker = 1;
        if(worker.open(QIODevice::WriteOnly | QIODevice::Text)){
            out4 << number_of_worker;
            worker.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_land = 1;
        if(land.open(QIODevice::WriteOnly | QIODevice::Text)){
            out5 << number_of_land;
            land.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_wheat = 0;
        if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
            out6 << number_of_wheat;
            wheat.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_cron = 0;
        if(cron.open(QIODevice::WriteOnly | QIODevice::Text)){
            out7 << number_of_cron;
            cron.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_chicken_egg = 0;
        if(chicken_egg.open(QIODevice::WriteOnly | QIODevice::Text)){
            out8 << number_of_chicken_egg;
            chicken_egg.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_chicken_mat = 0;
        if(chicken_mat.open(QIODevice::WriteOnly | QIODevice::Text)){
            out9 << number_of_chicken_mat;
            chicken_mat.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_cow_mat = 0;
        if(cow_mat.open(QIODevice::WriteOnly | QIODevice::Text)){
            out10 << number_of_cow_mat;
            cow_mat.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_cow_milk = 0;
        if(cow_milk.open(QIODevice::WriteOnly | QIODevice::Text)){
            out11 << number_of_cow_milk;
            cow_milk.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_sheep_milk = 0;
        if(sheep_milk.open(QIODevice::WriteOnly | QIODevice::Text)){
            out12 << number_of_sheep_milk;
            sheep_milk.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
        int number_of_sheep_mat = 0;
        if(sheep_mat.open(QIODevice::WriteOnly | QIODevice::Text)){
            out13 << number_of_sheep_mat;
            sheep_mat.close();
        }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+           QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
        }
 }
 
@@ -207,14 +207,14 @@ void page2::basketss(int pric)
         in >> coin;
         file.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     coin = coin + pric;
     if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
        out << coin;
        file.close();
    }else{
-       QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
    }
 
 }
@@ -229,8 +229,7 @@ void page2::outcoin(int coin)
             out<<coin;
             file.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-            ui->pushButton->setEnabled(false);
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
 }
 
@@ -244,8 +243,7 @@ int page2::incoin()
             in >>coin;
             file.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-            ui->pushButton->setEnabled(false);
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         return coin;
 }
@@ -260,7 +258,7 @@ void page2::updateTime()
         in1 >> number;
         numbers.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     QMap < int , QPushButton *> buttonmap;
     QMap < int , QLabel *> milk;
@@ -285,7 +283,7 @@ void page2::updateTime()
         stream2 >> cultivations;
         cultivation.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
 
 
@@ -315,7 +313,7 @@ void page2::updateTime()
                  stream2 << cultivations;
                  cultivation.close();
              }else{
-                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+                 QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
              }
         }
 
@@ -350,7 +348,7 @@ void page2::updateTime()
                  stream2 << cultivations;
                  cultivation.close();
              }else{
-                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+                 QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
              }
         }
                  if(secondscount==25||secondscount==30||secondscount==35){
@@ -389,7 +387,7 @@ void page2::updateTime()
                  stream2 << cultivations;
                  cultivation.close();
              }else{
-                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+                 QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
              }
         }
     }
@@ -416,7 +414,7 @@ void page2::updateTime()
                  stream2 << cultivations;
                  cultivation.close();
              }else{
-                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+                 QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
              }
         }
     }
@@ -443,7 +441,7 @@ void page2::updateTime()
                  stream2 << cultivations;
                  cultivation.close();
              }else{
-                 QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+                 QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
              }
         }
     }
@@ -458,7 +456,7 @@ void page2::updateTime()
         stream1 >> players;
         player.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
 
     if (seconds == 180 && play<=players) // check if 3 minutes have passed
@@ -574,7 +572,7 @@ void page2::on_pushButton_7_clicked()
         stream << number;
         numbers.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     mland* MLAND = new mland();
     MLAND ->show();
@@ -620,7 +618,7 @@ void page2::on_pushButton_basket_clicked()
         in1 >> number;
         numbers.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
 
     QMap < int , QPushButton *> buttonmap;
@@ -653,7 +651,7 @@ void page2::on_pushButton_basket_clicked()
         in >> coin;
         file.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     QString baskets;
     QFile baskett("D:/faz2/faz2/basket.txt");
@@ -662,7 +660,7 @@ void page2::on_pushButton_basket_clicked()
         stream2 >> baskets;
         baskett.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(baskets == "corn" ){
         basketss(2);
@@ -674,14 +672,14 @@ void page2::on_pushButton_basket_clicked()
             stream8 >> number_of_corn;
             corn.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         number_of_corn++;
         if(corn.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_corn;
               corn.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }
     if(baskets == "wheat" ){
@@ -694,14 +692,14 @@ void page2::on_pushButton_basket_clicked()
             stream7 >> number_of_wheat;
             wheat.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         number_of_wheat++;
         if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream7 << number_of_wheat;
               wheat.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }
     if(baskets == "cow" ){
@@ -714,14 +712,14 @@ void page2::on_pushButton_basket_clicked()
             stream8 >> number_of_cow;
             cow.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         number_of_cow++;
         if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_cow;
               cow.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
 
     }
@@ -735,14 +733,14 @@ void page2::on_pushButton_basket_clicked()
             stream8 >> number_of_sheep;
             sheep.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         number_of_sheep++;
         if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_sheep;
               sheep.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }
     if(baskets == "chicken" ){
@@ -755,14 +753,14 @@ void page2::on_pushButton_basket_clicked()
             stream8 >> number_of_chicken;
             chicken.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         number_of_chicken++;
         if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_chicken;
               chicken.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }
     basket[number]->hide();
@@ -784,7 +782,7 @@ void page2::on_pushButton_9_clicked()
         stream << number;
         numbers.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     mland* MLAND = new mland();
     MLAND ->show();

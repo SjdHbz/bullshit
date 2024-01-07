@@ -19,7 +19,7 @@ Butcher::Butcher(QWidget *parent) :
         in >> number_of_chicken;
         chicken.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label_Chicken_Meat->setText(QString::number(number_of_chicken));
 
@@ -30,7 +30,7 @@ Butcher::Butcher(QWidget *parent) :
         in1 >> number_of_cow;
         cow.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label_cow_Meat->setText(QString::number(number_of_cow));
 
@@ -41,7 +41,7 @@ Butcher::Butcher(QWidget *parent) :
         in2 >> number_of_sheep;
         sheep.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label_Sheep_Meat->setText(QString::number(number_of_sheep));
 
@@ -57,7 +57,7 @@ void Butcher::outcoin(int coin)
             out<<coin;
             file.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
 }
 
@@ -71,7 +71,7 @@ int Butcher::incoin()
             in >> coin;
             file.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         return coin;
 }
@@ -94,7 +94,7 @@ void Butcher::on_pushButton_kill_Chicken_clicked()
         in >> number_of_chicken;
         chicken.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_chicken>0){
         number_of_chicken--;
@@ -105,7 +105,7 @@ void Butcher::on_pushButton_kill_Chicken_clicked()
         out << number_of_chicken;
         chicken.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label_Chicken_Meat->setText(QString::number(number_of_chicken));
     ui->lineEdit_coins->setText(QString::number(coin));
@@ -124,7 +124,7 @@ void Butcher::on_pushButton_kill_cow_clicked()
         in >> number_of_cow;
         cow.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_cow > 0){
         number_of_cow--;
@@ -135,7 +135,7 @@ void Butcher::on_pushButton_kill_cow_clicked()
         out << number_of_cow;
         cow.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label_cow_Meat->setText(QString::number(number_of_cow));
     ui->lineEdit_coins->setText(QString::number(coin));
@@ -154,7 +154,7 @@ void Butcher::on_pushButton_kill_Sheep_clicked()
         in >> number_of_sheep;
         sheep.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_sheep>0){
         number_of_sheep--;
@@ -165,7 +165,7 @@ void Butcher::on_pushButton_kill_Sheep_clicked()
         out << number_of_sheep;
         sheep.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->label_Sheep_Meat->setText(QString::number(number_of_sheep));
     ui->lineEdit_coins->setText(QString::number(coin));

@@ -20,7 +20,7 @@ cow::cow(QWidget *parent) :
         in >> number_of_cow;
         cow.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->lineEdit_cow->setText(QString::number(number_of_cow));
 }

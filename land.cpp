@@ -32,7 +32,7 @@ void land::on_spinBox_land_valueChanged(int arg1)
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
         file.close();
-    }else {                                                                              // اعلام خطا از نظر تعداد سکه
+    }else {                                                                             // Declaring an error in terms of the number of coins
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
         return;
     }
@@ -55,7 +55,7 @@ void land::on_spinBox_worker_valueChanged(int arg1)
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
         file.close();
-    }else {                                                                              // اعلام خطا از نظر تعداد سکه
+    }else {                                                                              // Declaring an error in terms of the number of coins
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
         return;
     }
@@ -79,7 +79,7 @@ void land::on_pushButton_land_clicked()
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
         file.close();
-    }else {                                                                              // اعلام خطا از نظر تعداد سکه
+    }else {                                                                              // Declaring an error in terms of the number of coins
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
         return;
     }
@@ -92,15 +92,15 @@ void land::on_pushButton_land_clicked()
         in >> number_of_land;
         land.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
     number_of_land += selectedQuantity;
     if (land.open(QIODevice::WriteOnly | QIODevice::Text)) {
         out << number_of_land;
         land.close();
-    }else {                                                                              // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+    }else {
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
     if (coin >= totalPrice) {
@@ -113,7 +113,7 @@ void land::on_pushButton_land_clicked()
         }
      else {
         // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
       }
         // تاکید بر نکاتی برای UI
@@ -122,7 +122,7 @@ void land::on_pushButton_land_clicked()
         ui->lineEdit_land->clear();
         }else {
        // اعلام خطا از نظر تعداد سکه
-           QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+           QMessageBox::warning(this, "ERROR", "You don't have enough coins");                  // Declaring an error in terms of the number of coins
 
     }
 
@@ -139,7 +139,7 @@ void land::on_pushButton_worker_clicked()
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
         file.close();
-    }else {                                                                              // اعلام خطا از نظر تعداد سکه
+    }else {                                                                              // Declaring an error in terms of the number of coins
         QMessageBox::warning(this, "ERROR", "You don't have enough coins");
         return;
     }
@@ -152,15 +152,15 @@ void land::on_pushButton_worker_clicked()
         in >> number_of_worker;
         worker.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
     number_of_worker += selectedQuantity;
     if (worker.open(QIODevice::WriteOnly | QIODevice::Text)) {
         out << number_of_worker;
         worker.close();
-    }else {                                                                              // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+    }else {
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
     if (coin >= totalPrice) {
@@ -173,7 +173,7 @@ void land::on_pushButton_worker_clicked()
         }
      else {
         // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
       }
         // تاکید بر نکاتی برای UI
@@ -182,7 +182,7 @@ void land::on_pushButton_worker_clicked()
         ui->lineEdit_worker->clear();
         }else {
        // اعلام خطا از نظر تعداد سکه
-           QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+           QMessageBox::warning(this, "ERROR", "You don't have enough coins");                  // Declaring an error in terms of the number of coins
 
     }
 

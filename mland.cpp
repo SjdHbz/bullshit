@@ -20,7 +20,7 @@ mland::mland(QWidget *parent) :
         in >> number_of_land;
         land.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->lineEdit_land->setText(QString::number(number_of_land));
     int number_of_wheat = 0;
@@ -30,9 +30,9 @@ mland::mland(QWidget *parent) :
         stream >> number_of_wheat;
         wheat.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-    ui->lineEdit_wheat->setText(QString::number(number_of_wheat));
+    ui->label_wheat->setText(QString::number(number_of_wheat));
 
     int number_of_cron = 0;
     QFile cron("D:/faz2/faz2/number_of_cron.txt");
@@ -41,9 +41,9 @@ mland::mland(QWidget *parent) :
         stream1 >> number_of_cron;
         cron.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-    ui->lineEdit_cron->setText(QString::number(number_of_cron));
+    ui->label_corn->setText(QString::number(number_of_cron));
     int number_of_cow = 0;
     QFile cow("D:/faz2/faz2/number_of_cow.txt");
     QTextStream stream2(&cow);
@@ -51,7 +51,7 @@ mland::mland(QWidget *parent) :
         stream2 >> number_of_cow;
         cow.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->lineEdit_cow->setText(QString::number(number_of_cow));
     int number_of_sheep = 0;
@@ -61,7 +61,7 @@ mland::mland(QWidget *parent) :
         stream3 >> number_of_sheep;
         sheep.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->lineEdit_sheep->setText(QString::number(number_of_sheep));
     int number_of_chicken = 0;
@@ -71,7 +71,7 @@ mland::mland(QWidget *parent) :
         stream4 >> number_of_chicken;
         chicken.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     ui->lineEdit_chicken->setText(QString::number(number_of_chicken));
 }
@@ -102,11 +102,11 @@ void mland::on_pushButton_2_clicked()
         stream7 >> number_of_wheat;
         wheat.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_wheat>0){
         number_of_wheat--;
-        ui->lineEdit_wheat->setText(QString::number(number_of_wheat));
+        ui->label_wheat->setText(QString::number(number_of_wheat));
         QString cultivations="wheat";
         QFile cultivation("D:/faz2/faz2/cultivation.txt");
         QTextStream stream2(&cultivation);
@@ -114,7 +114,7 @@ void mland::on_pushButton_2_clicked()
             stream2 << cultivations;
             cultivation.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         QString baskets="wheat";
          QFile basket("D:/faz2/faz2/basket.txt");
@@ -123,17 +123,17 @@ void mland::on_pushButton_2_clicked()
                stream1 << baskets;
                basket.close();
          }else{
-               QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
          }
          if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
                stream7 << number_of_wheat;
                wheat.close();
          }else{
-               QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
          }
     }
     else{
-        QMessageBox::warning(this,"EROR","You don't have enough wheat");
+        QMessageBox::warning(this,"EROR","You don't have enough wheat");                        // Declaring an error in terms of the number of wheat
     }
 }
 
@@ -148,11 +148,11 @@ void mland::on_pushButton_clicked()
         stream8 >> number_of_corn;
         corn.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_corn>0){
         number_of_corn--;
-        ui->lineEdit_cron->setText(QString::number(number_of_corn));
+        ui->label_corn->setText(QString::number(number_of_corn));
         QString cultivations="corn";
         QFile cultivation("D:/faz2/faz2/cultivation.txt");
         QTextStream stream2(&cultivation);
@@ -160,7 +160,7 @@ void mland::on_pushButton_clicked()
             stream2 << cultivations;
             cultivation.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         QString baskets="corn";
         QFile basket("D:/faz2/faz2/basket.txt");
@@ -169,16 +169,16 @@ void mland::on_pushButton_clicked()
             stream1 << baskets;
             basket.close();
         }else{
-           QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         if(corn.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_corn;
               corn.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough corn");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","You don't have enough corn");                   // Declaring an error in terms of the number of corn
      }
 }
 
@@ -193,7 +193,7 @@ void mland::on_pushButton_6_clicked()
         stream8 >> number_of_cow;
         cow.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_cow>0){
         number_of_cow--;
@@ -205,7 +205,7 @@ void mland::on_pushButton_6_clicked()
             stream2 << cultivations;
             cultivation.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         QString baskets="cow";
         QFile basket("D:/faz2/faz2/basket.txt");
@@ -214,16 +214,16 @@ void mland::on_pushButton_6_clicked()
             stream1 << baskets;
             basket.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_cow;
               cow.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough cow");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","You don't have enough cow");                  // Declaring an error in terms of the number of cow
      }
 }
 
@@ -238,7 +238,7 @@ void mland::on_pushButton_7_clicked()
         stream8 >> number_of_chicken;
         chicken.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_chicken>0){
         number_of_chicken--;
@@ -250,7 +250,7 @@ void mland::on_pushButton_7_clicked()
             stream2 << cultivations;
             cultivation.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         QString baskets="chicken";
         QFile basket("D:/faz2/faz2/basket.txt");
@@ -259,16 +259,16 @@ void mland::on_pushButton_7_clicked()
             stream1 << baskets;
             basket.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_chicken;
               chicken.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough chicken");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","You don't have enough chicken");                  // Declaring an error in terms of the number of chicken
      }
 }
 
@@ -283,7 +283,7 @@ void mland::on_pushButton_10_clicked()
         stream8 >> number_of_sheep;
         sheep.close();
     }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_sheep>0){
         number_of_sheep--;
@@ -295,7 +295,7 @@ void mland::on_pushButton_10_clicked()
             stream2 << cultivations;
             cultivation.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         QString baskets="sheep";
         QFile basket("D:/faz2/faz2/basket.txt");
@@ -304,16 +304,16 @@ void mland::on_pushButton_10_clicked()
             stream1 << baskets;
             basket.close();
         }else{
-            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
               stream8 << number_of_sheep;
               sheep.close();
         }else{
-              QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough sheep");                   // اگر فایل باز نشده باشد ارور میدهد
+        QMessageBox::warning(this,"EROR","You don't have enough sheep");                   // Declaring an error in terms of the number of sheep
      }
 }
 
