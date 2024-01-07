@@ -36,7 +36,7 @@
      <enum>QTabWidget::North</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -81,7 +81,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/morg.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/morg.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -110,7 +110,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/5222963.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/5222963.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -152,7 +152,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/images.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/images.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -324,7 +324,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -356,7 +356,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -388,7 +388,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -441,7 +441,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/cow.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/cow.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -499,7 +499,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/link.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/link.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -544,7 +544,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -645,7 +645,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -722,7 +722,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -796,7 +796,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -833,7 +833,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/sheep.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/sheep.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -891,7 +891,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/link.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/link.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -936,7 +936,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1024,7 +1024,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1101,7 +1101,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1175,7 +1175,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1212,7 +1212,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/gandom.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/gandom.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1228,7 +1228,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/zory.png);</string>
+       <string notr="true">image: url(:/new/prefix1/imagfil/zory.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1437,7 +1437,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1469,7 +1469,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1501,7 +1501,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1533,7 +1533,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1573,16 +1573,6 @@ QPushButton:hover{
      </widget>
     </widget>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_coins">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>31</width>
-      <height>16</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
@@ -1593,7 +1583,7 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -1610,6 +1600,22 @@ QPushButton:hover{
     </property>
     <property name="text">
      <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lineEdit_coins">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>3</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

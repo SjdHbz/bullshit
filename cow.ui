@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>189</width>
+    <width>162</width>
     <height>240</height>
    </rect>
   </property>
@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Sheep</string>
+     <string>cow</string>
     </property>
     <widget class="QLabel" name="label_21">
      <property name="geometry">
@@ -39,7 +39,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/cow.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/cow.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -61,21 +61,27 @@
       <enum>Qt::AutoText</enum>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_cow">
+    <widget class="QLabel" name="lineEdit_cow_2">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>80</x>
        <y>20</y>
-       <width>41</width>
+       <width>51</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>140</x>
       <y>0</y>
       <width>25</width>
       <height>19</height>
@@ -91,7 +97,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>189</width>
+     <width>162</width>
      <height>21</height>
     </rect>
    </property>

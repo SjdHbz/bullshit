@@ -8,7 +8,7 @@ hous::hous(QWidget *parent) :
     ui(new Ui::hous)
 {
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/homvoic.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/homvoic.mp3"));
     player->setVolume(100);
     player->play();
     int number_of_chicken;
@@ -23,17 +23,17 @@ hous::hous(QWidget *parent) :
     int number_of_wheat;
     int number_of_corn;
 
-    QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
-    QFile cow("D:/faz2/faz2/number_of_cow.txt");
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
-    QFile cow_mat("D:/faz2/faz2/number_of_cow_mat.txt");
-    QFile cow_milk("D:/faz2/faz2/number_of_cow_milk.txt");
-    QFile sheep_milk("D:/faz2/faz2/number_of_sheep_milk.txt");
-    QFile sheep_mat("D:/faz2/faz2/number_of_sheep_mat.txt");
-    QFile chicken_egg("D:/faz2/faz2/number_of_chicken_egg.txt");
-    QFile chicken_mat("D:/faz2/faz2/number_of_chicken_mat.txt");
-    QFile wheat("D:/faz2/faz2/number_of_wheat.txt");
-    QFile corn("D:/faz2/faz2/number_of_cron.txt");
+    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
+    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
+    QFile cow_mat("D:/faz2/faz2/fils/number_of_cow_mat.txt");
+    QFile cow_milk("D:/faz2/faz2/fils/number_of_cow_milk.txt");
+    QFile sheep_milk("D:/faz2/faz2/fils/number_of_sheep_milk.txt");
+    QFile sheep_mat("D:/faz2/faz2/fils/number_of_sheep_mat.txt");
+    QFile chicken_egg("D:/faz2/faz2/fils/number_of_chicken_egg.txt");
+    QFile chicken_mat("D:/faz2/faz2/fils/number_of_chicken_mat.txt");
+    QFile wheat("D:/faz2/faz2/fils/number_of_wheat.txt");
+    QFile corn("D:/faz2/faz2/fils/number_of_cron.txt");
 
     QTextStream stream(&chicken);
     QTextStream in2(&cow);
@@ -143,7 +143,7 @@ hous::hous(QWidget *parent) :
 void hous::outcoin(int coin)
 {
 
-        QFile file("D:/faz2/faz2/coin.txt");
+        QFile file("D:/faz2/faz2/fils/coin.txt");
         QTextStream out(&file);
         if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
             out<<coin;
@@ -157,7 +157,7 @@ void hous::outcoin(int coin)
 int hous::incoin()
 {
         int coin;
-        QFile file("D:/faz2/faz2/coin.txt");
+        QFile file("D:/faz2/faz2/fils/coin.txt");
         QTextStream in(&file);
         if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
             in >> coin;
@@ -177,8 +177,8 @@ void hous::on_pushButton_chicken_clicked()
 {
     int number_of_chicken;
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
-    QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
+    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
 
     QTextStream out(&file);
     QTextStream in(&file);
@@ -186,8 +186,8 @@ void hous::on_pushButton_chicken_clicked()
 
     coin = incoin();
 
-    int selectedQuantity = ui->spinBox_chicken->value(); // تعداد انتخاب شده توسط کاربر از spinBox
-    int totalPrice = selectedQuantity * 3; // محاسبه مجموعه آن جنس
+    int selectedQuantity = ui->spinBox_chicken->value();                    // تعداد انتخاب شده توسط کاربر از spinBox
+    int totalPrice = selectedQuantity * 3;                                       // محاسبه مجموعه آن جنس
     if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
         stream >> number_of_chicken;
         chicken.close();
@@ -217,7 +217,7 @@ void hous::on_pushButton_chicken_clicked()
 void hous::on_spinBox_chicken_valueChanged(int arg1)
 {
         int number_of_chicken;
-        QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
+        QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
         if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
             QTextStream in(&chicken);
             in >> number_of_chicken;
@@ -237,8 +237,8 @@ void hous::on_pushButton_cow_clicked()
 {
     int number_of_cow;
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
-    QFile cow("D:/faz2/faz2/number_of_cow.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
+    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
 
     QTextStream out(&file);
     QTextStream in(&file);
@@ -277,7 +277,7 @@ void hous::on_pushButton_cow_clicked()
 void hous::on_spinBox_cow_valueChanged(int arg1)
 {
     int number_of_cow;
-    QFile cow("D:/faz2/faz2/number_of_cow.txt");
+    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
     if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&cow);
         in >> number_of_cow;
@@ -298,8 +298,8 @@ void hous::on_pushButton_sheep_clicked()
 
     int number_of_sheep;
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
 
     QTextStream out(&file);
     QTextStream in(&file);
@@ -307,8 +307,8 @@ void hous::on_pushButton_sheep_clicked()
 
     coin = incoin();
 
-    int selectedQuantity = ui->spinBox_sheep->value(); // تعداد انتخاب شده توسط کاربر از spinBox
-    int totalPrice = selectedQuantity * 5; // محاسبه مجموعه آن جنس
+    int selectedQuantity = ui->spinBox_sheep->value();                                   // تعداد انتخاب شده توسط کاربر از spinBox
+    int totalPrice = selectedQuantity * 5;                                               // محاسبه مجموعه آن جنس
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         stream >> number_of_sheep;
         sheep.close();
@@ -338,7 +338,7 @@ void hous::on_pushButton_sheep_clicked()
 void hous::on_spinBox_sheep_valueChanged(int arg1)
 {
     int number_of_sheep;
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&sheep);
         in >> number_of_sheep;

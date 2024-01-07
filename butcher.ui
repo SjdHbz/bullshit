@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/morg.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/morg.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/images.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/images.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -56,7 +56,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/cow.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/cow.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -72,7 +72,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -88,7 +88,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/sheep.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/sheep.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -104,7 +104,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -339,20 +339,39 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_coins">
+   <widget class="QLabel" name="lineEdit_coins">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>0</y>
-      <width>31</width>
+      <width>41</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>0</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
     </property>
    </widget>
   </widget>
@@ -369,5 +388,22 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>toolButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Butcher</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>33</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

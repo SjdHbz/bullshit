@@ -32,7 +32,7 @@ page1::page1(QWidget *parent)
     , ui(new Ui::page1)
 {
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/garm.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/garm.mp3"));
     player->setVolume(50);
     player->play();
     ui->pushButton->setEnabled(false);
@@ -54,7 +54,7 @@ page1::page1(QWidget *parent)
     ui->radioButton->hide();
     QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName("d:/faz2/faz2/paigafaz12.db");
+    database.setDatabaseName("D:/faz2/faz2/datafil/paigafaz12.db");
     database.open();
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
     ui->lineEdit_3->setEnabled(false);
@@ -82,7 +82,7 @@ page1::~page1()
 
 void page1::on_pushButton_5_clicked()
 {
-    QFile player("D:/faz2/faz2/number_of_players.txt");
+    QFile player("D:/faz2/faz2/fils/number_of_players.txt");
     QTextStream stream(&player);
     if(player.open(QIODevice::WriteOnly | QIODevice::Text)){
         stream << players;

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/new/prefix1/Lovepik_com-380031521-autumn-wheat-field-vector-material-creative-wheat-field.png);</string>
+     <string notr="true">background-image: url(:/new/prefix1/imagfil/Lovepik_com-380031521-autumn-wheat-field-vector-material-creative-wheat-field.png);</string>
     </property>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
@@ -136,7 +136,7 @@ background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/eye6.jpg);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/eye6.jpg);</string>
      </property>
      <property name="text">
       <string/>
@@ -152,7 +152,7 @@ background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/notyeey.jpg);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/notyeey.jpg);</string>
      </property>
      <property name="text">
       <string/>
@@ -239,8 +239,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>iran +98</string>
       </property>
       <property name="icon">
-       <iconset theme="iran" resource="page1.qrc">
-        <normaloff>:/new/prefix1/iran.png</normaloff>:/new/prefix1/iran.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/iran.png</normaloff>:/new/prefix1/imagfil/iran.png</iconset>
       </property>
      </item>
      <item>
@@ -248,8 +248,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>Afg +93</string>
       </property>
       <property name="icon">
-       <iconset theme="AFG" resource="page1.qrc">
-        <normaloff>:/new/prefix1/AFG.png</normaloff>:/new/prefix1/AFG.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/AFG.png</normaloff>:/new/prefix1/imagfil/AFG.png</iconset>
       </property>
      </item>
      <item>
@@ -257,8 +257,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>Italy ‎+39</string>
       </property>
       <property name="icon">
-       <iconset theme="Italy" resource="page1.qrc">
-        <normaloff>:/new/prefix1/italia.png</normaloff>:/new/prefix1/italia.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/italia.png</normaloff>:/new/prefix1/imagfil/italia.png</iconset>
       </property>
      </item>
      <item>
@@ -266,8 +266,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>Pakistan +92</string>
       </property>
       <property name="icon">
-       <iconset theme="Pakistan" resource="page1.qrc">
-        <normaloff>:/new/prefix1/Pakistan.png</normaloff>:/new/prefix1/Pakistan.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/Pakistan.png</normaloff>:/new/prefix1/imagfil/Pakistan.png</iconset>
       </property>
      </item>
      <item>
@@ -275,8 +275,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>china +86</string>
       </property>
       <property name="icon">
-       <iconset theme="china" resource="page1.qrc">
-        <normaloff>:/new/prefix1/chine.png</normaloff>:/new/prefix1/chine.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/chine.png</normaloff>:/new/prefix1/imagfil/chine.png</iconset>
       </property>
      </item>
      <item>
@@ -284,8 +284,8 @@ background-color: rgb(255, 255, 255);</string>
        <string> USA +1</string>
       </property>
       <property name="icon">
-       <iconset theme="USA" resource="page1.qrc">
-        <normaloff>:/new/prefix1/USA.png</normaloff>:/new/prefix1/USA.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/USA.png</normaloff>:/new/prefix1/imagfil/USA.png</iconset>
       </property>
      </item>
      <item>
@@ -293,8 +293,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>England +44</string>
       </property>
       <property name="icon">
-       <iconset theme="England" resource="page1.qrc">
-        <normaloff>:/new/prefix1/astralia.png</normaloff>:/new/prefix1/astralia.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/Engh.png</normaloff>:/new/prefix1/imagfil/Engh.png</iconset>
       </property>
      </item>
      <item>
@@ -302,8 +302,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>India +91</string>
       </property>
       <property name="icon">
-       <iconset theme="India" resource="page1.qrc">
-        <normaloff>:/new/prefix1/india.png</normaloff>:/new/prefix1/india.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/india.png</normaloff>:/new/prefix1/imagfil/india.png</iconset>
       </property>
      </item>
      <item>
@@ -311,8 +311,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>Japan +81</string>
       </property>
       <property name="icon">
-       <iconset theme="Japan" resource="page1.qrc">
-        <normaloff>:/new/prefix1/japan.png</normaloff>:/new/prefix1/japan.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/japan.png</normaloff>:/new/prefix1/imagfil/japan.png</iconset>
       </property>
      </item>
      <item>
@@ -320,8 +320,8 @@ background-color: rgb(255, 255, 255);</string>
        <string>Palestine +970</string>
       </property>
       <property name="icon">
-       <iconset resource="page1.qrc">
-        <normaloff>:/new/prefix1/palsten.png</normaloff>:/new/prefix1/palsten.png</iconset>
+       <iconset resource="imags.qrc">
+        <normaloff>:/new/prefix1/imagfil/palsten.png</normaloff>:/new/prefix1/imagfil/palsten.png</iconset>
       </property>
      </item>
     </widget>
@@ -345,7 +345,7 @@ background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/refresh.jpg);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/refresh.jpg);</string>
      </property>
      <property name="text">
       <string/>
@@ -532,7 +532,7 @@ QPushButton:hover{
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="page1.qrc"/>
+  <include location="imags.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -542,8 +542,8 @@ QPushButton:hover{
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>387</x>
-     <y>242</y>
+     <x>390</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
      <x>458</x>
@@ -559,11 +559,11 @@ QPushButton:hover{
    <hints>
     <hint type="sourcelabel">
      <x>401</x>
-     <y>244</y>
+     <y>265</y>
     </hint>
     <hint type="destinationlabel">
-     <x>389</x>
-     <y>244</y>
+     <x>390</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>
@@ -574,12 +574,12 @@ QPushButton:hover{
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>181</x>
-     <y>336</y>
+     <x>340</x>
+     <y>461</y>
     </hint>
     <hint type="destinationlabel">
-     <x>166</x>
-     <y>276</y>
+     <x>410</x>
+     <y>361</y>
     </hint>
    </hints>
   </connection>
@@ -590,12 +590,12 @@ QPushButton:hover{
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>384</x>
-     <y>242</y>
+     <x>390</x>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>174</x>
-     <y>272</y>
+     <x>410</x>
+     <y>361</y>
     </hint>
    </hints>
   </connection>

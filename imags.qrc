@@ -1,0 +1,61 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>imagfil/1043472.png</file>
+        <file>imagfil/5222963.png</file>
+        <file>imagfil/1703803682775.jpg</file>
+        <file>imagfil/1703803682811.jpg</file>
+        <file>imagfil/1703803682828.jpg</file>
+        <file>imagfil/AFG.png</file>
+        <file>imagfil/astralia.png</file>
+        <file>imagfil/black.png</file>
+        <file>imagfil/butcher shop.png</file>
+        <file>imagfil/chicpcc.png</file>
+        <file>imagfil/chine.png</file>
+        <file>imagfil/coinicon.png</file>
+        <file>imagfil/corn.png</file>
+        <file>imagfil/cow.png</file>
+        <file>imagfil/cowppc.png</file>
+        <file>imagfil/download (1).jfif</file>
+        <file>imagfil/download (2).png</file>
+        <file>imagfil/Engh.png</file>
+        <file>imagfil/eye6.jpg</file>
+        <file>imagfil/favpng_chicken-egg-icon.png</file>
+        <file>imagfil/favpng_chicken-rooster-icon.png</file>
+        <file>imagfil/gandom.png</file>
+        <file>imagfil/germani.png</file>
+        <file>imagfil/images.png</file>
+        <file>imagfil/india.png</file>
+        <file>imagfil/iran.png</file>
+        <file>imagfil/Isometric Icons Vector.png</file>
+        <file>imagfil/italia.png</file>
+        <file>imagfil/japan.png</file>
+        <file>imagfil/lanppc.png</file>
+        <file>imagfil/link.png</file>
+        <file>imagfil/Lovepik_com-380031521-autumn-wheat-field-vector-material-creative-wheat-field.png</file>
+        <file>imagfil/Lovepik_com-401736967-cow.png</file>
+        <file>imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (2).png</file>
+        <file>imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (3).png</file>
+        <file>imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png</file>
+        <file>imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (5).png</file>
+        <file>imagfil/Lovepik_com-610179079-Cartoon 2d farm vector picture.png</file>
+        <file>imagfil/meat.png</file>
+        <file>imagfil/milk-bucket-7808176-6347464.webp</file>
+        <file>imagfil/morg.png</file>
+        <file>imagfil/notyeey.jpg</file>
+        <file>imagfil/Pakistan.png</file>
+        <file>imagfil/palsten.png</file>
+        <file>imagfil/ppcorn.png</file>
+        <file>imagfil/refresh.jpg</file>
+        <file>imagfil/rsi.png</file>
+        <file>imagfil/sheep.png</file>
+        <file>imagfil/sheepgoat.png</file>
+        <file>imagfil/shppc.png</file>
+        <file>imagfil/storshop.png</file>
+        <file>imagfil/USA.png</file>
+        <file>imagfil/Vector Icons of Land Farms (2).png</file>
+        <file>imagfil/wheat.png</file>
+        <file>imagfil/workiconm.png</file>
+        <file>imagfil/zory.png</file>
+        <file>imagfil/aLovepik_com.png</file>
+    </qresource>
+</RCC>

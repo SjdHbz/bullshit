@@ -27,24 +27,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/black.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/black.png);</string>
     </property>
     <property name="title">
      <string/>
     </property>
-    <widget class="QLCDNumber" name="lcdNumber">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>61</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-    </widget>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="geometry">
       <rect>
@@ -74,6 +61,19 @@
       </property>
      </widget>
     </widget>
+    <widget class="QLCDNumber" name="lcdNumber">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
@@ -91,7 +91,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Store: You can get the materials you want from the store&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/storshop.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/storshop.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -130,39 +130,10 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
      </property>
      <property name="text">
       <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_worker">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>10</y>
-       <width>61</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_coin">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>10</y>
-       <width>61</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_5">
@@ -175,23 +146,10 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/lanppc.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/lanppc.png);</string>
      </property>
      <property name="text">
       <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_land">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>10</y>
-       <width>61</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton">
@@ -204,7 +162,55 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/workiconm.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/workiconm.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lineEdit_worker">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lineEdit_coin">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>10</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lineEdit_land">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>10</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="text">
       <string/>
@@ -214,14 +220,14 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>-70</y>
-      <width>331</width>
-      <height>321</height>
+      <x>290</x>
+      <y>-10</y>
+      <width>241</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/Lovepik_com-610179079-Cartoon 2d farm vector picture.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/aLovepik_com.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -230,7 +236,7 @@
    <widget class="QLabel" name="label_player">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>70</x>
       <y>0</y>
       <width>281</width>
       <height>31</height>
@@ -253,7 +259,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/Vector Icons of Land Farms (2).png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/Vector Icons of Land Farms (2).png);</string>
     </property>
     <property name="text">
      <string/>
@@ -269,7 +275,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/butcher shop.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/butcher shop.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -285,7 +291,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/cowppc.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/cowppc.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -301,7 +307,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/shppc.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/shppc.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -317,7 +323,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/chicpcc.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/chicpcc.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -326,14 +332,14 @@
    <widget class="QPushButton" name="pushButton_10">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>230</x>
       <y>30</y>
       <width>161</width>
       <height>141</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/Isometric Icons Vector.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/Isometric Icons Vector.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -373,7 +379,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/lanppc.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/lanppc.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -389,7 +395,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/1043472.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/1043472.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -468,7 +474,7 @@ color: rgb(255, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/lanppc.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/lanppc.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -484,7 +490,7 @@ color: rgb(255, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/1043472.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/1043472.png);</string>
      </property>
      <property name="text">
       <string/>

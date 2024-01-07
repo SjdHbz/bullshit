@@ -8,12 +8,11 @@ worker::worker(QWidget *parent) :
     ui(new Ui::worker)
 {
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/workrvoic.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/workrvoic.mp3"));
     player->setVolume(100);
     player->play();
-    ui->lineEdit_worker->setReadOnly(true);
     int number_of_worker;
-    QFile worker("D:/faz2/faz2/number_of_worker.txt");
+    QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
     QTextStream in(&worker);
     if(worker.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_worker;

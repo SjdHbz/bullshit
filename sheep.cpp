@@ -12,12 +12,11 @@ sheep::sheep(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/sheepsound.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/sheepsound.mp3"));
     player->setVolume(100);
     player->play();
-    ui->lineEdit_sheep->setReadOnly(true);
     int number_of_sheep;
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     QTextStream in(&sheep);
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_sheep;

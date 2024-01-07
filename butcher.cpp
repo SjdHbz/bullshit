@@ -13,7 +13,7 @@ Butcher::Butcher(QWidget *parent) :
     ui->lineEdit_coins->setText(QString::number(coin));
 
     int number_of_chicken;
-    QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
+    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
     QTextStream in(&chicken);
     if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_chicken;
@@ -24,7 +24,7 @@ Butcher::Butcher(QWidget *parent) :
     ui->label_Chicken_Meat->setText(QString::number(number_of_chicken));
 
     int number_of_cow;
-    QFile cow("D:/faz2/faz2/number_of_cow.txt");
+    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
     QTextStream in1(&cow);
     if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
         in1 >> number_of_cow;
@@ -35,7 +35,7 @@ Butcher::Butcher(QWidget *parent) :
     ui->label_cow_Meat->setText(QString::number(number_of_cow));
 
     int number_of_sheep;
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     QTextStream in2(&sheep);
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         in2 >> number_of_sheep;
@@ -51,7 +51,7 @@ Butcher::Butcher(QWidget *parent) :
 void Butcher::outcoin(int coin)
 {
 
-        QFile file("D:/faz2/faz2/coin.txt");
+        QFile file("D:/faz2/faz2/fils/coin.txt");
         QTextStream out(&file);
         if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
             out<<coin;
@@ -65,7 +65,7 @@ void Butcher::outcoin(int coin)
 int Butcher::incoin()
 {
         int coin;
-        QFile file("D:/faz2/faz2/coin.txt");
+        QFile file("D:/faz2/faz2/fils/coin.txt");
         QTextStream in(&file);
         if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
             in >> coin;
@@ -86,7 +86,7 @@ void Butcher::on_pushButton_kill_Chicken_clicked()
 {
     int number_of_chicken;
     int coin = incoin();
-    QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
+    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
     QTextStream in(&chicken);
     QTextStream out(&chicken);
 
@@ -116,7 +116,7 @@ void Butcher::on_pushButton_kill_cow_clicked()
 {
     int number_of_cow;
     int coin = incoin();
-    QFile cow("D:/faz2/faz2/number_of_cow.txt");
+    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
     QTextStream in(&cow);
     QTextStream out(&cow);
 
@@ -146,7 +146,7 @@ void Butcher::on_pushButton_kill_Sheep_clicked()
 {
     int number_of_sheep;
     int coin = incoin();
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     QTextStream in(&sheep);
     QTextStream out(&sheep);
 

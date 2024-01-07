@@ -55,6 +55,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    nwww.qrc \
-    page1.qrc \
-    wha.qrc
+    hous.qrc \
+    imags.qrc

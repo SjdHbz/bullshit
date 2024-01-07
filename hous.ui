@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/morg.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/morg.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -109,7 +109,7 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/cow.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/cow.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -175,7 +175,7 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/sheep.png);</string>
+     <string notr="true">image: url(:/new/prefix1/imagfil/sheep.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -253,7 +253,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/zory.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/zory.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -292,7 +292,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/gandom.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/gandom.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -315,7 +315,7 @@ QPushButton:hover{
       <x>160</x>
       <y>40</y>
       <width>20</width>
-      <height>321</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="orientation">
@@ -393,7 +393,7 @@ QPushButton:hover{
       <x>310</x>
       <y>40</y>
       <width>20</width>
-      <height>321</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="orientation">
@@ -422,7 +422,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/5222963.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/5222963.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -461,7 +461,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/images.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/images.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -500,7 +500,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/link.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/link.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -539,7 +539,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -578,7 +578,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/link.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/link.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -630,7 +630,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/new/prefix1/meat.png);</string>
+      <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
      </property>
      <property name="text">
       <string/>

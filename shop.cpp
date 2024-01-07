@@ -22,12 +22,12 @@ shop::shop(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::shop)
 {
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/market-voices.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/market-voices.mp3"));
     player->setVolume(100);
     player->play();
     ui->setupUi(this);
 
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream in(&file);
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> coin;
@@ -48,7 +48,6 @@ shop::~shop()
 
 void shop::on_spinBox_chicken_valueChanged(int arg1)
 {
-//    file.open(QIODevice::WriteOnly | QIODevice::Text);
     int num;
     num = arg1 * 3;
     if(coin<num){
@@ -246,10 +245,8 @@ void shop::on_spinBox_wheat_valueChanged(int arg1)
         ui->spinBox_wheat->setValue(0);
         num = 0;
     }
-//    int Num;
-//    Num = arg1 * 3;
+
     ui->label_wheat->setText(QString::number(num));
-//    ui->lineEdit_wheat_sale->setText(QString::number(Num));
 }
 
 
@@ -262,10 +259,7 @@ void shop::on_spinBox_cron_valueChanged(int arg1)
         ui->spinBox_cron->setValue(0);
         num = 0;
     }
-//    int Num;
-//    Num = arg1 * 2;
     ui->label_corn->setText(QString::number(num));
-//    ui->lineEdit_cron_sale->setText(QString::number(Num));
 }
 
 
@@ -273,8 +267,8 @@ void shop::on_pushButton_chicken_clicked()
 {
     int selectedQuantity = ui->spinBox_chicken->value();                                            // Number selected by the user from spinBox
     int totalPrice = selectedQuantity * 3;                                                         // Calculate the set of that type
-    QFile chicken("D:/faz2/faz2/number_of_chicken.txt");
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
 
     QTextStream in(&chicken);
     QTextStream out(&chicken);
@@ -294,20 +288,20 @@ void shop::on_pushButton_chicken_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if (coin >= totalPrice) {
-        coin -= totalPrice; // کم کردن سکه‌ها
-        // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        coin -= totalPrice;                                                                   // کم کردن سکه‌ها
+                                                                                            // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             out1 << coin;
             file.close();
         }
      else {
-        // اعلام خطا از نظر تعداد سکه
+                                                                                            // اعلام خطا از نظر تعداد سکه
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
       }
-        // تاکید بر نکاتی برای UI
-        ui->spinBox_chicken->setValue(0);                           // Set spinBox value to 0
+
+        ui->spinBox_chicken->setValue(0);                                                // Set spinBox value to 0
         ui->lineEdit_coins->setText(QString::number(coin));
         ui->label_chicken->clear();
         }else {
@@ -320,8 +314,8 @@ void shop::on_pushButton_chicken_clicked()
 void shop::on_pushButton_cow_clicked(){
     int selectedQuantity = ui->spinBox_cow->value();                    // Number selected by the user from spinBox
     int totalPrice = selectedQuantity * 7;                                  // Calculate the set of that type
-    QFile cow("D:/faz2/faz2/number_of_cow.txt");
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream out1(&file);
 
     QTextStream in(&cow);
@@ -371,8 +365,8 @@ void shop::on_pushButton_sheep_clicked()
 
     int selectedQuantity = ui->spinBox_sheep->value();                          // Number selected by the user from spinBox
     int totalPrice = selectedQuantity * 5;                                        // Calculate the set of that type
-    QFile sheep("D:/faz2/faz2/number_of_sheep.txt");
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
 
     QTextStream in(&sheep);
     QTextStream out(&sheep);
@@ -406,7 +400,7 @@ void shop::on_pushButton_sheep_clicked()
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
       }
 
-        ui->spinBox_sheep->setValue(0); // تنظیم مقدار spinBox به 0
+        ui->spinBox_sheep->setValue(0);                                                     // تنظیم مقدار spinBox به 0
         ui->lineEdit_coins->setText(QString::number(coin));
         ui->label_sheep->clear();
         }else {
@@ -421,8 +415,8 @@ void shop::on_pushButton_wheat_buy_clicked()
 {
     int selectedQuantity = ui->spinBox_wheat->value();                                  // Number selected by the user from spinBox
     int totalPrice = selectedQuantity * 2;                                              // Calculate the set of that type
-    QFile wheat("D:/faz2/faz2/number_of_wheat.txt");
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile wheat("D:/faz2/faz2/fils/number_of_wheat.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
 
     QTextStream in(&wheat);
     QTextStream out(&wheat);
@@ -450,7 +444,7 @@ void shop::on_pushButton_wheat_buy_clicked()
             out1<< coin;
             file.close();
         }
-     else { // Subtract coins
+     else {                                                                 // Subtract coins
                                                                                      // Declaring an error in terms of the number of coins
      QMessageBox::warning(this, "ERROR", "You don't have enough coins");             return;
       }
@@ -469,8 +463,8 @@ void shop::on_pushButton_cron_buy_clicked()
 {
     int selectedQuantity = ui->spinBox_cron->value();                                   //Number selected by the user from spinBox
     int totalPrice = selectedQuantity * 2;                                          // Calculate the set of that type
-    QFile cron("D:/faz2/faz2/number_of_cron.txt");
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile cron("D:/faz2/faz2/fils/number_of_cron.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream out1(&file);
     QTextStream in(&cron);
     QTextStream out(&cron);
@@ -491,7 +485,7 @@ void shop::on_pushButton_cron_buy_clicked()
         return;
     }
     if (coin >= totalPrice) {
-        coin -= totalPrice; // کم کردن سکه‌ها
+        coin -= totalPrice;                                                                     // کم کردن سکه‌ها
                                                                                        // Save the number of remaining coins in the text file
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {

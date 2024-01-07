@@ -39,6 +39,10 @@ private slots:
 
     int incoin();
 
+    int incoin(QString fils);
+
+    void outfil(QString fils , int coin);
+
     void basketss(int pric);
 
     void on_pushButton_3_clicked();

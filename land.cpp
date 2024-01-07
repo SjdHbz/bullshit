@@ -9,12 +9,9 @@ land::land(QWidget *parent) :
     ui(new Ui::land)
 {
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/lansvoic.mp3"));
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/lansvoic.mp3"));
     player->setVolume(100);
     player->play();
-    ui->lineEdit_coin->setReadOnly(true);
-    ui->lineEdit_land->setReadOnly(true);
-    ui->lineEdit_worker->setReadOnly(true);
 }
 
 land::~land()
@@ -27,7 +24,7 @@ land::~land()
 void land::on_spinBox_land_valueChanged(int arg1)
 {
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream stream(&file);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
@@ -50,7 +47,7 @@ void land::on_spinBox_land_valueChanged(int arg1)
 void land::on_spinBox_worker_valueChanged(int arg1)
 {
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream stream(&file);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
@@ -74,7 +71,7 @@ void land::on_pushButton_land_clicked()
 {
     int number_of_land;
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream stream(&file);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
@@ -85,7 +82,7 @@ void land::on_pushButton_land_clicked()
     }
     int selectedQuantity = ui->spinBox_land->value(); // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 3; // محاسبه مجموعه آن جنس
-    QFile land("D:/faz2/faz2/number_of_land.txt");
+    QFile land("D:/faz2/faz2/fils/number_of_land.txt");
     QTextStream in(&land);
     QTextStream out(&land);
     if(land.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -104,8 +101,8 @@ void land::on_pushButton_land_clicked()
         return;
     }
     if (coin >= totalPrice) {
-        coin -= totalPrice; // کم کردن سکه‌ها
-        // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        coin -= totalPrice;                                                                // کم کردن سکه‌ها
+                                                                                          // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;
@@ -121,7 +118,7 @@ void land::on_pushButton_land_clicked()
         ui->lineEdit_coin->setText(QString::number(coin));
         ui->lineEdit_land->clear();
         }else {
-       // اعلام خطا از نظر تعداد سکه
+                                                                                             // اعلام خطا از نظر تعداد سکه
            QMessageBox::warning(this, "ERROR", "You don't have enough coins");                  // Declaring an error in terms of the number of coins
 
     }
@@ -134,18 +131,18 @@ void land::on_pushButton_worker_clicked()
 
     int number_of_worker=0;
     int coin;
-    QFile file("D:/faz2/faz2/coin.txt");
+    QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream stream(&file);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         stream >> coin;
         file.close();
     }else {                                                                              // Declaring an error in terms of the number of coins
-        QMessageBox::warning(this, "ERROR", "You don't have enough coins");
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
-    int selectedQuantity = ui->spinBox_worker->value(); // تعداد انتخاب شده توسط کاربر از spinBox
-    int totalPrice = selectedQuantity * 5; // محاسبه مجموعه آن جنس
-    QFile worker("D:/faz2/faz2/number_of_worker.txt");
+    int selectedQuantity = ui->spinBox_worker->value();                                 // تعداد انتخاب شده توسط کاربر از spinBox
+    int totalPrice = selectedQuantity * 5;                                              // محاسبه مجموعه آن جنس
+    QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
     QTextStream in(&worker);
     QTextStream out(&worker);
     if(worker.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -164,24 +161,24 @@ void land::on_pushButton_worker_clicked()
         return;
     }
     if (coin >= totalPrice) {
-        coin -= totalPrice; // کم کردن سکه‌ها
-        // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        coin -= totalPrice;                                                                 // کم کردن سکه‌ها
+                                                                                            // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;
             file.close();
         }
      else {
-        // اعلام خطا از نظر تعداد سکه
+                                                                                                // اعلام خطا از نظر تعداد سکه
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
       }
-        // تاکید بر نکاتی برای UI
+                                                                                                     // تاکید بر نکاتی برای UI
         ui->spinBox_worker->setValue(0); // تنظیم مقدار spinBox به 0
         ui->lineEdit_coin->setText(QString::number(coin));
         ui->lineEdit_worker->clear();
         }else {
-       // اعلام خطا از نظر تعداد سکه
+                                                                                                 // اعلام خطا از نظر تعداد سکه
            QMessageBox::warning(this, "ERROR", "You don't have enough coins");                  // Declaring an error in terms of the number of coins
 
     }

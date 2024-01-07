@@ -49,7 +49,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/workiconm.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/workiconm.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -95,16 +95,6 @@ QPushButton:hover{
       <string>Buy</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_worker">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>30</y>
-       <width>41</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
@@ -128,7 +118,7 @@ QPushButton:hover{
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/new/prefix1/lanppc.png);</string>
+      <string notr="true">border-image: url(:/new/prefix1/imagfil/lanppc.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -160,16 +150,6 @@ QPushButton:hover{
       <string notr="true">background-color: rgb(100, 100, 100);</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_land">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>30</y>
-       <width>41</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_land">
      <property name="geometry">
       <rect>
@@ -197,16 +177,38 @@ QPushButton:hover{
       <string>Buy</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_coin">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
+    <widget class="QLabel" name="lineEdit_worker">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>30</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lineEdit_land">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>30</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
@@ -218,7 +220,7 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/coinicon.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/imagfil/coinicon.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -235,6 +237,22 @@ QPushButton:hover{
     </property>
     <property name="text">
      <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lineEdit_coin">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>0</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>imagfil/aLovepik_com.png</file>
+    </qresource>
+</RCC>
