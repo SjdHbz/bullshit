@@ -137,11 +137,35 @@ hous::hous(QWidget *parent) :
     ui->lineEdit_cow_milk->setText(QString::number(number_of_cow_milk));
     ui->lineEdit_cron_sale->setText(QString::number(number_of_corn));
     ui->lineEdit_wheat_sale->setText(QString::number(number_of_wheat));
+}
 
 
+void hous::outcoin(int coin)
+{
+
+        QFile file("D:/faz2/faz2/coin.txt");
+        QTextStream out(&file);
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
+            out<<coin;
+            file.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+}
 
 
-
+int hous::incoin()
+{
+        int coin;
+        QFile file("D:/faz2/faz2/coin.txt");
+        QTextStream in(&file);
+        if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            in >> coin;
+            file.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+        }
+        return coin;
 }
 
 hous::~hous()
@@ -160,12 +184,7 @@ void hous::on_pushButton_chicken_clicked()
     QTextStream in(&file);
     QTextStream stream(&chicken);
 
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        in >> coin;
-        file.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-    }
+    coin = incoin();
 
     int selectedQuantity = ui->spinBox_chicken->value(); // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 3; // محاسبه مجموعه آن جنس
@@ -187,15 +206,7 @@ void hous::on_pushButton_chicken_clicked()
             QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
         }
         // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            out << coin;
-            file.close();
-        }
-     else {
-        // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
-        return;
-      }
+        outcoin(coin);
     }
     ui->spinBox_chicken->setValue(0);
     ui->lineEdit_chicken->setText(QString::number(number_of_chicken));
@@ -233,12 +244,7 @@ void hous::on_pushButton_cow_clicked()
     QTextStream in(&file);
     QTextStream stream(&cow);
 
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        in >> coin;
-        file.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-    }
+    coin = incoin();
 
     int selectedQuantity = ui->spinBox_cow->value(); // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 7; // محاسبه مجموعه آن جنس
@@ -260,15 +266,7 @@ void hous::on_pushButton_cow_clicked()
             QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
         }
         // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            out << coin;
-            file.close();
-        }
-     else {
-        // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
-        return;
-      }
+        outcoin(coin);
     }
     ui->spinBox_cow->setValue(0);
     ui->lineEdit_cow->setText(QString::number(number_of_cow));
@@ -307,12 +305,7 @@ void hous::on_pushButton_sheep_clicked()
     QTextStream in(&file);
     QTextStream stream(&sheep);
 
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        in >> coin;
-        file.close();
-    }else{
-        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-    }
+    coin = incoin();
 
     int selectedQuantity = ui->spinBox_sheep->value(); // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 5; // محاسبه مجموعه آن جنس
@@ -334,15 +327,7 @@ void hous::on_pushButton_sheep_clicked()
             QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
         }
         // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            out << coin;
-            file.close();
-        }
-     else {
-        // اعلام خطا از نظر تعداد سکه
-        QMessageBox::warning(this, "ERROR", "فایل باز نشد");
-        return;
-      }
+        outcoin(coin);
     }
     ui->spinBox_sheep->setValue(0);
     ui->lineEdit_sheep->setText(QString::number(number_of_sheep));

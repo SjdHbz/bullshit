@@ -10,6 +10,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    butcher.cpp \
     chicken.cpp \
     cow.cpp \
     hous.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     worker.cpp
 
 HEADERS += \
+    butcher.h \
     chicken.h \
     cow.h \
     hous.h \
@@ -35,6 +37,7 @@ HEADERS += \
     worker.h
 
 FORMS += \
+    butcher.ui \
     chicken.ui \
     cow.ui \
     hous.ui \

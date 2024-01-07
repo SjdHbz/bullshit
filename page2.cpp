@@ -19,6 +19,7 @@
 #include "QMessageBox"
 #include "sheep.h"
 #include "QMap"
+#include "butcher.h"
 page2::page2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::page2)
@@ -218,6 +219,7 @@ void page2::basketss(int pric)
 
 }
 
+
 void page2::outcoin(int coin)
 {
 
@@ -232,6 +234,21 @@ void page2::outcoin(int coin)
         }
 }
 
+
+int page2::incoin()
+{
+        int coin;
+        QFile file("D:/faz2/faz2/coin.txt");
+        QTextStream in(&file);
+        if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            in >>coin;
+            file.close();
+        }else{
+            QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
+            ui->pushButton->setEnabled(false);
+        }
+        return coin;
+}
 
 void page2::updateTime()
 {
@@ -308,7 +325,9 @@ void page2::updateTime()
     else if (cultivations=="corn"){
 //           updatecorn();
         static int seconds2 = 0;
+        static int secondscount = 0;
         seconds2++ ;
+        secondscount++;
 
         if(seconds2 == 1){
             buttonmap[number]->setEnabled(false);
@@ -320,8 +339,13 @@ void page2::updateTime()
         if (seconds2 == 20 ){
              buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/rsi.png)");
              basket[number]->show();
+
              seconds2 = 0;
+             if(sw==1){
              cultivations = "0";
+             secondscount=0;
+             sw=0;
+             }
              if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
                  stream2 << cultivations;
                  cultivation.close();
@@ -329,24 +353,18 @@ void page2::updateTime()
                  QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
              }
         }
-//                 if(secondscount==25||secondscount==30||secondscount==35){
-//                    ui->label->show();
-//                    int coin;
-//                    QFile file("D:/faz2/faz2/coin.txt");
-//                    QTextStream in(&file);
-//                    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-//                        in>>coin;
-//                        file.close();
-//                    }else{
-//                        QMessageBox::warning(this,"EROR","فایل باز نشد");                   // اگر فایل باز نشده باشد ارور میدهد
-//                    }
-//                    coin--;
-//                    if(secondscount==35){
-//                        secondscount=0;
-//                        coin++;
-//                    }
-//                    outcoin(coin);
-//                }
+                 if(secondscount==25||secondscount==30||secondscount==35){
+                    if(sw==0){
+                    ui->label->show();
+                    int coin =incoin();
+                    coin--;
+                    if(secondscount==35){
+                        secondscount=0;
+                        coin++;
+                    }
+                    outcoin(coin);
+                    }
+                }
     }
     else if(cultivations=="chicken"){
 //        updatechicken();
@@ -594,6 +612,7 @@ void page2::on_pushButton_5_clicked()
 void page2::on_pushButton_basket_clicked()
 {
     int number;
+    sw=1;
     QFile numbers("D:/faz2/faz2/number.txt");
     QTextStream in1(&numbers);
 
@@ -769,5 +788,12 @@ void page2::on_pushButton_9_clicked()
     }
     mland* MLAND = new mland();
     MLAND ->show();
+}
+
+
+void page2::on_pushButton_Butcher_clicked()
+{
+    Butcher* BUTCHER = new Butcher();
+    BUTCHER->show();
 }
 

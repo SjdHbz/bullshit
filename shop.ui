@@ -36,7 +36,7 @@
      <enum>QTabWidget::North</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1546,6 +1546,16 @@ QPushButton:hover{
     </property>
     <property name="text">
      <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_coins_2">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>240</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
     </property>
    </widget>
   </widget>

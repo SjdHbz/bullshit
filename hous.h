@@ -17,6 +17,10 @@ public:
     ~hous();
 
 private slots:
+    void outcoin(int coin);
+
+    int incoin();
+
     void on_pushButton_chicken_clicked();
 
     void on_spinBox_chicken_valueChanged(int arg1);

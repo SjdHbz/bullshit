@@ -37,6 +37,8 @@ private slots:
 
     void outcoin(int coin);
 
+    int incoin();
+
     void basketss(int pric);
 
     void on_pushButton_3_clicked();
@@ -65,13 +67,15 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_pushButton_Butcher_clicked();
+
 private:
     Ui::page2 *ui;
     QTimer *timer;
     QTimer *wheat;
     QElapsedTimer elapsedTimer;
     QElapsedTimer elapsedwheat;
-    int sw;
+    int sw = 0;
     int play = 1;
 
 
