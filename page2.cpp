@@ -20,6 +20,13 @@
 #include "sheep.h"
 #include "QMap"
 #include "butcher.h"
+#include <QSqlDatabase>
+#include "QSqlDriver"
+#include "QSqlQuery"
+#include "QSqlQueryModel"
+#include "QString"
+#include "QSqlQuery"
+
 page2::page2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::page2)
@@ -54,7 +61,6 @@ page2::page2(QWidget *parent) :
     timer = new QTimer(this);
     connect(timer,&QTimer::timeout,this,&page2::updateTime);
     timer->start(1000);
-
 }
 
 
@@ -304,7 +310,6 @@ void page2::updateTime()
     basket[2]=ui->pushButton_basket_2;
     static int seconds = 0;
     seconds++;
-    int players=0;
     QString cultivations;
     QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
     QTextStream stream2(&cultivation);
@@ -474,7 +479,7 @@ void page2::updateTime()
 
 
 
-
+    static int players=0;
     QFile player("D:/faz2/faz2/fils/number_of_players.txt");
     QTextStream stream1(&player);
     if(player.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -487,13 +492,101 @@ void page2::updateTime()
     if (seconds == 180 && play<=players)                                            // check if 3 minutes have passed
     {
         seconds = 0;
-        play++;
         elapsedTimer.restart();
         QString message = QString("Your turn is over").arg(play);
         QMessageBox::information(this,"Finsh",message);
+        QString Username;
+        QSqlDatabase database;
+        database=QSqlDatabase::addDatabase("QSQLITE");
+        database.setDatabaseName("d:///database.db");                                 //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
+        if(database.open()){
+            QSqlQuery qury;
+            QString pric =  QString::number(play);
+            if(qury.exec("SELECT Username From Loginpaigah WHERE number='"+pric+"' ")){
+                if(qury.next()){
+                    Username = qury.value(0).toString();
+                    ui->lineEdit_2->setText(Username);
+                }
+            }
+            database.close();
+        }else {
+          qDebug() << "failed db.";
+        }
+        QSqlDatabase score;
+        int coin = incoin();
+        QString coins=QString::number(coin);
+        QString numbr=QString::number(play);
+        ui->lineEdit->setText(coins);
+        score =QSqlDatabase::addDatabase("QSQLITE");
+        score.setDatabaseName("d:///score.db");                                           //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
+        score.open();
+        score.exec("INSERT INTO username(UserName,Score,number)VALUES('"+Username+"','"+coins+"','"+numbr+"')");
+        score.close();
+
+        play++;
         ui->label_player->setText("Login Page Player" + QString::number(play));
         refresh();
-    }else{
+
+    }else if (play>players && pos==0){
+        QString Username[10];
+        QString scor;
+        int scr[10];
+
+        QSqlDatabase scores;
+        scores=QSqlDatabase::addDatabase("QSQLITE");
+        scores.setDatabaseName("d:///score.db");                                 //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
+        for(int i = 1; i < play ; i++){
+        if(scores.open()){
+            QSqlQuery qury;
+            QString pric =  QString::number(i);
+            if(qury.exec("SELECT Username From username WHERE number='"+pric+"' ")){
+                if(qury.next()){
+                    Username[i] = qury.value(0).toString();
+                }
+            }
+            scores.close();
+        }else {
+          qDebug() << "failed db.";
+        }
+
+        if(scores.open()){
+            QSqlQuery qury;
+            QString pric =  QString::number(i);
+            if(qury.exec("SELECT Score From username WHERE number='"+pric+"' ")){
+                if(qury.next()){
+                    scor = qury.value(0).toString();
+                    scr[i]=scor.toInt();
+                }
+            }
+            scores.close();
+        }else {
+          qDebug() << "failed db.";
+        }
+        ui->lineEdit->setText(QString::number(scr[i]));
+        }
+        for(int i = 1; i <= play ; ++i){
+            for(int j = 1; j<= play-i; j++){
+                if (scr[j]<scr[j+1]){
+                    int tmp = scr[j];
+                    QString tp = Username[j];
+                    scr[j]=scr[j+1];
+                    Username[j]=Username[j+1];
+                    scr[j+1]=tmp;
+                    Username[j+1]=tp;
+                }
+            }
+            QSqlDatabase score;
+            pos=1;
+            QString coins=QString::number(scr[i]);
+            QString numbr=QString::number(i);
+            score =QSqlDatabase::addDatabase("QSQLITE");
+            score.setDatabaseName("d:///scoretartib.db");                                           //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
+            score.open();
+            score.exec("INSERT INTO username(UserName,Score)VALUES('"+Username[i]+"','"+coins+"')");
+            score.close();
+        }
+
+
 
     }
     int minutes = seconds / 60;
@@ -818,4 +911,7 @@ void page2::on_pushButton_Butcher_clicked()
     Butcher* BUTCHER = new Butcher();
     BUTCHER->show();
 }
+
+
+
 

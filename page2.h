@@ -73,6 +73,7 @@ private slots:
 
     void on_pushButton_Butcher_clicked();
 
+
 private:
     Ui::page2 *ui;
     QTimer *timer;
@@ -81,7 +82,7 @@ private:
     QElapsedTimer elapsedwheat;
     int sw = 0;
     int play = 1;
-
+    int pos=0;
 
 
 };

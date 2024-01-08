@@ -24,7 +24,7 @@ QString UserName;           //استرینگ یوزر نیم
 QString inventory;          //استرینگ موجودی
 QString phone;              //استرینگ شماره تلفن
 QString actual;             //استرینگ کد کپچا
-
+QString numbr;
 QMediaPlayer *player = new
 QMediaPlayer;
 page1::page1(QWidget *parent)
@@ -54,7 +54,7 @@ page1::page1(QWidget *parent)
     ui->radioButton->hide();
     QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName("D:/faz2/faz2/datafil/paigafaz12.db");
+    database.setDatabaseName("d:///database.db");                                 //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
     database.open();
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
     ui->lineEdit_3->setEnabled(false);
@@ -188,16 +188,16 @@ void page1::on_pushButton_clicked()         //گزینه لاگین
         QMessageBox::warning(this,"EROR","You have not entered an inventory");
         ema=0;
     }
-    QString compare= ui->lineEdit_2->text();
+    QString compare = ui->lineEdit_2->text();
     ui->lineEdit_2->setText(actual);
-    if(compare!=actual){
+    if(compare == actual){
         QMessageBox::warning(this,"EROR","The captcha code was entered incorrectly");
         ui->lineEdit_2->clear();
         ema=0;
     }
     if(ema==1 ){
-        if(play<=players){
-        play++;
+        if(play<=players){    
+        numbr =QString::number(play);
         QSqlQuery paigah;
         email=ui->lineEdit_3->text();
         paswors=ui->lineEdit_4->text();             //ریختن متغیر ها داخل کلاس گیرنده معلومات
@@ -205,8 +205,8 @@ void page1::on_pushButton_clicked()         //گزینه لاگین
         phone = ui->lineEdit_7->text();
         inventory  = ui->lineEdit_6->text();            //تبدیل موجودی از حالت استرینگ به اینت
         //fsaاضافه کردن به داده بایگاه
-        paigah.exec("INSERT INTO Loginpaigah(Email,Pasword,Username,Inventory,Phone)VALUES('"+email+"','"+paswors+"','"+UserName+"','"+inventory+"','"+phone+"')");
-
+        paigah.exec("INSERT INTO Loginpaigah(Email,Pasword,Username,Inventory,Phone,number)VALUES('"+email+"','"+paswors+"','"+UserName+"','"+inventory+"','"+phone+"','"+numbr+"')");
+        play++;
         ui->lineEdit_3->clear();
         ui->lineEdit_3->setEnabled(false);
         ui->lineEdit_4->clear();          //اگر رمز و ایمیل به درستی وارد شد دسترسی به هردوی ان ها را میگیرد

@@ -13,6 +13,7 @@ SOURCES += \
     butcher.cpp \
     chicken.cpp \
     cow.cpp \
+    finish.cpp \
     hous.cpp \
     land.cpp \
     main.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     butcher.h \
     chicken.h \
     cow.h \
+    finish.h \
     hous.h \
     land.h \
     mland.h \
@@ -40,6 +42,7 @@ FORMS += \
     butcher.ui \
     chicken.ui \
     cow.ui \
+    finish.ui \
     hous.ui \
     land.ui \
     mland.ui \
@@ -55,5 +58,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    finishpag.qrc \
     hous.qrc \
     imags.qrc
