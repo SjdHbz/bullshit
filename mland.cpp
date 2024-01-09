@@ -103,8 +103,6 @@ void mland::on_pushButton_2_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_wheat>0){
-        number_of_wheat--;
-        ui->label_wheat->setText(QString::number(number_of_wheat));
         QString cultivations="wheat";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
         QTextStream stream2(&cultivation);
@@ -123,12 +121,7 @@ void mland::on_pushButton_2_clicked()
          }else{
              QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
          }
-         if(wheat.open(QIODevice::WriteOnly | QIODevice::Text)){
-               stream7 << number_of_wheat;
-               wheat.close();
-         }else{
-             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-         }
+
     }
     else{
         QMessageBox::warning(this,"EROR","You don't have enough wheat");                        // Declaring an error in terms of the number of wheat
@@ -149,7 +142,6 @@ void mland::on_pushButton_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_corn>0){
-        number_of_corn--;
         ui->label_corn->setText(QString::number(number_of_corn));
         QString cultivations="corn";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
@@ -166,12 +158,6 @@ void mland::on_pushButton_clicked()
         if(basket.open(QIODevice::WriteOnly | QIODevice::Text)){
             stream1 << baskets;
             basket.close();
-        }else{
-            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-        }
-        if(corn.open(QIODevice::WriteOnly | QIODevice::Text)){
-              stream8 << number_of_corn;
-              corn.close();
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
@@ -194,7 +180,6 @@ void mland::on_pushButton_6_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_cow>0){
-        number_of_cow--;
         ui->label_cow->setText(QString::number(number_of_cow));
         QString cultivations="cow";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
@@ -211,12 +196,6 @@ void mland::on_pushButton_6_clicked()
         if(basket.open(QIODevice::WriteOnly | QIODevice::Text)){
             stream1 << baskets;
             basket.close();
-        }else{
-            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-        }
-        if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
-              stream8 << number_of_cow;
-              cow.close();
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
@@ -239,7 +218,6 @@ void mland::on_pushButton_7_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_chicken>0){
-        number_of_chicken--;
         ui->label_chicken->setText(QString::number(number_of_chicken));
         QString cultivations="chicken";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
@@ -259,12 +237,6 @@ void mland::on_pushButton_7_clicked()
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
-        if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
-              stream8 << number_of_chicken;
-              chicken.close();
-        }else{
-            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-        }
     }else{
         QMessageBox::warning(this,"EROR","You don't have enough chicken");                  // Declaring an error in terms of the number of chicken
      }
@@ -275,7 +247,15 @@ void mland::on_pushButton_10_clicked()
 {
     QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     QTextStream stream8(&sheep);
-
+    int sheeplan=0;
+    QFile sheeplans("D:/faz2/faz2/fils/sheeplan.txt");
+    QTextStream stream9(&sheeplans);
+    if(sheeplans.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream9 >> sheeplan;
+        sheeplans.close();
+    }else{
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+    }
     int number_of_sheep= 0;
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         stream8 >> number_of_sheep;
@@ -284,7 +264,7 @@ void mland::on_pushButton_10_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(number_of_sheep>0){
-        number_of_sheep--;
+        sheeplan++;
         ui->label_sheep->setText(QString::number(number_of_sheep));
         QString cultivations="sheep";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
@@ -304,9 +284,9 @@ void mland::on_pushButton_10_clicked()
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
-        if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
-              stream8 << number_of_sheep;
-              sheep.close();
+        if(sheeplans.open(QIODevice::WriteOnly | QIODevice::Text)){
+            stream9 << baskets;
+            basket.close();
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }

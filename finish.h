@@ -15,6 +15,7 @@ public:
     explicit finish(QWidget *parent = nullptr);
     ~finish();
 
+
 private:
     Ui::finish *ui;
 };

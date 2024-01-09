@@ -18,6 +18,7 @@
 #include "QTextStream"
 #include "QMessageBox"
 #include "sheep.h"
+#include "finish.h"
 #include "QMap"
 #include "butcher.h"
 #include <QSqlDatabase>
@@ -98,7 +99,7 @@ void page2::refresh()
        QTextStream out12(&sheep_milk);
        QTextStream out13(&sheep_mat);
 
-       int coin = 200;
+       int coin = 10;
        if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
            out<<coin;
            file.close();
@@ -426,6 +427,26 @@ void page2::updateTime()
     else if(cultivations=="sheep"){
         static int seconds4 = 0;
         seconds4++;
+        int sheeplan=0;
+        int number_of_sheep=0;
+        QFile sheeplans("D:/faz2/faz2/fils/sheeplan.txt");
+        QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
+
+        QTextStream stream9(&sheeplans);
+        QTextStream stream8(&sheep);
+
+        if(sheeplans.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream9 >> sheeplan;
+            sheeplans.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
+        if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream9 >> number_of_sheep;
+            sheep.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
         if(seconds4 == 1){
             buttonmap[number]->setEnabled(false);
             buttonmap[number]->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
@@ -434,13 +455,15 @@ void page2::updateTime()
             cows[number]->setStyleSheet("border-image: url(:/new/prefix1/imagfil/sheepgoat.png)");
         }
         if (seconds4 == 15 ){
+            if(sheeplan>number_of_sheep){
+                cultivations = "0";
+                sheeplan--;
+            }
              basket[number]->show();
              milk[number]->show();
              milk[number]->setStyleSheet("");
              milk[number]->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
-
              seconds4 = 0;
-             cultivations = "0";
              if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
                  stream2 << cultivations;
                  cultivation.close();
@@ -489,7 +512,7 @@ void page2::updateTime()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
 
-    if (seconds == 180 && play<=players)                                            // check if 3 minutes have passed
+    if (seconds == 10 && play<=players)                                                    // check if 3 minutes have passed
     {
         seconds = 0;
         elapsedTimer.restart();
@@ -502,7 +525,7 @@ void page2::updateTime()
         if(database.open()){
             QSqlQuery qury;
             QString pric =  QString::number(play);
-            if(qury.exec("SELECT Username From Loginpaigah WHERE number='"+pric+"' ")){
+            if(qury.exec("SELECT Username FROM Loginpaigah WHERE number='"+pric+"' ")){
                 if(qury.next()){
                     Username = qury.value(0).toString();
                     ui->lineEdit_2->setText(Username);
@@ -535,11 +558,11 @@ void page2::updateTime()
         QSqlDatabase scores;
         scores=QSqlDatabase::addDatabase("QSQLITE");
         scores.setDatabaseName("d:///score.db");                                 //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
-        for(int i = 1; i < play ; i++){
+        for(int i = 0; i < play ; i++){
         if(scores.open()){
             QSqlQuery qury;
             QString pric =  QString::number(i);
-            if(qury.exec("SELECT Username From username WHERE number='"+pric+"' ")){
+            if(qury.exec("SELECT Username FROM username WHERE number='"+pric+"' ")){
                 if(qury.next()){
                     Username[i] = qury.value(0).toString();
                 }
@@ -552,7 +575,7 @@ void page2::updateTime()
         if(scores.open()){
             QSqlQuery qury;
             QString pric =  QString::number(i);
-            if(qury.exec("SELECT Score From username WHERE number='"+pric+"' ")){
+            if(qury.exec("SELECT Score FROM username WHERE number='"+pric+"' ")){
                 if(qury.next()){
                     scor = qury.value(0).toString();
                     scr[i]=scor.toInt();
@@ -564,8 +587,8 @@ void page2::updateTime()
         }
         ui->lineEdit->setText(QString::number(scr[i]));
         }
-        for(int i = 1; i <= play ; ++i){
-            for(int j = 1; j<= play-i; j++){
+        for(int i = 0; i < play-1 ; ++i){
+            for(int j = 0; j< play-i-1; ++j){
                 if (scr[j]<scr[j+1]){
                     int tmp = scr[j];
                     QString tp = Username[j];
@@ -584,16 +607,34 @@ void page2::updateTime()
             score.open();
             score.exec("INSERT INTO username(UserName,Score)VALUES('"+Username[i]+"','"+coins+"')");
             score.close();
+
         }
 
-
+        finish* FINISH = new finish();
+        FINISH->show();
 
     }
     int minutes = seconds / 60;
     int remainingSeconds = seconds % 60;
     ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
 
+    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
 
+    QTextStream stream8(&sheep);
+
+    int number_of_sheep= 0;
+    if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream8 >> number_of_sheep;
+        sheep.close();
+    }else{
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+    }
+    if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
+          stream8 << number_of_sheep;
+          sheep.close();
+    }else{
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+    }
 
     QFile file("D:/faz2/faz2/fils/coin.txt");
     QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
@@ -605,10 +646,9 @@ void page2::updateTime()
     QTextStream in(&file);
     QTextStream stream(&worker);
     QTextStream in2(&land);
-
+    int number_of_land;
     int coin;
     int number_of_worker;
-    int number_of_land;
     in >> coin;
     stream >> number_of_worker;
     in2 >> number_of_land;
@@ -618,6 +658,9 @@ void page2::updateTime()
     ui->lineEdit_worker->setText(" = " + QString::number(number_of_worker));
     ui->lineEdit_land->setText(" = " + QString::number(number_of_land));
 
+//    if(number_of_sheep){
+
+//    }
 }
 
 
@@ -841,23 +884,7 @@ void page2::on_pushButton_basket_clicked()
     }
     if(baskets == "sheep" ){
         basketss(3);
-        QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
-        QTextStream stream8(&sheep);
 
-        int number_of_sheep= 0;
-        if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
-            stream8 >> number_of_sheep;
-            sheep.close();
-        }else{
-            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-        }
-        number_of_sheep++;
-        if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
-              stream8 << number_of_sheep;
-              sheep.close();
-        }else{
-            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-        }
     }
     if(baskets == "chicken" ){
         basketss(3);
