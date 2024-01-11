@@ -92,17 +92,11 @@ void land::on_pushButton_land_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
-    number_of_land += selectedQuantity;
-    if (land.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        out << number_of_land;
-        land.close();
-    }else {
-        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-        return;
-    }
+
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                                // کم کردن سکه‌ها
-                                                                                          // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        number_of_land += selectedQuantity;
+                                                                                        // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;
@@ -113,7 +107,6 @@ void land::on_pushButton_land_clicked()
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
       }
-        // تاکید بر نکاتی برای UI
         ui->spinBox_land->setValue(0); // تنظیم مقدار spinBox به 0
         ui->lineEdit_coin->setText(QString::number(coin));
         ui->lineEdit_land->clear();
@@ -121,7 +114,14 @@ void land::on_pushButton_land_clicked()
                                                                                              // اعلام خطا از نظر تعداد سکه
            QMessageBox::warning(this, "ERROR", "You don't have enough coins");                  // Declaring an error in terms of the number of coins
 
-    }
+        }
+        if (land.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            out << number_of_land;
+            land.close();
+        }else {
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            return;
+        }
 
 }
 
@@ -130,6 +130,8 @@ void land::on_pushButton_worker_clicked()
 {
 
     int number_of_worker=0;
+    int workerlans=0;
+
     int coin;
     QFile file("D:/faz2/faz2/fils/coin.txt");
     QTextStream stream(&file);
@@ -143,6 +145,9 @@ void land::on_pushButton_worker_clicked()
     int selectedQuantity = ui->spinBox_worker->value();                                 // تعداد انتخاب شده توسط کاربر از spinBox
     int totalPrice = selectedQuantity * 5;                                              // محاسبه مجموعه آن جنس
     QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
+    QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+    QTextStream stream1(&workerlan);
+
     QTextStream in(&worker);
     QTextStream out(&worker);
     if(worker.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -152,17 +157,16 @@ void land::on_pushButton_worker_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
-    number_of_worker += selectedQuantity;
-    if (worker.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        out << number_of_worker;
-        worker.close();
-    }else {
+    if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream1 >> workerlans;
+        workerlan.close();
+    }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                                 // کم کردن سکه‌ها
-                                                                                            // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        number_of_worker += selectedQuantity;                                                                                     // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;
@@ -173,7 +177,20 @@ void land::on_pushButton_worker_clicked()
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
       }
-                                                                                                     // تاکید بر نکاتی برای UI
+        if (worker.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            out << number_of_worker;
+            worker.close();
+        }else {
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            return;
+        }
+        if (workerlan.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            stream1 << workerlans;
+            workerlan.close();
+        }else {
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            return;
+        }                                                                                            // تاکید بر نکاتی برای UI
         ui->spinBox_worker->setValue(0); // تنظیم مقدار spinBox به 0
         ui->lineEdit_coin->setText(QString::number(coin));
         ui->lineEdit_worker->clear();

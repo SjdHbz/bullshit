@@ -74,6 +74,56 @@ private slots:
     void on_pushButton_Butcher_clicked();
 
 
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_14_clicked();
+
+    void on_pushButton_15_clicked();
+
+    void on_pushButton_16_clicked();
+
+    void on_pushButton_17_clicked();
+
+    void on_pushButton_19_clicked();
+
+    void on_pushButton_24_clicked();
+
+    void on_pushButton_23_clicked();
+
+    void on_pushButton_22_clicked();
+
+    void on_pushButton_21_clicked();
+
+    void on_pushButton_20_clicked();
+
+    void on_pushButton_18_clicked();
+
+    void on_pushButton_look_2_clicked();
+
+    void on_pushButton_look_3_clicked();
+
+    void on_pushButton_look_4_clicked();
+
+    void on_pushButton_look_5_clicked();
+
+    void on_pushButton_look_6_clicked();
+
+    void on_pushButton_look_7_clicked();
+
+    void on_pushButton_look_8_clicked();
+
+    void on_pushButton_look_9_clicked();
+
+    void on_pushButton_look_10_clicked();
+
+    void on_pushButton_look_11_clicked();
+
+    void on_pushButton_look_12_clicked();
+
+    void on_pushButton_look_13_clicked();
+
+    void on_pushButton_look_14_clicked();
+
 private:
     Ui::page2 *ui;
     QTimer *timer;

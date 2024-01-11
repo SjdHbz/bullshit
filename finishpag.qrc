@@ -1,2 +1,5 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>imagfil/Lovepik_com-610122595-25d cute convenience storechap.png</file>
+    </qresource>
+</RCC>

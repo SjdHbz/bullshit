@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>imagfil/Lovepik_com-610122595-25d cute convenience storechap.png</file>
+        <file>imagfil/Lovepik_com-610122595-25d cute convenience storerast.png</file>
+        <file>imagfil/Lovepik_com-610122595-25d cute convenience storebala.png</file>
+        <file>imagfil/Lovepik_com-610122595-25d cute convenience store.png</file>
+    </qresource>
+</RCC>

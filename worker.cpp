@@ -3,11 +3,18 @@
 #include "QFile"
 #include "QTextStream"
 #include "QMessageBox"
+#include "QMovie"
+#include "QLabel"
+#include "QApplication"
 worker::worker(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::worker)
 {
     ui->setupUi(this);
+    QMovie *movie = new QMovie("D:/faz2/faz2/imagfil/q2");
+    ui->label_worker->setMovie(movie);
+    movie->start();
+    ui->label_worker->show();
     player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/workrvoic.mp3"));
     player->setVolume(100);
     player->play();

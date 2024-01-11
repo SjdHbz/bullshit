@@ -59,5 +59,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     finishpag.qrc \
+    gif.qrc \
     hous.qrc \
-    imags.qrc
+    imags.qrc \
+    look.qrc \
+    strrt.qrc
