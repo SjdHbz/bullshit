@@ -12,8 +12,8 @@ cow::cow(QWidget *parent) :
     player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/cow_voic.mp3"));
     player->setVolume(100);
     player->play();
-    int number_of_cow;
-    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
+    int number_of_cow=0;
+    QFile cow("D:/faz2/faz2/fils/cowland.txt");
     QTextStream in(&cow);
     if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_cow;

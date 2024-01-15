@@ -22,6 +22,10 @@ public:
 private slots:
     void on_toolButton_clicked();
 
+    int infile(QString fils);
+
+    void outfil(QString fils , int coin);
+
 //    void on_pushButton_5_clicked();
 
 //    void updateTime();
@@ -40,6 +44,7 @@ private:
     Ui::mland *ui;
     QMediaPlayer *player = new
     QMediaPlayer;
+    int number=0;
 //    QTimer *timer;
 //    QElapsedTimer elapsedTimer;
 };

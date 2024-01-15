@@ -15,8 +15,8 @@ sheep::sheep(QWidget *parent) :
     player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/sheepsound.mp3"));
     player->setVolume(100);
     player->play();
-    int number_of_sheep;
-    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
+    int number_of_sheep=0;
+    QFile sheep("D:/faz2/faz2/fils/sheeplan.txt");
     QTextStream in(&sheep);
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_sheep;

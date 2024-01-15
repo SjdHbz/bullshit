@@ -12,8 +12,8 @@ chicken::chicken(QWidget *parent) :
     player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/chicknvoic.mp3"));
     player->setVolume(100);
     player->play();
-    int number_of_chicken;
-    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
+    int number_of_chicken=0;
+    QFile chicken("D:/faz2/faz2/fils/chickenland.txt");
     QTextStream in(&chicken);
     if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_chicken;

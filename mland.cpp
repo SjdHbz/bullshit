@@ -3,6 +3,7 @@
 #include "QFile"
 #include "QTextStream"
 #include "QMessageBox"
+#include "time_land.h"
 mland::mland(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::mland)
@@ -75,7 +76,31 @@ mland::mland(QWidget *parent) :
 }
 
 
+int mland::infile(QString fils)
+{
+        int num;
+        QFile file(fils);
+        QTextStream in(&file);
+        if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            in >> num;
+            file.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
+        return num;
+}
 
+void mland::outfil(QString fils , int coin)
+{
+        QFile file(fils);
+        QTextStream out(&file);
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
+            out<<coin;
+            file.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
+}
 
 
 mland::~mland()
@@ -92,6 +117,7 @@ void mland::on_toolButton_clicked()
 
 void mland::on_pushButton_2_clicked()
 {
+
     QFile wheat("D:/faz2/faz2/fils/number_of_wheat.txt");
     QTextStream stream7(&wheat);
     QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
@@ -147,6 +173,22 @@ void mland::on_pushButton_2_clicked()
          }else{
              QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
          }
+
+
+
+         QFile numbers("D:/faz2/faz2/fils/number.txt");
+         QTextStream stream6(&numbers);
+         if(numbers.open(QIODevice::ReadOnly | QIODevice::Text)){
+               stream6 >> number;
+               numbers.close();
+         }else{
+             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+         }
+             time_land* f[14];
+             for(int i=0; i<14 ; i++){
+                 f[i]=new time_land;
+             }
+//         f[0]->getUI()->pushButton_12->setEnabled(false);
 
     }
     else{
@@ -220,7 +262,7 @@ void mland::on_pushButton_clicked()
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough corn");                   // Declaring an error in terms of the number of corn
+        QMessageBox::warning(this,"EROR","You don't have enough corn or worker");                   // Declaring an error in terms of the number of corn
      }
      if(corn.open(QIODevice::WriteOnly | QIODevice::Text)){
      stream8 << number_of_corn;
@@ -239,7 +281,8 @@ void mland::on_pushButton_6_clicked()
     QTextStream stream1(&workerlan);
     QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
     QTextStream stream2(&worker);
-
+    QString cowss="D:/faz2/faz2/fils/cowland.txt";
+    int cowland=infile(cowss);
     int number_of_worker=0;
     int workerlans=0;
     int number_of_cow = 0;
@@ -261,9 +304,10 @@ void mland::on_pushButton_6_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-    if(number_of_cow>0 && number_of_worker > workerlans){
+    if(number_of_cow>cowland && number_of_worker > workerlans){
         ui->label_cow->setText(QString::number(number_of_cow));
         workerlans++;
+        cowland++;
         QString cultivations="cow";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
         QTextStream stream2(&cultivation);
@@ -288,8 +332,9 @@ void mland::on_pushButton_6_clicked()
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
+        outfil(cowss,cowland);
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough cow");                  // Declaring an error in terms of the number of cow
+        QMessageBox::warning(this,"EROR","You don't have enough cow or worker");                  // Declaring an error in terms of the number of cow
      }
     if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
           stream8 << number_of_cow;
@@ -312,6 +357,8 @@ void mland::on_pushButton_7_clicked()
     int number_of_worker=0;
     int workerlans=0;
     int number_of_chicken= 0;
+    QString chiklan ="D:/faz2/faz2/fils/chickenland.txt";
+    int chickenland=infile(chiklan);
     if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
         stream8 >> number_of_chicken;
         chicken.close();
@@ -330,9 +377,10 @@ void mland::on_pushButton_7_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-    if(number_of_chicken>0 && number_of_worker > workerlans){
+    if(number_of_chicken>chickenland && number_of_worker > workerlans){
         ui->label_chicken->setText(QString::number(number_of_chicken));
         workerlans++;
+        chickenland++;
         QString cultivations="chicken";
         QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
         QTextStream stream2(&cultivation);
@@ -357,8 +405,9 @@ void mland::on_pushButton_7_clicked()
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
+        outfil(chiklan,chickenland);
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough chicken");                  // Declaring an error in terms of the number of chicken
+        QMessageBox::warning(this,"EROR","You don't have enough chicken or worker");                  // Declaring an error in terms of the number of chicken
      }
     if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
           stream8 << number_of_chicken;
@@ -380,6 +429,7 @@ void mland::on_pushButton_10_clicked()
 
     int number_of_worker=0;
     int workerlans=0;
+    int number_of_sheep= 0;
     int sheeplan=0;
     QFile sheeplans("D:/faz2/faz2/fils/sheeplan.txt");
     QTextStream stream9(&sheeplans);
@@ -389,7 +439,7 @@ void mland::on_pushButton_10_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-    int number_of_sheep= 0;
+
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         stream8 >> number_of_sheep;
         sheep.close();
@@ -408,7 +458,7 @@ void mland::on_pushButton_10_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-    if(number_of_sheep>0 && number_of_worker > workerlans){
+    if(number_of_sheep>sheeplan && number_of_worker > workerlans){
         sheeplan++;
         ui->label_sheep->setText(QString::number(number_of_sheep));
         workerlans++;
@@ -437,13 +487,13 @@ void mland::on_pushButton_10_clicked()
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
         if(sheeplans.open(QIODevice::WriteOnly | QIODevice::Text)){
-            stream9 << baskets;
-            basket.close();
+            stream9 << sheeplan;
+            sheeplans.close();
         }else{
             QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         }
     }else{
-        QMessageBox::warning(this,"EROR","You don't have enough sheep");                   // Declaring an error in terms of the number of sheep
+        QMessageBox::warning(this,"EROR","You don't have enough sheep or worker");                   // Declaring an error in terms of the number of sheep
      }
     if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
           stream8 << number_of_sheep;
