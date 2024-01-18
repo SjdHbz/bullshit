@@ -133,8 +133,6 @@ private:
     int sw = 0;
     int play = 1;
     int pos=0;
-    int number[7][2];
-
 
 };
 
