@@ -9,10 +9,7 @@ mland::mland(QWidget *parent) :
     ui(new Ui::mland)
 {
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/lansvoic.mp3"));
-    player->setVolume(100);
-    player->play();
-    int number_of_land;
+    int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
     QTextStream in(&land);
     if(land.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -78,6 +75,9 @@ mland::mland(QWidget *parent) :
 
 int mland::infile(QString fils)
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
         int num;
         QFile file(fils);
         QTextStream in(&file);
@@ -92,6 +92,9 @@ int mland::infile(QString fils)
 
 void mland::outfil(QString fils , int coin)
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
         QFile file(fils);
         QTextStream out(&file);
         if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
@@ -110,7 +113,6 @@ mland::~mland()
 
 void mland::on_toolButton_clicked()
 {
-    player->stop();
 }
 
 

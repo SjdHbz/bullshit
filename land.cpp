@@ -167,6 +167,9 @@ void land::on_pushButton_worker_clicked()
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                                 // کم کردن سکه‌ها
         number_of_worker += selectedQuantity;                                                                                     // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+        coin_voice->setVolume(100);
+        coin_voice->play();
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream out(&file);
             out << coin;

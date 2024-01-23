@@ -90,6 +90,8 @@ private:
     Ui::shop *ui;
     QMediaPlayer *player = new
     QMediaPlayer;
+    QMediaPlayer *coin_voice = new
+    QMediaPlayer;
 };
 
 #endif // SHOP_H

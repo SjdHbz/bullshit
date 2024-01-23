@@ -12,7 +12,7 @@ Butcher::Butcher(QWidget *parent) :
     int coin = incoin();
     ui->lineEdit_coins->setText(QString::number(coin));
 
-    int number_of_chicken;
+    int number_of_chicken=0;
     QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
     QTextStream in(&chicken);
     if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -23,7 +23,7 @@ Butcher::Butcher(QWidget *parent) :
     }
     ui->label_Chicken_Meat->setText(QString::number(number_of_chicken));
 
-    int number_of_cow;
+    int number_of_cow=0;
     QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
     QTextStream in1(&cow);
     if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -34,7 +34,7 @@ Butcher::Butcher(QWidget *parent) :
     }
     ui->label_cow_Meat->setText(QString::number(number_of_cow));
 
-    int number_of_sheep;
+    int number_of_sheep=0;
     QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     QTextStream in2(&sheep);
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -64,7 +64,8 @@ void Butcher::outcoin(int coin)
 
 int Butcher::incoin()
 {
-        int coin;
+
+        int coin=0;
         QFile file("D:/faz2/faz2/fils/coin.txt");
         QTextStream in(&file);
         if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -77,6 +78,12 @@ int Butcher::incoin()
 }
 
 
+void Butcher::coin_voices(){
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
+}
+
 Butcher::~Butcher()
 {
     delete ui;
@@ -84,7 +91,7 @@ Butcher::~Butcher()
 
 void Butcher::on_pushButton_kill_Chicken_clicked()
 {
-    int number_of_chicken;
+    int number_of_chicken=0;
     int coin = incoin();
     QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
     QTextStream in(&chicken);
@@ -100,6 +107,7 @@ void Butcher::on_pushButton_kill_Chicken_clicked()
         number_of_chicken--;
         coin += 2;
         outcoin(coin);
+        coin_voices();
     }
     if(chicken.open(QIODevice::WriteOnly | QIODevice::Text)){
         out << number_of_chicken;
@@ -114,7 +122,7 @@ void Butcher::on_pushButton_kill_Chicken_clicked()
 
 void Butcher::on_pushButton_kill_cow_clicked()
 {
-    int number_of_cow;
+    int number_of_cow=0;
     int coin = incoin();
     QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
     QTextStream in(&cow);
@@ -130,6 +138,7 @@ void Butcher::on_pushButton_kill_cow_clicked()
         number_of_cow--;
         coin += 6;
         outcoin(coin);
+        coin_voices();
     }
     if(cow.open(QIODevice::WriteOnly | QIODevice::Text)){
         out << number_of_cow;
@@ -144,7 +153,7 @@ void Butcher::on_pushButton_kill_cow_clicked()
 
 void Butcher::on_pushButton_kill_Sheep_clicked()
 {
-    int number_of_sheep;
+    int number_of_sheep=0;
     int coin = incoin();
     QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     QTextStream in(&sheep);
@@ -160,6 +169,7 @@ void Butcher::on_pushButton_kill_Sheep_clicked()
         number_of_sheep--;
         coin += 4;
         outcoin(coin);
+        coin_voices();
     }
     if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
         out << number_of_sheep;

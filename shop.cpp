@@ -289,7 +289,9 @@ void shop::on_pushButton_chicken_clicked()
     }
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                                   // کم کردن سکه‌ها
-                                                                                            // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
+        coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+        coin_voice->setVolume(100);
+        coin_voice->play();                                                                                    // ذخیره تعداد سکه‌های باقی‌مانده در فایل متنی
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             out1 << coin;
@@ -338,7 +340,9 @@ void shop::on_pushButton_cow_clicked(){
     }
     if (coin >= totalPrice) {
         coin -= totalPrice; // کم کردن سکه‌ها
-                                                                             // Save the number of remaining coins in the text file
+        coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+        coin_voice->setVolume(100);
+        coin_voice->play();                                                                     // Save the number of remaining coins in the text file
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             out1 << coin;
@@ -389,7 +393,9 @@ void shop::on_pushButton_sheep_clicked()
     }
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                                 // Subtract coins
-                                                                                           // Save the number of remaining coins in the text file
+        coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+        coin_voice->setVolume(100);
+        coin_voice->play();                                                                                   // Save the number of remaining coins in the text file
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             out1 << coin;
@@ -438,7 +444,9 @@ void shop::on_pushButton_wheat_buy_clicked()
     }
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                            // Subtract coins
-                                                                                      // Save the number of remaining coins in the text file
+        coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+        coin_voice->setVolume(100);
+        coin_voice->play();                                                                              // Save the number of remaining coins in the text file
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             out1<< coin;
@@ -486,7 +494,9 @@ void shop::on_pushButton_cron_buy_clicked()
     }
     if (coin >= totalPrice) {
         coin -= totalPrice;                                                                     // کم کردن سکه‌ها
-                                                                                       // Save the number of remaining coins in the text file
+        coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+        coin_voice->setVolume(100);
+        coin_voice->play();                                                                               // Save the number of remaining coins in the text file
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             out1 << coin;

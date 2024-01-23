@@ -41,6 +41,9 @@ page2::page2(QWidget *parent) :
     ui(new Ui::page2)
 {    
     ui->setupUi(this);
+    player->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/lansvoic.mp3"));
+    player->setVolume(100);
+    player->play();
 //    time_land* f[14];
 //    for(int i=0; i<14 ; i++){
 //        f[i]=new time_land(ui,this);
@@ -1490,6 +1493,9 @@ void page2::on_pushButton_18_clicked()
 
 void page2::on_pushButton_look_2_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1525,6 +1531,9 @@ void page2::on_pushButton_look_2_clicked()
 
 void page2::on_pushButton_look_3_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1559,6 +1568,9 @@ void page2::on_pushButton_look_3_clicked()
 
 void page2::on_pushButton_look_4_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1588,11 +1600,15 @@ void page2::on_pushButton_look_4_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
         return;
     }
+
 }
 
 
 void page2::on_pushButton_look_5_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1627,6 +1643,9 @@ void page2::on_pushButton_look_5_clicked()
 
 void page2::on_pushButton_look_6_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1661,6 +1680,9 @@ void page2::on_pushButton_look_6_clicked()
 
 void page2::on_pushButton_look_7_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1695,6 +1717,9 @@ void page2::on_pushButton_look_7_clicked()
 
 void page2::on_pushButton_look_8_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1729,6 +1754,9 @@ void page2::on_pushButton_look_8_clicked()
 
 void page2::on_pushButton_look_9_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1763,6 +1791,9 @@ void page2::on_pushButton_look_9_clicked()
 
 void page2::on_pushButton_look_10_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1797,12 +1828,16 @@ void page2::on_pushButton_look_10_clicked()
 
 void page2::on_pushButton_look_11_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
     QTextStream in(&land);
     QTextStream out(&land);
-    if(land.open(QIODevice::ReadOnly | QIODevice::Text)){
+    if(
+            land.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_land;
         land.close();
     }else{
@@ -1831,6 +1866,9 @@ void page2::on_pushButton_look_11_clicked()
 
 void page2::on_pushButton_look_12_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1865,6 +1903,9 @@ void page2::on_pushButton_look_12_clicked()
 
 void page2::on_pushButton_look_13_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");
@@ -1898,6 +1939,9 @@ void page2::on_pushButton_look_13_clicked()
 
 void page2::on_pushButton_look_14_clicked()
 {
+    coin_voice->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/coin.mp3"));
+    coin_voice->setVolume(100);
+    coin_voice->play();
     int coin = incoin();
     int number_of_land=0;
     QFile land("D:/faz2/faz2/fils/number_of_land.txt");

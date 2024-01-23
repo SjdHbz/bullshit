@@ -7,6 +7,7 @@
 #include "QMap"
 #include "QPushButton"
 #include "QLabel"
+#include"QMediaPlayer"
 namespace Ui {
 class page2;
 }
@@ -127,6 +128,11 @@ private slots:
 
 private:
     Ui::page2 *ui;
+    QMediaPlayer *player = new
+    QMediaPlayer;
+    QMediaPlayer *coin_voice = new
+    QMediaPlayer;
+
     QTimer *timer;
     QElapsedTimer elapsedTimer;
     QElapsedTimer elapsedwheat;

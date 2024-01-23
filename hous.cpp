@@ -156,7 +156,7 @@ void hous::outcoin(int coin)
 
 int hous::incoin()
 {
-        int coin;
+        int coin=0;
         QFile file("D:/faz2/faz2/fils/coin.txt");
         QTextStream in(&file);
         if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -175,7 +175,7 @@ hous::~hous()
 
 void hous::on_pushButton_chicken_clicked()
 {
-    int number_of_chicken;
+    int number_of_chicken=0;
     int coin;
     QFile file("D:/faz2/faz2/fils/coin.txt");
     QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
@@ -216,7 +216,7 @@ void hous::on_pushButton_chicken_clicked()
 
 void hous::on_spinBox_chicken_valueChanged(int arg1)
 {
-        int number_of_chicken;
+        int number_of_chicken=0;
         QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
         if(chicken.open(QIODevice::ReadOnly | QIODevice::Text)){
             QTextStream in(&chicken);
@@ -235,7 +235,7 @@ void hous::on_spinBox_chicken_valueChanged(int arg1)
 
 void hous::on_pushButton_cow_clicked()
 {
-    int number_of_cow;
+    int number_of_cow=0;
     int coin;
     QFile file("D:/faz2/faz2/fils/coin.txt");
     QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
@@ -276,7 +276,7 @@ void hous::on_pushButton_cow_clicked()
 
 void hous::on_spinBox_cow_valueChanged(int arg1)
 {
-    int number_of_cow;
+    int number_of_cow=0;
     QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
     if(cow.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&cow);
@@ -296,7 +296,7 @@ void hous::on_spinBox_cow_valueChanged(int arg1)
 void hous::on_pushButton_sheep_clicked()
 {
 
-    int number_of_sheep;
+    int number_of_sheep=0;
     int coin;
     QFile file("D:/faz2/faz2/fils/coin.txt");
     QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
@@ -337,7 +337,7 @@ void hous::on_pushButton_sheep_clicked()
 
 void hous::on_spinBox_sheep_valueChanged(int arg1)
 {
-    int number_of_sheep;
+    int number_of_sheep=0;
     QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
     if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&sheep);

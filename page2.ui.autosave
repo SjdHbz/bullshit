@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1855</width>
+    <width>1690</width>
     <height>791</height>
    </rect>
   </property>
@@ -78,7 +78,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>1270</x>
+      <x>1400</x>
       <y>0</y>
       <width>261</width>
       <height>41</height>
@@ -214,7 +214,7 @@
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>1530</x>
+      <x>1660</x>
       <y>0</y>
       <width>25</width>
       <height>19</height>
@@ -2167,7 +2167,7 @@ color: rgb(255, 0, 0);</string>
    <widget class="QPushButton" name="pushButton_home_3">
     <property name="geometry">
      <rect>
-      <x>1330</x>
+      <x>1340</x>
       <y>250</y>
       <width>341</width>
       <height>271</height>
@@ -2247,7 +2247,7 @@ color: rgb(255, 0, 0);</string>
    <widget class="QPushButton" name="pushButton_home_14">
     <property name="geometry">
      <rect>
-      <x>-110</x>
+      <x>-130</x>
       <y>410</y>
       <width>341</width>
       <height>271</height>
@@ -2263,7 +2263,7 @@ color: rgb(255, 0, 0);</string>
    <widget class="QPushButton" name="pushButton_home_13">
     <property name="geometry">
      <rect>
-      <x>-120</x>
+      <x>-130</x>
       <y>550</y>
       <width>341</width>
       <height>271</height>
@@ -2279,7 +2279,7 @@ color: rgb(255, 0, 0);</string>
    <widget class="QPushButton" name="pushButton_home_7">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>480</y>
       <width>341</width>
       <height>271</height>
@@ -2298,7 +2298,7 @@ color: rgb(255, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1855</width>
+     <width>1690</width>
      <height>21</height>
     </rect>
    </property>

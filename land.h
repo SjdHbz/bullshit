@@ -33,6 +33,8 @@ private:
     Ui::land *ui;
     QMediaPlayer *player = new
     QMediaPlayer;
+    QMediaPlayer *coin_voice = new
+    QMediaPlayer;
 };
 
 #endif // LAND_H

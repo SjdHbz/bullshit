@@ -42,9 +42,9 @@ private slots:
 
 private:
     Ui::mland *ui;
-    QMediaPlayer *player = new
-    QMediaPlayer;
     int number=0;
+    QMediaPlayer *coin_voice = new
+    QMediaPlayer;
 //    QTimer *timer;
 //    QElapsedTimer elapsedTimer;
 };

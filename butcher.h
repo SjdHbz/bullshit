@@ -2,7 +2,7 @@
 #define BUTCHER_H
 
 #include <QMainWindow>
-
+#include "QMediaPlayer"
 namespace Ui {
 class Butcher;
 }
@@ -20,6 +20,8 @@ private slots:
 
     int incoin();
 
+    void coin_voices();
+
     void on_pushButton_kill_Chicken_clicked();
 
     void on_pushButton_kill_cow_clicked();
@@ -28,6 +30,8 @@ private slots:
 
 private:
     Ui::Butcher *ui;
+    QMediaPlayer *coin_voice = new
+    QMediaPlayer;
 };
 
 #endif // BUTCHER_H

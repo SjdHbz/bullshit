@@ -65,4 +65,5 @@ RESOURCES += \
     hous.qrc \
     imags.qrc \
     look.qrc \
+    lovepic.qrc \
     strrt.qrc
