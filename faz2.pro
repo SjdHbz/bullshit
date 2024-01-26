@@ -22,7 +22,6 @@ SOURCES += \
     page2.cpp \
     sheep.cpp \
     shop.cpp \
-    time_land.cpp \
     worker.cpp
 
 HEADERS += \
@@ -37,7 +36,6 @@ HEADERS += \
     page2.h \
     sheep.h \
     shop.h \
-    time_land.h \
     worker.h
 
 FORMS += \
