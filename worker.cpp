@@ -19,7 +19,7 @@ worker::worker(QWidget *parent) :
     player->setVolume(100);
     player->play();
     int number_of_worker;
-    QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
+    QFile worker("D:/faz2/faz2/fils/workerlan.txt");
     QTextStream in(&worker);
     if(worker.open(QIODevice::ReadOnly | QIODevice::Text)){
         in >> number_of_worker;

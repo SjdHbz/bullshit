@@ -374,20 +374,32 @@ void page2::connct_timers(){
     connect(cow,&QTimer::timeout,this,&page2::Cow_push1);
     connect(cow,&QTimer::timeout,this,&page2::Cow_push2);
     connect(cow,&QTimer::timeout,this,&page2::Cow_push3);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push4);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push5);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push6);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push7);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push8);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push9);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push10);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push11);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push12);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push13);
-    connect(cow,&QTimer::timeout,this,&page2::Cow_push14);
-
-
+    QTimer *cow2;
+    cow2= new QTimer(this);
+    connect(cow2,&QTimer::timeout,this,&page2::Cow_push4);
+    connect(cow2,&QTimer::timeout,this,&page2::Cow_push5);
+    connect(cow2,&QTimer::timeout,this,&page2::Cow_push6);
+    QTimer *cow3;
+    cow3= new QTimer(this);
+    connect(cow3,&QTimer::timeout,this,&page2::Cow_push7);
+    connect(cow3,&QTimer::timeout,this,&page2::Cow_push8);
+    connect(cow3,&QTimer::timeout,this,&page2::Cow_push9);
+    QTimer *cow4;
+    cow4= new QTimer(this);
+    connect(cow4,&QTimer::timeout,this,&page2::Cow_push10);
+    connect(cow4,&QTimer::timeout,this,&page2::Cow_push11);
+    connect(cow4,&QTimer::timeout,this,&page2::Cow_push12);
+    QTimer *cow5;
+    cow5= new QTimer(this);
+    connect(cow5,&QTimer::timeout,this,&page2::Cow_push13);
+    connect(cow5,&QTimer::timeout,this,&page2::Cow_push14);
     cow->start(1000);
+    cow2->start(1000);
+    cow3->start(1000);
+    cow4->start(1000);
+    cow5->start(1000);
+
+
 
     QTimer *corn;
     corn = new QTimer(this);
@@ -662,23 +674,88 @@ void page2::updateTime()
     int remainingSeconds = seconds % 60;
     ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
 
-//    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
+    int kill=0;
+    QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+    QTextStream stream15(&kill_sheeps);
+    if(kill_sheeps.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream15 >> kill;
+        kill_sheeps.close();
+    }else{
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+    }
+    static int j;
+    if(kill==1){
+        j=1;
+        while(j==1){
+            int rand=qrand()%14+1;
+            for (int i=1;i<=14;i++){
+                if(connct_Sheep[i]==1){
+                    kill_Sheep[i]=2;
 
-//    QTextStream stream8(&sheep);
+                }
+            }
+            if (kill_Sheep[rand]==2){
+               kill_Sheep[rand]=1;
+               j=0;
+            }
+        }
+    }
 
-//    int number_of_sheep= 0;
-//    if(sheep.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream8 >> number_of_sheep;
-//        sheep.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
-//    if(sheep.open(QIODevice::WriteOnly | QIODevice::Text)){
-//          stream8 << number_of_sheep;
-//          sheep.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
+
+
+    int kill_chick=0;
+    QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+    QTextStream stream14(&kill_chickens);
+    if(kill_chickens.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream14 >> kill_chick;
+        kill_chickens.close();
+    }else{
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+    }
+    static int i;
+    if(kill_chick==1){
+        i=1;
+        while(i==1){
+            int rand=qrand()%14+1;
+            for (int i=1;i<=14;i++){
+                if(connct_chicken[i]==1){
+                    kill_chicken[i]=2;
+                }
+            }
+            if (kill_chicken[rand]==2){
+               kill_chicken[rand]=1;
+               i=0;
+            }
+        }
+    }
+
+
+    int kill_coww=0;
+    QFile kill_cows("D:/faz2/faz2/fils/kill_cow.txt");
+    QTextStream stream13(&kill_cows);
+    if(kill_cows.open(QIODevice::ReadOnly | QIODevice::Text)){
+        stream13 >> kill_coww;
+        kill_cows.close();
+    }else{
+        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+    }
+    static int k;
+    if(kill_coww==1){
+        k=1;
+        while(k==1){
+            int rand=qrand()%14+1;
+            for (int i=1;i<=14;i++){
+                if(connct_cow[i]==1){
+                    kill_cow[i]=2;
+                }
+            }
+            if (kill_cow[rand]==2){
+               kill_cow[rand]=1;
+               k=0;
+            }
+        }
+    }
+
 
     QFile file("D:/faz2/faz2/fils/coin.txt");
     QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
@@ -879,17 +956,14 @@ void page2::on_pushButton_basket_clicked()
     }
     if(Cultivations[1] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[1]=1;
     }
     if(Cultivations[1] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[1]=1;
     }
     if(Cultivations[1] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[1]=1;
 
     }
@@ -985,11 +1059,6 @@ void page2::Cow_push1(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_1->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[1]="cow";
                 ui->pushButton_7->setEnabled(false);
@@ -1004,28 +1073,50 @@ void page2::Cow_push1(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket->show();
                  ui->label_milk->show();
                  ui->label_milk->setStyleSheet("");
                  ui->label_milk->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[1]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
             }
-
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[1]==1){
+                ui->pushButton_7->setEnabled(true);
+                kill_cow[1]=0;
+                connct_cow[1]=0;
+                workerlans--;
+                ui->pushButton_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk->hide();
+                ui->label_worker_1->hide();
+                ui->label_cow->hide();
+                ui->pushButton_basket->hide();
+                ui->label_timer_1->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+            }
     }
 }
 
@@ -1035,11 +1126,6 @@ void page2::Chickeen_push1(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_1->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[1]="chicken";
                 ui->pushButton_7->setEnabled(false);
@@ -1054,26 +1140,51 @@ void page2::Chickeen_push1(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
+
                  ui->pushButton_basket->show();
                  ui->label_milk->show();
                  ui->label_milk->setStyleSheet("");
                  ui->label_milk->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[1]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[1]==1){
+                ui->pushButton_7->setEnabled(true);
+                kill_chicken[1]=0;
+                connct_chicken[1]=0;
+                workerlans--;
+                ui->pushButton_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk->hide();
+                ui->label_worker_1->hide();
+                ui->label_cow->hide();
+                ui->pushButton_basket->hide();
+                ui->label_timer_1->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+
             }
     }
 }
@@ -1084,13 +1195,8 @@ void page2::Sheep_push1(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_1->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[1]="Sheep";
+                Cultivations[1]="sheep";
                 ui->pushButton_7->setEnabled(false);
                 ui->pushButton_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow->show();
@@ -1103,26 +1209,49 @@ void page2::Sheep_push1(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket->show();
                  ui->label_milk->show();
                  ui->label_milk->setStyleSheet("");
                  ui->label_milk->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[1]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[1]==1){
+                ui->pushButton_7->setEnabled(true);
+                kill_Sheep[1]=0;
+                connct_Sheep[1]=0;
+                workerlans--;
+                ui->pushButton_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk->hide();
+                ui->label_worker_1->hide();
+                ui->label_cow->hide();
+                ui->pushButton_basket->hide();
+                ui->label_timer_1->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -1196,19 +1325,16 @@ void page2::on_pushButton_basket_2_clicked()
     }
     if(Cultivations[2] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[2]=1;
 
     }
     if(Cultivations[2] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[2]=1;
 
     }
     if(Cultivations[2] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[2]=1;
 
     }
@@ -1302,11 +1428,6 @@ void page2::Cow_push2(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_2->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[2]="cow";
                 ui->pushButton_9->setEnabled(false);
@@ -1318,29 +1439,52 @@ void page2::Cow_push2(){
                 ui->label_worker_2->setMovie(movie);
                 movie->start();
                 ui->label_worker_2->show();
-
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
+
                  ui->pushButton_basket_2->show();
                  ui->label_milk_2->show();
                  ui->label_milk_2->setStyleSheet("");
                  ui->label_milk_2->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[2]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[2]==1){
+                ui->pushButton_9->setEnabled(true);
+                kill_cow[2]=0;
+                connct_cow[2]=0;
+                workerlans--;
+                ui->pushButton_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_2->hide();
+                ui->label_worker_2->hide();
+                ui->label_cow_2->hide();
+                ui->pushButton_basket_2->hide();
+                ui->label_timer_2->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -1352,11 +1496,7 @@ void page2::Chickeen_push2(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_2->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
+
             if(seconds5 == 1){
                 Cultivations[2]="chicken";
                 ui->pushButton_9->setEnabled(false);
@@ -1371,26 +1511,49 @@ void page2::Chickeen_push2(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_2->show();
                  ui->label_milk_2->show();
                  ui->label_milk_2->setStyleSheet("");
                  ui->label_milk_2->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_chicken[1]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[2]==1){
+                ui->pushButton_9->setEnabled(true);
+                kill_chicken[2]=0;
+                connct_chicken[2]=0;
+                workerlans--;
+                ui->pushButton_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_2->hide();
+                ui->label_worker_2->hide();
+                ui->label_cow_2->hide();
+                ui->pushButton_basket_2->hide();
+                ui->label_timer_2->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -1401,13 +1564,8 @@ void page2::Sheep_push2(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_2->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[2]="Sheep";
+                Cultivations[2]="sheep";
                 ui->pushButton_9->setEnabled(false);
                 ui->pushButton_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_2->show();
@@ -1420,26 +1578,49 @@ void page2::Sheep_push2(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_2->show();
                  ui->label_milk_2->show();
                  ui->label_milk_2->setStyleSheet("");
                  ui->label_milk_2->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[2]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[2]==1){
+                ui->pushButton_9->setEnabled(true);
+                kill_Sheep[2]=0;
+                connct_Sheep[2]=0;
+                workerlans--;
+                ui->pushButton_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_2->hide();
+                ui->label_worker_2->hide();
+                ui->label_cow_2->hide();
+                ui->pushButton_basket_2->hide();
+                ui->label_timer_2->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -1513,17 +1694,14 @@ void page2::on_pushButton_basket_3_clicked()
     }
     if(Cultivations[3] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[3]=1;
     }
     if(Cultivations[3] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[3]=1;
     }
     if(Cultivations[3] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[3]=1;
 
     }
@@ -1619,11 +1797,7 @@ void page2::Cow_push3(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_3->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
+
             if(seconds5 == 1){
                 Cultivations[3]="cow";
                 ui->pushButton_13->setEnabled(false);
@@ -1638,28 +1812,50 @@ void page2::Cow_push3(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_3->show();
                  ui->label_milk_3->show();
                  ui->label_milk_3->setStyleSheet("");
                  ui->label_milk_3->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[3]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
             }
-
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[3]==1){
+                ui->pushButton_13->setEnabled(true);
+                kill_cow[3]=0;
+                connct_cow[3]=0;
+                workerlans--;
+                ui->pushButton_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_3->hide();
+                ui->label_worker_3->hide();
+                ui->label_cow_3->hide();
+                ui->pushButton_basket_3->hide();
+                ui->label_timer_3->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+            }
     }
 }
 
@@ -1669,11 +1865,6 @@ void page2::Chickeen_push3(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_3->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[3]="chicken";
                 ui->pushButton_13->setEnabled(false);
@@ -1688,26 +1879,49 @@ void page2::Chickeen_push3(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_3->show();
                  ui->label_milk_3->show();
                  ui->label_milk_3->setStyleSheet("");
                  ui->label_milk_3->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[3]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[3]==1){
+                ui->pushButton_13->setEnabled(true);
+                kill_chicken[3]=0;
+                connct_chicken[3]=0;
+                workerlans--;
+                ui->pushButton_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_3->hide();
+                ui->label_worker_3->hide();
+                ui->label_cow_3->hide();
+                ui->pushButton_basket_3->hide();
+                ui->label_timer_3->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -1718,13 +1932,8 @@ void page2::Sheep_push3(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_3->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[3]="Sheep";
+                Cultivations[3]="sheep";
                 ui->pushButton_13->setEnabled(false);
                 ui->pushButton_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_3->show();
@@ -1737,26 +1946,49 @@ void page2::Sheep_push3(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_3->show();
                  ui->label_milk_3->show();
                  ui->label_milk_3->setStyleSheet("");
                  ui->label_milk_3->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[3]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[3]==1){
+                ui->pushButton_13->setEnabled(true);
+                kill_Sheep[3]=0;
+                connct_Sheep[3]=0;
+                workerlans--;
+                ui->pushButton_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_3->hide();
+                ui->label_worker_3->hide();
+                ui->label_cow_3->hide();
+                ui->pushButton_basket_3->hide();
+                ui->label_timer_3->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -1830,17 +2062,14 @@ void page2::on_pushButton_basket_4_clicked()
     }
     if(Cultivations[4] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[4]=1;
     }
     if(Cultivations[4] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[4]=1;
     }
     if(Cultivations[4] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[4]=1;
 
     }
@@ -1936,11 +2165,6 @@ void page2::Cow_push4(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_4->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[4]="cow";
                 ui->pushButton_14->setEnabled(false);
@@ -1955,27 +2179,51 @@ void page2::Cow_push4(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_4->show();
                  ui->label_milk_4->show();
                  ui->label_milk_4->setStyleSheet("");
                  ui->label_milk_4->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[4]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
             }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[4]==1){
+                ui->pushButton_14->setEnabled(true);
+                kill_cow[4]=0;
+                connct_cow[4]=0;
+                workerlans--;
+                ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_4->hide();
+                ui->label_worker_4->hide();
+                ui->label_cow_4->hide();
+                ui->pushButton_basket_4->hide();
+                ui->label_timer_4->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+            }
+
 
     }
 }
@@ -1986,11 +2234,6 @@ void page2::Chickeen_push4(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_4->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[4]="chicken";
                 ui->pushButton_14->setEnabled(false);
@@ -2005,26 +2248,49 @@ void page2::Chickeen_push4(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_4->show();
                  ui->label_milk_4->show();
                  ui->label_milk_4->setStyleSheet("");
                  ui->label_milk_4->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[4]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[4]==1){
+                ui->pushButton_14->setEnabled(true);
+                kill_chicken[4]=0;
+                connct_chicken[4]=0;
+                workerlans--;
+                ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_4->hide();
+                ui->label_worker_4->hide();
+                ui->label_cow_4->hide();
+                ui->pushButton_basket_4->hide();
+                ui->label_timer_4->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -2035,13 +2301,8 @@ void page2::Sheep_push4(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_4->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[4]="Sheep";
+                Cultivations[4]="sheep";
                 ui->pushButton_14->setEnabled(false);
                 ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_4->show();
@@ -2054,26 +2315,49 @@ void page2::Sheep_push4(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_4->show();
                  ui->label_milk_4->show();
                  ui->label_milk_4->setStyleSheet("");
                  ui->label_milk_4->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[4]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[4]==1){
+                ui->pushButton_14->setEnabled(true);
+                kill_Sheep[4]=0;
+                connct_Sheep[4]=0;
+                workerlans--;
+                ui->pushButton_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_4->hide();
+                ui->label_worker_4->hide();
+                ui->label_cow_4->hide();
+                ui->pushButton_basket_4->hide();
+                ui->label_timer_4->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -2149,17 +2433,14 @@ void page2::on_pushButton_basket_5_clicked()
     }
     if(Cultivations[5] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[5]=1;
     }
     if(Cultivations[5] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[5]=1;
     }
     if(Cultivations[5] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[5]=1;
 
     }
@@ -2255,11 +2536,6 @@ void page2::Cow_push5(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_5->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[5]="cow";
                 ui->pushButton_15->setEnabled(false);
@@ -2274,26 +2550,49 @@ void page2::Cow_push5(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_5->show();
                  ui->label_milk_5->show();
                  ui->label_milk_5->setStyleSheet("");
                  ui->label_milk_5->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[5]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[5]==1){
+                ui->pushButton_15->setEnabled(true);
+                kill_cow[5]=0;
+                connct_cow[5]=0;
+                workerlans--;
+                ui->pushButton_15->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_5->hide();
+                ui->label_worker_5->hide();
+                ui->label_cow_5->hide();
+                ui->pushButton_basket_5->hide();
+                ui->label_timer_5->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -2305,11 +2604,6 @@ void page2::Chickeen_push5(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_5->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[5]="chicken";
                 ui->pushButton_15->setEnabled(false);
@@ -2324,26 +2618,50 @@ void page2::Chickeen_push5(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_5->show();
                  ui->label_milk_5->show();
                  ui->label_milk_5->setStyleSheet("");
                  ui->label_milk_5->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[5]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[5]==1){
+                ui->pushButton_15->setEnabled(true);
+                kill_chicken[5]=0;
+                connct_chicken[5]=0;
+                workerlans--;
+                ui->pushButton_15->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_5->hide();
+                ui->label_worker_5->hide();
+                ui->label_cow_5->hide();
+                ui->pushButton_basket_5->hide();
+                ui->label_timer_5->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+
             }
     }
 }
@@ -2354,13 +2672,8 @@ void page2::Sheep_push5(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_5->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[5]="Sheep";
+                Cultivations[5]="sheep";
                 ui->pushButton_15->setEnabled(false);
                 ui->pushButton_15->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_5->show();
@@ -2373,26 +2686,50 @@ void page2::Sheep_push5(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_5->show();
                  ui->label_milk_5->show();
                  ui->label_milk_5->setStyleSheet("");
                  ui->label_milk_5->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[5]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[5]==1){
+                ui->pushButton_15->setEnabled(true);
+                kill_Sheep[5]=0;
+                connct_Sheep[5]=0;
+                workerlans--;
+                ui->pushButton_15->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_5->hide();
+                ui->label_worker_5->hide();
+                ui->label_cow_5->hide();
+                ui->pushButton_basket_5->hide();
+                ui->label_timer_5->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+
             }
     }
 }
@@ -2469,17 +2806,14 @@ void page2::on_pushButton_basket_6_clicked()
     }
     if(Cultivations[6] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[6]=1;
     }
     if(Cultivations[6] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[6]=1;
     }
     if(Cultivations[6] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[6]=1;
 
     }
@@ -2571,15 +2905,10 @@ void page2::Corn_push6(){
 
 
 void page2::Cow_push6(){
-    if(connct_cow[5]==1){
+    if(connct_cow[6]==1){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_6->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[6]="cow";
                 ui->pushButton_16->setEnabled(false);
@@ -2594,26 +2923,49 @@ void page2::Cow_push6(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_6->show();
                  ui->label_milk_6->show();
                  ui->label_milk_6->setStyleSheet("");
                  ui->label_milk_6->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[6]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[6]==1){
+                ui->pushButton_16->setEnabled(true);
+                kill_cow[6]=0;
+                connct_cow[6]=0;
+                workerlans--;
+                ui->pushButton_16->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_6->hide();
+                ui->label_worker_6->hide();
+                ui->label_cow_6->hide();
+                ui->pushButton_basket_6->hide();
+                ui->label_timer_6->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -2625,11 +2977,6 @@ void page2::Chickeen_push6(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_6->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[6]="chicken";
                 ui->pushButton_16->setEnabled(false);
@@ -2644,26 +2991,49 @@ void page2::Chickeen_push6(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_6->show();
                  ui->label_milk_6->show();
                  ui->label_milk_6->setStyleSheet("");
                  ui->label_milk_6->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[6]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[6]==1){
+                ui->pushButton_16->setEnabled(true);
+                kill_chicken[6]=0;
+                connct_chicken[6]=0;
+                workerlans--;
+                ui->pushButton_16->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_6->hide();
+                ui->label_worker_6->hide();
+                ui->label_cow_6->hide();
+                ui->pushButton_basket_6->hide();
+                ui->label_timer_6->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -2674,45 +3044,64 @@ void page2::Sheep_push6(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_6->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[6]="Sheep";
+                Cultivations[6]="sheep";
                 ui->pushButton_16->setEnabled(false);
                 ui->pushButton_16->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_6->show();
                 ui->label_cow_6->setStyleSheet("");
                 ui->label_cow_6->setStyleSheet("border-image: url(:/new/prefix1/imagfil/sheepgoat.png)");
                 QMovie *movie = new QMovie("D:/faz2/faz2/imagfil/q2");
-                ui->label_worker_5->setMovie(movie);
+                ui->label_worker_6->setMovie(movie);
                 movie->start();
-                ui->label_worker_5->show();
+                ui->label_worker_6->show();
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_6->show();
                  ui->label_milk_6->show();
                  ui->label_milk_6->setStyleSheet("");
                  ui->label_milk_6->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[6]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[6]==1){
+                ui->pushButton_16->setEnabled(true);
+                kill_Sheep[6]=0;
+                connct_Sheep[6]=0;
+                workerlans--;
+                ui->pushButton_16->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_6->hide();
+                ui->label_worker_6->hide();
+                ui->label_cow_6->hide();
+                ui->pushButton_basket_6->hide();
+                ui->label_timer_6->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+
             }
     }
 }
@@ -2787,17 +3176,14 @@ void page2::on_pushButton_basket_7_clicked()
     }
     if(Cultivations[7] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[7]=1;
     }
     if(Cultivations[7] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[7]=1;
     }
     if(Cultivations[7] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[7]=1;
 
     }
@@ -2893,11 +3279,6 @@ void page2::Cow_push7(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_7->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[7]="cow";
                 ui->pushButton_17->setEnabled(false);
@@ -2912,26 +3293,49 @@ void page2::Cow_push7(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_7->show();
                  ui->label_milk_7->show();
                  ui->label_milk_7->setStyleSheet("");
                  ui->label_milk_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[7]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[7]==1){
+                ui->pushButton_17->setEnabled(true);
+                kill_cow[7]=0;
+                connct_cow[7]=0;
+                workerlans--;
+                ui->pushButton_17->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_7->hide();
+                ui->label_worker_7->hide();
+                ui->label_cow_7->hide();
+                ui->pushButton_basket_7->hide();
+                ui->label_timer_7->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -2943,11 +3347,6 @@ void page2::Chickeen_push7(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_7->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[7]="chicken";
                 ui->pushButton_17->setEnabled(false);
@@ -2962,26 +3361,49 @@ void page2::Chickeen_push7(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_7->show();
                  ui->label_milk_7->show();
                  ui->label_milk_7->setStyleSheet("");
                  ui->label_milk_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[7]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[7]==1){
+                ui->pushButton_17->setEnabled(true);
+                kill_chicken[7]=0;
+                connct_chicken[7]=0;
+                workerlans--;
+                ui->pushButton_17->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_7->hide();
+                ui->label_worker_7->hide();
+                ui->label_cow_7->hide();
+                ui->pushButton_basket_7->hide();
+                ui->label_timer_7->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -2992,13 +3414,8 @@ void page2::Sheep_push7(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_7->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[7]="Sheep";
+                Cultivations[7]="sheep";
                 ui->pushButton_17->setEnabled(false);
                 ui->pushButton_17->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_7->show();
@@ -3011,26 +3428,49 @@ void page2::Sheep_push7(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_7->show();
                  ui->label_milk_7->show();
                  ui->label_milk_7->setStyleSheet("");
                  ui->label_milk_7->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[7]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[7]==1){
+                ui->pushButton_17->setEnabled(true);
+                kill_Sheep[7]=0;
+                connct_Sheep[7]=0;
+                workerlans--;
+                ui->pushButton_17->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_7->hide();
+                ui->label_worker_7->hide();
+                ui->label_cow_7->hide();
+                ui->pushButton_basket_7->hide();
+                ui->label_timer_7->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -3087,16 +3527,6 @@ void page2::on_pushButton_basket_9_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-
-//    QString baskets;
-//    QFile baskett("D:/faz2/faz2/fils/basket.txt");
-//    QTextStream stream2(&baskett);
-//    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream2 >> baskets;
-//        baskett.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
     if(Cultivations[9] == "corn" ){
           ui->pushButton_19->setEnabled(true);
         basketss(2);
@@ -3115,17 +3545,14 @@ void page2::on_pushButton_basket_9_clicked()
     }
     if(Cultivations[9] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[9]=1;
     }
     if(Cultivations[9] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[9]=1;
     }
     if(Cultivations[9] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[9]=1;
 
     }
@@ -3221,11 +3648,6 @@ void page2::Cow_push9(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_9->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[9]="cow";
                 ui->pushButton_19->setEnabled(false);
@@ -3240,26 +3662,50 @@ void page2::Cow_push9(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_9->show();
                  ui->label_milk_9->show();
                  ui->label_milk_9->setStyleSheet("");
                  ui->label_milk_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[9]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[9]==1){
+                ui->pushButton_19->setEnabled(true);
+                kill_cow[7]=0;
+                connct_cow[9]=0;
+                workerlans--;
+                ui->pushButton_19->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_9->hide();
+                ui->label_worker_9->hide();
+                ui->label_cow_9->hide();
+                ui->pushButton_basket_9->hide();
+                ui->label_timer_9->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+
             }
 
     }
@@ -3271,11 +3717,6 @@ void page2::Chickeen_push9(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_9->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[9]="chicken";
                 ui->pushButton_19->setEnabled(false);
@@ -3290,27 +3731,51 @@ void page2::Chickeen_push9(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_9->show();
                  ui->label_milk_9->show();
                  ui->label_milk_9->setStyleSheet("");
                  ui->label_milk_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[9]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
             }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[9]==1){
+                ui->pushButton_19->setEnabled(true);
+                kill_chicken[9]=0;
+                connct_chicken[9]=0;
+                workerlans--;
+                ui->pushButton_19->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_9->hide();
+                ui->label_worker_9->hide();
+                ui->label_cow_9->hide();
+                ui->pushButton_basket_9->hide();
+                ui->label_timer_9->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+            }
+
     }
 }
 
@@ -3320,13 +3785,8 @@ void page2::Sheep_push9(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_9->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[9]="Sheep";
+                Cultivations[9]="sheep";
                 ui->pushButton_19->setEnabled(false);
                 ui->pushButton_19->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_9->show();
@@ -3339,26 +3799,49 @@ void page2::Sheep_push9(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_9->show();
                  ui->label_milk_9->show();
                  ui->label_milk_9->setStyleSheet("");
                  ui->label_milk_9->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[9]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[9]==1){
+                ui->pushButton_19->setEnabled(true);
+                kill_Sheep[9]=0;
+                connct_Sheep[9]=0;
+                workerlans--;
+                ui->pushButton_19->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_9->hide();
+                ui->label_worker_9->hide();
+                ui->label_cow_9->hide();
+                ui->pushButton_basket_9->hide();
+                ui->label_timer_9->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -3418,7 +3901,7 @@ void page2::on_pushButton_basket_14_clicked()
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
     if(Cultivations[14] == "corn" ){
-          ui->pushButton_24->setEnabled(true);
+        ui->pushButton_24->setEnabled(true);
         basketss(2);
         workerlans--;
         ui->label_worker_14->hide();
@@ -3435,17 +3918,14 @@ void page2::on_pushButton_basket_14_clicked()
     }
     if(Cultivations[14] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[14]=1;
     }
     if(Cultivations[14] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[14]=1;
     }
     if(Cultivations[14] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[14]=1;
 
     }
@@ -3541,11 +4021,6 @@ void page2::Cow_push14(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_14->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[14]="cow";
                 ui->pushButton_24->setEnabled(false);
@@ -3560,26 +4035,49 @@ void page2::Cow_push14(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_14->show();
                  ui->label_milk_14->show();
                  ui->label_milk_14->setStyleSheet("");
                  ui->label_milk_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[14]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[14]==1){
+                ui->pushButton_24->setEnabled(true);
+                kill_cow[14]=0;
+                connct_cow[14]=0;
+                workerlans--;
+                ui->pushButton_24->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_14->hide();
+                ui->label_worker_14->hide();
+                ui->label_cow_14->hide();
+                ui->pushButton_basket_14->hide();
+                ui->label_timer_14->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -3591,11 +4089,6 @@ void page2::Chickeen_push14(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_14->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[14]="chicken";
                 ui->pushButton_24->setEnabled(false);
@@ -3610,26 +4103,49 @@ void page2::Chickeen_push14(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_14->show();
                  ui->label_milk_14->show();
                  ui->label_milk_14->setStyleSheet("");
                  ui->label_milk_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[14]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[14]==1){
+                ui->pushButton_24->setEnabled(true);
+                kill_chicken[14]=0;
+                connct_chicken[14]=0;
+                workerlans--;
+                ui->pushButton_24->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_14->hide();
+                ui->label_worker_14->hide();
+                ui->label_cow_14->hide();
+                ui->pushButton_basket_14->hide();
+                ui->label_timer_14->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -3640,13 +4156,8 @@ void page2::Sheep_push14(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_14->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[14]="Sheep";
+                Cultivations[14]="sheep";
                 ui->pushButton_24->setEnabled(false);
                 ui->pushButton_24->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_14->show();
@@ -3659,26 +4170,50 @@ void page2::Sheep_push14(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_14->show();
                  ui->label_milk_14->show();
                  ui->label_milk_14->setStyleSheet("");
                  ui->label_milk_14->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[14]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[14]==1){
+                ui->pushButton_24->setEnabled(true);
+                kill_Sheep[14]=0;
+                connct_Sheep[14]=0;
+                workerlans--;
+                ui->pushButton_24->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_14->hide();
+                ui->label_worker_14->hide();
+                ui->label_cow_14->hide();
+                ui->pushButton_basket_14->hide();
+                ui->label_timer_14->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+
             }
     }
 }
@@ -3739,16 +4274,6 @@ void page2::on_pushButton_basket_13_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-
-//    QString baskets;
-//    QFile baskett("D:/faz2/faz2/fils/basket.txt");
-//    QTextStream stream2(&baskett);
-//    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream2 >> baskets;
-//        baskett.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
     if(Cultivations[13] == "corn" ){
           ui->pushButton_23->setEnabled(true);
         basketss(2);
@@ -3767,17 +4292,14 @@ void page2::on_pushButton_basket_13_clicked()
     }
     if(Cultivations[13] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[13]=1;
     }
     if(Cultivations[13] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[13]=1;
     }
     if(Cultivations[13] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[13]=1;
 
     }
@@ -3873,11 +4395,6 @@ void page2::Cow_push13(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_13->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[13]="cow";
                 ui->pushButton_23->setEnabled(false);
@@ -3892,28 +4409,51 @@ void page2::Cow_push13(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_13->show();
                  ui->label_milk_13->show();
                  ui->label_milk_13->setStyleSheet("");
                  ui->label_milk_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[13]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
             }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[13]==1){
+                ui->pushButton_23->setEnabled(true);
+                kill_cow[13]=0;
+                connct_cow[13]=0;
+                workerlans--;
+                ui->pushButton_23->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_13->hide();
+                ui->label_worker_13->hide();
+                ui->label_cow_13->hide();
+                ui->pushButton_basket_13->hide();
+                ui->label_timer_13->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
 
+            }
     }
 }
 
@@ -3923,11 +4463,6 @@ void page2::Chickeen_push13(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_13->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[13]="chicken";
                 ui->pushButton_23->setEnabled(false);
@@ -3942,26 +4477,49 @@ void page2::Chickeen_push13(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_13->show();
                  ui->label_milk_13->show();
                  ui->label_milk_13->setStyleSheet("");
                  ui->label_milk_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[13]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[13]==1){
+                ui->pushButton_23->setEnabled(true);
+                kill_chicken[13]=0;
+                connct_chicken[13]=0;
+                workerlans--;
+                ui->pushButton_23->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_13->hide();
+                ui->label_worker_13->hide();
+                ui->label_cow_13->hide();
+                ui->pushButton_basket_13->hide();
+                ui->label_timer_13->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -3972,13 +4530,8 @@ void page2::Sheep_push13(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_13->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[13]="Sheep";
+                Cultivations[13]="sheep";
                 ui->pushButton_23->setEnabled(false);
                 ui->pushButton_23->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_13->show();
@@ -3991,26 +4544,49 @@ void page2::Sheep_push13(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_13->show();
                  ui->label_milk_13->show();
                  ui->label_milk_13->setStyleSheet("");
                  ui->label_milk_13->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[13]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[13]==1){
+                ui->pushButton_23->setEnabled(true);
+                kill_Sheep[13]=0;
+                connct_Sheep[13]=0;
+                workerlans--;
+                ui->pushButton_23->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_13->hide();
+                ui->label_worker_13->hide();
+                ui->label_cow_13->hide();
+                ui->pushButton_basket_13->hide();
+                ui->label_timer_13->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -4072,16 +4648,6 @@ void page2::on_pushButton_basket_12_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-
-//    QString baskets;
-//    QFile baskett("D:/faz2/faz2/fils/basket.txt");
-//    QTextStream stream2(&baskett);
-//    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream2 >> baskets;
-//        baskett.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
     if(Cultivations[12] == "corn" ){
           ui->pushButton_22->setEnabled(true);
         basketss(2);
@@ -4100,17 +4666,14 @@ void page2::on_pushButton_basket_12_clicked()
     }
     if(Cultivations[12] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[12]=1;
     }
     if(Cultivations[12] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[12]=1;
     }
     if(Cultivations[12] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[12]=1;
 
     }
@@ -4206,11 +4769,6 @@ void page2::Cow_push12(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_12->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[12]="cow";
                 ui->pushButton_22->setEnabled(false);
@@ -4225,26 +4783,49 @@ void page2::Cow_push12(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_12->show();
                  ui->label_milk_12->show();
                  ui->label_milk_12->setStyleSheet("");
                  ui->label_milk_12->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[12]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[12]==1){
+                ui->pushButton_22->setEnabled(true);
+                kill_cow[12]=0;
+                connct_cow[12]=0;
+                workerlans--;
+                ui->pushButton_22->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_12->hide();
+                ui->label_worker_12->hide();
+                ui->label_cow_12->hide();
+                ui->pushButton_basket_12->hide();
+                ui->label_timer_12->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -4256,11 +4837,6 @@ void page2::Chickeen_push12(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_12->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[12]="chicken";
                 ui->pushButton_22->setEnabled(false);
@@ -4275,26 +4851,49 @@ void page2::Chickeen_push12(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_12->show();
                  ui->label_milk_12->show();
                  ui->label_milk_12->setStyleSheet("");
                  ui->label_milk_12->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[12]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[12]==1){
+                ui->pushButton_22->setEnabled(true);
+                kill_chicken[12]=0;
+                connct_chicken[12]=0;
+                workerlans--;
+                ui->pushButton_22->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_12->hide();
+                ui->label_worker_12->hide();
+                ui->label_cow_12->hide();
+                ui->pushButton_basket_12->hide();
+                ui->label_timer_12->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -4305,13 +4904,9 @@ void page2::Sheep_push12(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_12->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
+
             if(seconds5 == 1){
-                Cultivations[12]="Sheep";
+                Cultivations[12]="sheep";
                 ui->pushButton_22->setEnabled(false);
                 ui->pushButton_22->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_12->show();
@@ -4324,26 +4919,49 @@ void page2::Sheep_push12(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_12->show();
                  ui->label_milk_12->show();
                  ui->label_milk_12->setStyleSheet("");
                  ui->label_milk_12->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[12]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[12]==1){
+                ui->pushButton_22->setEnabled(true);
+                kill_Sheep[12]=0;
+                connct_Sheep[12]=0;
+                workerlans--;
+                ui->pushButton_22->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_12->hide();
+                ui->label_worker_12->hide();
+                ui->label_cow_12->hide();
+                ui->pushButton_basket_12->hide();
+                ui->label_timer_12->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -4405,16 +5023,6 @@ void page2::on_pushButton_basket_11_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-
-//    QString baskets;
-//    QFile baskett("D:/faz2/faz2/fils/basket.txt");
-//    QTextStream stream2(&baskett);
-//    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream2 >> baskets;
-//        baskett.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
     if(Cultivations[11] == "corn" ){
           ui->pushButton_21->setEnabled(true);
         basketss(2);
@@ -4433,17 +5041,14 @@ void page2::on_pushButton_basket_11_clicked()
     }
     if(Cultivations[11] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[11]=1;
     }
     if(Cultivations[11] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[11]=1;
     }
     if(Cultivations[11] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[11]=1;
 
     }
@@ -4539,11 +5144,6 @@ void page2::Cow_push11(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_11->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[11]="cow";
                 ui->pushButton_21->setEnabled(false);
@@ -4558,28 +5158,50 @@ void page2::Cow_push11(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_11->show();
                  ui->label_milk_11->show();
                  ui->label_milk_11->setStyleSheet("");
                  ui->label_milk_11->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[11]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
             }
-
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[11]==1){
+                ui->pushButton_21->setEnabled(true);
+                kill_cow[11]=0;
+                connct_cow[11]=0;
+                workerlans--;
+                ui->pushButton_21->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_11->hide();
+                ui->label_worker_11->hide();
+                ui->label_cow_11->hide();
+                ui->pushButton_basket_11->hide();
+                ui->label_timer_11->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+            }
     }
 }
 
@@ -4589,11 +5211,6 @@ void page2::Chickeen_push11(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_11->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[11]="chicken";
                 ui->pushButton_21->setEnabled(false);
@@ -4608,26 +5225,49 @@ void page2::Chickeen_push11(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_11->show();
                  ui->label_milk_11->show();
                  ui->label_milk_11->setStyleSheet("");
                  ui->label_milk_11->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[11]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[11]==1){
+                ui->pushButton_21->setEnabled(true);
+                kill_chicken[11]=0;
+                connct_chicken[11]=0;
+                workerlans--;
+                ui->pushButton_21->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_11->hide();
+                ui->label_worker_11->hide();
+                ui->label_cow_11->hide();
+                ui->pushButton_basket_11->hide();
+                ui->label_timer_11->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -4638,13 +5278,8 @@ void page2::Sheep_push11(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_11->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[11]="Sheep";
+                Cultivations[11]="sheep";
                 ui->pushButton_21->setEnabled(false);
                 ui->pushButton_21->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_11->show();
@@ -4657,26 +5292,49 @@ void page2::Sheep_push11(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_11->show();
                  ui->label_milk_11->show();
                  ui->label_milk_11->setStyleSheet("");
                  ui->label_milk_11->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[11]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[11]==1){
+                ui->pushButton_21->setEnabled(true);
+                kill_Sheep[11]=0;
+                connct_Sheep[11]=0;
+                workerlans--;
+                ui->pushButton_21->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_11->hide();
+                ui->label_worker_11->hide();
+                ui->label_cow_11->hide();
+                ui->pushButton_basket_11->hide();
+                ui->label_timer_11->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -4736,16 +5394,6 @@ void page2::on_pushButton_basket_10_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-
-//    QString baskets;
-//    QFile baskett("D:/faz2/faz2/fils/basket.txt");
-//    QTextStream stream2(&baskett);
-//    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream2 >> baskets;
-//        baskett.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
     if(Cultivations[10] == "corn" ){
           ui->pushButton_20->setEnabled(true);
         basketss(2);
@@ -4764,17 +5412,14 @@ void page2::on_pushButton_basket_10_clicked()
     }
     if(Cultivations[10] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[10]=1;
     }
     if(Cultivations[10] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[10]=1;
     }
     if(Cultivations[10] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[10]=1;
 
     }
@@ -4870,11 +5515,6 @@ void page2::Cow_push10(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_10->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[10]="cow";
                 ui->pushButton_20->setEnabled(false);
@@ -4889,26 +5529,49 @@ void page2::Cow_push10(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_10->show();
                  ui->label_milk_10->show();
                  ui->label_milk_10->setStyleSheet("");
                  ui->label_milk_10->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[10]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[10]==1){
+                ui->pushButton_20->setEnabled(true);
+                kill_cow[10]=0;
+                connct_cow[10]=0;
+                workerlans--;
+                ui->pushButton_20->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_10->hide();
+                ui->label_worker_10->hide();
+                ui->label_cow_10->hide();
+                ui->pushButton_basket_10->hide();
+                ui->label_timer_10->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -4920,11 +5583,6 @@ void page2::Chickeen_push10(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_10->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[10]="chicken";
                 ui->pushButton_20->setEnabled(false);
@@ -4939,26 +5597,49 @@ void page2::Chickeen_push10(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_10->show();
                  ui->label_milk_10->show();
                  ui->label_milk_10->setStyleSheet("");
                  ui->label_milk_10->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[10]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[10]==1){
+                ui->pushButton_20->setEnabled(true);
+                kill_chicken[10]=0;
+                connct_chicken[10]=0;
+                workerlans--;
+                ui->pushButton_20->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_10->hide();
+                ui->label_worker_10->hide();
+                ui->label_cow_10->hide();
+                ui->pushButton_basket_10->hide();
+                ui->label_timer_10->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -4969,13 +5650,8 @@ void page2::Sheep_push10(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_10->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[10]="Sheep";
+                Cultivations[10]="sheep";
                 ui->pushButton_20->setEnabled(false);
                 ui->pushButton_20->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_10->show();
@@ -4988,26 +5664,49 @@ void page2::Sheep_push10(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_10->show();
                  ui->label_milk_10->show();
                  ui->label_milk_10->setStyleSheet("");
                  ui->label_milk_10->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[10]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[10]==1){
+                ui->pushButton_20->setEnabled(true);
+                kill_Sheep[10]=0;
+                connct_Sheep[10]=0;
+                workerlans--;
+                ui->pushButton_20->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_10->hide();
+                ui->label_worker_10->hide();
+                ui->label_cow_10->hide();
+                ui->pushButton_basket_10->hide();
+                ui->label_timer_10->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -5067,16 +5766,6 @@ void page2::on_pushButton_basket_8_clicked()
     }else{
         QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
     }
-
-//    QString baskets;
-//    QFile baskett("D:/faz2/faz2/fils/basket.txt");
-//    QTextStream stream2(&baskett);
-//    if(baskett.open(QIODevice::ReadOnly | QIODevice::Text)){
-//        stream2 >> baskets;
-//        baskett.close();
-//    }else{
-//        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//    }
     if(Cultivations[8] == "corn" ){
           ui->pushButton_18->setEnabled(true);
         basketss(2);
@@ -5095,17 +5784,14 @@ void page2::on_pushButton_basket_8_clicked()
     }
     if(Cultivations[8] == "cow" ){
         basketss(5);
-        workerlans--;
         connct_cow[8]=1;
     }
     if(Cultivations[8] == "sheep" ){
         basketss(3);
-        workerlans--;
         connct_Sheep[8]=1;
     }
     if(Cultivations[8] == "chicken" ){
         basketss(3);
-        workerlans--;
         connct_chicken[8]=1;
 
     }
@@ -5201,11 +5887,6 @@ void page2::Cow_push8(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_8->setText(QString::number(seconds5));
-    //        int cowland;
-    //        QString cowss ="D:/faz2/faz2/fils/cowland.txt";
-    //        cowland=infile(cowss);
-    //        QString numcow="D:/faz2/faz2/fils/number_of_cow";
-    //        int number_of_cow = infile(numcow);
             if(seconds5 == 1){
                 Cultivations[8]="cow";
                 ui->pushButton_18->setEnabled(false);
@@ -5220,26 +5901,49 @@ void page2::Cow_push8(){
 
             }
             if (seconds5 == 20 ){
-    //            if(cowland>number_of_cow){
-    ////                cultivations = "0";
-    //                cowland--;
-    //                outfil(cowss,cowland);
-    //            }
                  ui->pushButton_basket_8->show();
                  ui->label_milk_8->show();
                  ui->label_milk_8->setStyleSheet("");
                  ui->label_milk_8->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_cow[8]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_cow[8]==1){
+                ui->pushButton_18->setEnabled(true);
+                kill_cow[8]=0;
+                connct_cow[8]=0;
+                workerlans--;
+                ui->pushButton_18->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_8->hide();
+                ui->label_worker_8->hide();
+                ui->label_cow_8->hide();
+                ui->pushButton_basket_8->hide();
+                ui->label_timer_8->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_cow.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
 
     }
@@ -5251,11 +5955,6 @@ void page2::Chickeen_push8(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_8->setText(QString::number(seconds5));
-    //        int chickenland;
-    //        QString chickens ="D:/faz2/faz2/fils/chickenland.txt";
-    //        chickenland=infile(chickens);
-    //        QString numchicken="D:/faz2/faz2/fils/number_of_chicken";
-    //        int number_of_chicken = infile(numchicken);
             if(seconds5 == 1){
                 Cultivations[8]="chicken";
                 ui->pushButton_18->setEnabled(false);
@@ -5270,26 +5969,49 @@ void page2::Chickeen_push8(){
 
             }
             if (seconds5 == 20 ){
-    //            if(chickenland>number_of_chicken){
-    ////                cultivations = "0";
-    //                chickenland--;
-    //                outfil(chickens,chickenland);
-    //            }
                  ui->pushButton_basket_8->show();
                  ui->label_milk_8->show();
                  ui->label_milk_8->setStyleSheet("");
                  ui->label_milk_8->setStyleSheet("border-image: url(:/new/prefix1/imagfil/favpng_chicken-egg-icon.png)");
                  seconds5 = 0;
                  connct_chicken[8]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_chicken[8]==1){
+                ui->pushButton_18->setEnabled(true);
+                kill_chicken[8]=0;
+                connct_chicken[8]=0;
+                workerlans--;
+                ui->pushButton_18->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_8->hide();
+                ui->label_worker_8->hide();
+                ui->label_cow_8->hide();
+                ui->pushButton_basket_8->hide();
+                ui->label_timer_8->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+                QTextStream stream(&kill_chickens);
+                if(kill_chickens.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_chickens.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }
@@ -5300,13 +6022,8 @@ void page2::Sheep_push8(){
             static int seconds5 = 0;
             seconds5++;
             ui->label_timer_8->setText(QString::number(seconds5));
-    //        int Sheepland;
-    //        QString Sheeps ="D:/faz2/faz2/fils/Sheepland.txt";
-    //        Sheepland=infile(Sheeps);
-    //        QString numSheep="D:/faz2/faz2/fils/number_of_Sheep";
-    //        int number_of_Sheep= infile(numSheep);
             if(seconds5 == 1){
-                Cultivations[8]="Sheep";
+                Cultivations[8]="sheep";
                 ui->pushButton_18->setEnabled(false);
                 ui->pushButton_18->setStyleSheet("border-image: url(:/new/prefix1/imagfil/Lovepik_com-450072032-Vector Icons of Land Farms (4).png)");
                 ui->label_cow_8->show();
@@ -5319,26 +6036,49 @@ void page2::Sheep_push8(){
 
             }
             if (seconds5 == 20 ){
-    //            if(Sheepland>number_of_Sheep){
-    ////                cultivations = "0";
-    //                Sheepland--;
-    //                outfil(Sheeps,Sheepland);
-    //            }
                  ui->pushButton_basket_8->show();
                  ui->label_milk_8->show();
                  ui->label_milk_8->setStyleSheet("");
                  ui->label_milk_8->setStyleSheet("border-image: url(:/new/prefix1/imagfil/milk-bucket-7808176-6347464.webp)");
                  seconds5 = 0;
                  connct_Sheep[8]=0;
-//                 QString cultivations;
-//                 QFile cultivation("D:/faz2/faz2/fils/cultivation.txt");
-//                 QTextStream stream2(&cultivations);
-//                 if(cultivation.open(QIODevice::WriteOnly | QIODevice::Text)){
-//                     stream2 << cultivations;
-//                     cultivation.close();
-//                 }else{
-//                     QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-//                 }
+            }
+            int workerlans=0;
+            QFile workerlan("D:/faz2/faz2/fils/workerlan.txt");
+            QTextStream stream1(&workerlan);
+            if(workerlan.open(QIODevice::ReadOnly | QIODevice::Text)){
+                stream1 >> workerlans;
+                workerlan.close();
+            }else{
+                QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+            }
+            if(kill_Sheep[8]==1){
+                ui->pushButton_18->setEnabled(true);
+                kill_Sheep[8]=0;
+                connct_Sheep[8]=0;
+                workerlans--;
+                ui->pushButton_18->setStyleSheet("border-image: url(:/new/prefix1/imagfil/lanppc.png);");
+                ui->label_milk_8->hide();
+                ui->label_worker_8->hide();
+                ui->label_cow_8->hide();
+                ui->pushButton_basket_8->hide();
+                ui->label_timer_8->setText("0");
+                seconds5=0;
+                int kill=0;
+                QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+                QTextStream stream(&kill_sheeps);
+                if(kill_sheeps.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream << kill;
+                    kill_sheeps.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
+                if(workerlan.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    stream1 << workerlans;
+                    workerlan.close();
+                }else{
+                    QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+                }
             }
     }
 }

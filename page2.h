@@ -24,18 +24,6 @@ public:
 private slots:
     void updateTime();
 
-//    void lands(int number , QString cultivations);
-
-//    void updatewheat();
-
-//    void updatecorn();
-
-//    void updatecow();
-
-//    void updatesheep();
-
-//    void updatechicken();
-
     void refresh();
 
     void connct_timers();
@@ -49,8 +37,6 @@ private slots:
     void outfil(QString fils , int coin);
 
     void basketss(int pric);
-
-//    void lands();
 
     void Wheat_push1();
 
@@ -218,8 +204,6 @@ private slots:
 
     void on_pushButton_basket_2_clicked();
 
-    void get(int number);
-
     void on_pushButton_9_clicked();
 
     void on_pushButton_Butcher_clicked();
@@ -326,6 +310,11 @@ private:
     int connct_cow[15];
     int connct_chicken[15];
     int connct_Sheep[15];
+    int kill_Sheep[15];
+    int kill_chicken[15];
+    int kill_cow[15];
+
+
 
 };
 
