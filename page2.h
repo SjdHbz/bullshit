@@ -292,9 +292,13 @@ private slots:
 
     void on_pushButton_basket_14_clicked();
 
+    void on_pushButton_11_clicked();
+
+    void on_toolButton_2_clicked();
+
 private:
     Ui::page2 *ui;
-    QMediaPlayer *player = new
+    QMediaPlayer *music = new
     QMediaPlayer;
     QMediaPlayer *coin_voice = new
     QMediaPlayer;

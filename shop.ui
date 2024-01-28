@@ -36,7 +36,7 @@
      <enum>QTabWidget::North</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -103,8 +103,8 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>90</y>
+        <x>0</x>
+        <y>100</y>
         <width>101</width>
         <height>51</height>
        </rect>
@@ -119,8 +119,8 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>100</y>
+        <x>0</x>
+        <y>70</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -201,8 +201,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_29">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>200</y>
+        <x>10</x>
+        <y>160</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -275,7 +275,7 @@ QPushButton:hover{
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>140</x>
         <y>160</y>
         <width>141</width>
         <height>16</height>
@@ -288,7 +288,7 @@ QPushButton:hover{
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>140</x>
         <y>170</y>
         <width>141</width>
         <height>16</height>
@@ -426,6 +426,38 @@ QPushButton:hover{
        <string/>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_20">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>80</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_21">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>160</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -508,8 +540,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_16">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>110</y>
+        <x>10</x>
+        <y>80</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -553,8 +585,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>200</y>
+        <x>10</x>
+        <y>160</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -818,6 +850,38 @@ QPushButton:hover{
        <string/>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>80</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_19">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>160</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -900,8 +964,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_22">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>110</y>
+        <x>10</x>
+        <y>80</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -945,8 +1009,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_24">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>200</y>
+        <x>10</x>
+        <y>160</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -1197,6 +1261,38 @@ QPushButton:hover{
        <string/>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_16">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>80</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>160</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -1212,7 +1308,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/gandom.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/wheat.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1228,7 +1324,7 @@ QPushButton:hover{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/zory.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/corn.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1238,7 +1334,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>40</y>
+        <y>20</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1290,7 +1386,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>160</y>
+        <y>140</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1356,8 +1452,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_47">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>70</y>
+        <x>90</x>
+        <y>90</y>
         <width>31</width>
         <height>16</height>
        </rect>
@@ -1369,8 +1465,8 @@ QPushButton:hover{
      <widget class="QLabel" name="label_48">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>190</y>
+        <x>90</x>
+        <y>220</y>
         <width>31</width>
         <height>16</height>
        </rect>
@@ -1382,7 +1478,7 @@ QPushButton:hover{
      <widget class="QLabel" name="label_53">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>90</x>
         <y>0</y>
         <width>81</width>
         <height>16</height>
@@ -1398,7 +1494,7 @@ QPushButton:hover{
      <widget class="QLabel" name="label_54">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>90</x>
         <y>130</y>
         <width>81</width>
         <height>16</height>
@@ -1479,7 +1575,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>70</y>
+        <y>60</y>
         <width>111</width>
         <height>20</height>
        </rect>
@@ -1495,7 +1591,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>70</y>
+        <y>60</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -1511,7 +1607,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>200</y>
+        <y>190</y>
         <width>111</width>
         <height>20</height>
        </rect>
@@ -1527,7 +1623,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>200</y>
+        <y>190</y>
         <width>21</width>
         <height>21</height>
        </rect>

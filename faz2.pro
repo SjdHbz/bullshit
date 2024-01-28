@@ -14,12 +14,14 @@ SOURCES += \
     chicken.cpp \
     cow.cpp \
     finish.cpp \
+    guide.cpp \
     hous.cpp \
     land.cpp \
     main.cpp \
     mland.cpp \
     page1.cpp \
     page2.cpp \
+    setting.cpp \
     sheep.cpp \
     shop.cpp \
     worker.cpp
@@ -29,11 +31,13 @@ HEADERS += \
     chicken.h \
     cow.h \
     finish.h \
+    guide.h \
     hous.h \
     land.h \
     mland.h \
     page1.h \
     page2.h \
+    setting.h \
     sheep.h \
     shop.h \
     worker.h
@@ -43,11 +47,13 @@ FORMS += \
     chicken.ui \
     cow.ui \
     finish.ui \
+    guide.ui \
     hous.ui \
     land.ui \
     mland.ui \
     page1.ui \
     page2.ui \
+    setting.ui \
     sheep.ui \
     shop.ui \
     worker.ui
@@ -60,8 +66,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     finishpag.qrc \
     gif.qrc \
+    gry.qrc \
     hous.qrc \
     imags.qrc \
     look.qrc \
     lovepic.qrc \
+    nx.qrc \
     strrt.qrc
