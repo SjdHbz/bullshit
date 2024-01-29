@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>guid_images/guid_wheat.jpg</file>
+        <file>guid_images/guid_corn.jpg</file>
+        <file>guid_images/guid_coin.jpg</file>
+        <file>guid_images/guid_chicken.jpg</file>
+        <file>guid_images/guid_cow.jpg</file>
+        <file>guid_images/guid_land.jpg</file>
+        <file>guid_images/guid_sheep.jpg</file>
+        <file>guid_images/guid_worker.jpg</file>
+        <file>guid_images/2885812.png</file>
+        <file>guid_images/5572048.png</file>
+        <file>guid_images/5861109.png</file>
+        <file>guid_images/10634036.png</file>
+    </qresource>
+</RCC>

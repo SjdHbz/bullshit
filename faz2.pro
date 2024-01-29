@@ -67,6 +67,7 @@ RESOURCES += \
     finishpag.qrc \
     gif.qrc \
     gry.qrc \
+    guide.qrc \
     hous.qrc \
     imags.qrc \
     look.qrc \

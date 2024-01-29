@@ -308,6 +308,7 @@ private:
     int signl = 0;
     int play = 1;
     int pos=0;
+    int late[15];
     QString Cultivations[15];
     int connct_wheat[15];
     int connct_corn[15];

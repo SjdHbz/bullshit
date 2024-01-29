@@ -45,7 +45,6 @@ shop::~shop()
 }
 
 
-
 void shop::on_spinBox_chicken_valueChanged(int arg1)
 {
     int num;

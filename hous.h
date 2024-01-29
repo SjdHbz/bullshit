@@ -21,17 +21,17 @@ private slots:
 
     int incoin();
 
-    void on_pushButton_chicken_clicked();
+//    void on_pushButton_chicken_clicked();
 
-    void on_spinBox_chicken_valueChanged(int arg1);
+//    void on_spinBox_chicken_valueChanged(int arg1);
 
-    void on_pushButton_cow_clicked();
+//    void on_pushButton_cow_clicked();
 
-    void on_spinBox_cow_valueChanged(int arg1);
+//    void on_spinBox_cow_valueChanged(int arg1);
 
-    void on_pushButton_sheep_clicked();
+//    void on_pushButton_sheep_clicked();
 
-    void on_spinBox_sheep_valueChanged(int arg1);
+//    void on_spinBox_sheep_valueChanged(int arg1);
 
     void on_toolButton_clicked();
 

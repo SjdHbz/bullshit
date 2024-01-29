@@ -1,5 +1,4 @@
 #include "page1.h"
-
 #include <QApplication>
 
 int main(int argc, char *argv[])

@@ -6,29 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>223</height>
+    <width>364</width>
+    <height>283</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableView" name="tableView">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>256</width>
-      <height>161</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>40</y>
+      <x>10</x>
+      <y>50</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -40,13 +30,23 @@
      <string>first</string>
     </property>
    </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>300</width>
+     <width>364</width>
      <height>21</height>
     </rect>
    </property>

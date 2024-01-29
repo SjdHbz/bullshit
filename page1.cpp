@@ -196,7 +196,7 @@ void page1::on_pushButton_clicked()         //گزینه لاگین
         ema=0;
     }
     if(ema==1 ){
-        if(play<=players){    
+        if(play<=players){
         numbr =QString::number(play);
         QSqlQuery paigah;
         email=ui->lineEdit_3->text();

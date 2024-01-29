@@ -76,12 +76,12 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>101</width>
+        <width>71</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/morg.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/5978570.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -145,14 +145,14 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>180</y>
-        <width>101</width>
-        <height>51</height>
+        <width>71</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/images.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/guid_images/5572048.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -466,14 +466,14 @@ QPushButton:hover{
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>30</x>
         <y>10</y>
-        <width>101</width>
+        <width>61</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/cow.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/2766365.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -521,22 +521,6 @@ QPushButton:hover{
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>100</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/link.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_16">
       <property name="geometry">
        <rect>
@@ -569,14 +553,15 @@ QPushButton:hover{
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>180</y>
-        <width>101</width>
+        <width>71</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
+       <string notr="true">
+border-image: url(:/new/prefix1/imagfil/1620105.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -805,10 +790,10 @@ QPushButton:hover{
      <widget class="QLabel" name="label_55">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>30</y>
+        <x>180</x>
+        <y>25</y>
         <width>71</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -821,10 +806,10 @@ QPushButton:hover{
      <widget class="QPushButton" name="pushButton_10">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>240</x>
         <y>30</y>
         <width>21</width>
-        <height>21</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -882,6 +867,22 @@ QPushButton:hover{
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_61">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/guid_images/10634036.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -890,14 +891,14 @@ QPushButton:hover{
      <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>30</x>
         <y>10</y>
-        <width>101</width>
+        <width>61</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/sheep.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/imagfil/214840.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -948,14 +949,14 @@ QPushButton:hover{
      <widget class="QLabel" name="label_21">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>30</x>
         <y>100</y>
-        <width>101</width>
+        <width>61</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/link.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/guid_images/10634036.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -988,22 +989,6 @@ QPushButton:hover{
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_23">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>180</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/imagfil/meat.png);</string>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_24">
@@ -1216,10 +1201,10 @@ QPushButton:hover{
      <widget class="QLabel" name="label_56">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>30</y>
+        <x>180</x>
+        <y>25</y>
         <width>71</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1232,10 +1217,10 @@ QPushButton:hover{
      <widget class="QPushButton" name="pushButton_11">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>240</x>
         <y>30</y>
         <width>21</width>
-        <height>21</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1288,6 +1273,23 @@ QPushButton:hover{
       </property>
       <property name="styleSheet">
        <string notr="true">border-image: url(:/new/prefix1/imagfil/3138895.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>71</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/imagfil/1620105.png);</string>
       </property>
       <property name="text">
        <string/>
