@@ -296,6 +296,10 @@ private slots:
 
     void on_toolButton_2_clicked();
 
+    void on_spinBox_valueChanged(int arg1);
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::page2 *ui;
     QMediaPlayer *music = new
@@ -318,7 +322,6 @@ private:
     int kill_Sheep[15];
     int kill_chicken[15];
     int kill_cow[15];
-
 
 
 };

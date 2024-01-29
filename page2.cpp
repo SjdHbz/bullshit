@@ -44,6 +44,7 @@ page2::page2(QWidget *parent) :
     ui(new Ui::page2)
 {    
     ui->setupUi(this);
+//    this->setEnabled(false);
     music->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/lansvoic.mp3"));
     music->setVolume(100);
     music->play();
@@ -62,6 +63,7 @@ page2::page2(QWidget *parent) :
 
 void page2::refresh()
 {
+
     ui->Guide->setText("Welcome to the farm management game");
     ui->pushButton_9->setEnabled(false);
     ui->pushButton_13->setEnabled(false);
@@ -571,217 +573,217 @@ int page2::infile(QString fils)
 
 void page2::updateTime()
 {
+        static int seconds = 0;
+        seconds++;
+        static int players=0;
+        QFile player("D:/faz2/faz2/fils/number_of_players.txt");
+        QTextStream stream1(&player);
+        if(player.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream1 >> players;
+            player.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
 
-    static int seconds = 0;
-    seconds++;
-    static int players=0;
-    QFile player("D:/faz2/faz2/fils/number_of_players.txt");
-    QTextStream stream1(&player);
-    if(player.open(QIODevice::ReadOnly | QIODevice::Text)){
-        stream1 >> players;
-        player.close();
-    }else{
-        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-    }
+        if (seconds == 180 && play<=players)                                                    // check if 3 minutes have passed
+        {
+            ui->Guide->setText("The page was updated and prepared for the next player");
+            seconds = 0;
+            music->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/lansvoic.mp3"));
+            music->stop();
+            music->play();
+            elapsedTimer.restart();
+            QString message = QString("Your turn is over").arg(play);
+            QMessageBox::information(this,"Finsh",message);
+            QString Username;
+            QSqlDatabase database;
+            database=QSqlDatabase::addDatabase("QSQLITE");
+            database.setDatabaseName("d:///database.db");                                 //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
+            if(database.open()){
+                QSqlQuery qury;
+                QString pric =  QString::number(play);
+                if(qury.exec("SELECT Username FROM Loginpaigah WHERE number='"+pric+"' ")){
+                    if(qury.next()){
+                        Username = qury.value(0).toString();
+                    }
+                }
+                database.close();
+            }else {
+              qDebug() << "failed db.";
+            }
+            QSqlDatabase score;
+            int coin = incoin();
+            QString coins=QString::number(coin);
+            QString numbr=QString::number(play);
+            score =QSqlDatabase::addDatabase("QSQLITE");
+            score.setDatabaseName("d:///score.db");                                           //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
+            score.open();
+            score.exec("INSERT INTO username(UserName,Score,number)VALUES('"+Username+"','"+coins+"','"+numbr+"')");
+            score.close();
 
-    if (seconds == 180 && play<=players)                                                    // check if 3 minutes have passed
-    {
-        ui->Guide->setText("The page was updated and prepared for the next player");
-        seconds = 0;
-        music->setMedia(QUrl::fromLocalFile("D:/faz2/faz2/musicfil/lansvoic.mp3"));
-        music->stop();
-        music->play();
-        elapsedTimer.restart();
-        QString message = QString("Your turn is over").arg(play);
-        QMessageBox::information(this,"Finsh",message);
-        QString Username;
-        QSqlDatabase database;
-        database=QSqlDatabase::addDatabase("QSQLITE");
-        database.setDatabaseName("d:///database.db");                                 //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
-        if(database.open()){
-            QSqlQuery qury;
-            QString pric =  QString::number(play);
-            if(qury.exec("SELECT Username FROM Loginpaigah WHERE number='"+pric+"' ")){
-                if(qury.next()){
-                    Username = qury.value(0).toString();
+            play++;
+            refresh();
+
+        }else if (play>players && pos==0){
+            pos=1;
+            this->setEnabled(false);
+            this->hide();
+            finish* FINISH = new finish();
+            FINISH->show();
+        }
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
+        ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
+
+        int kill=0;
+        QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
+        QTextStream stream15(&kill_sheeps);
+        if(kill_sheeps.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream15 >> kill;
+            kill_sheeps.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
+        static int j;
+        if(kill==1){
+            j=1;
+            while(j==1){
+                int rand=qrand()%14+1;
+                for (int i=1;i<=14;i++){
+                    if(connct_Sheep[i]==1){
+                        kill_Sheep[i]=2;
+
+                    }
+                }
+                if (kill_Sheep[rand]==2){
+                   kill_Sheep[rand]=1;
+                   j=0;
                 }
             }
-            database.close();
-        }else {
-          qDebug() << "failed db.";
         }
-        QSqlDatabase score;
-        int coin = incoin();
-        QString coins=QString::number(coin);
-        QString numbr=QString::number(play);
-        score =QSqlDatabase::addDatabase("QSQLITE");
-        score.setDatabaseName("d:///score.db");                                           //فایل دیتا بیس خود را در درایو دی جایگزاری کنید
-        score.open();
-        score.exec("INSERT INTO username(UserName,Score,number)VALUES('"+Username+"','"+coins+"','"+numbr+"')");
-        score.close();
 
-        play++;
-        refresh();
 
-    }else if (play>players && pos==0){
-        pos=1;
-        this->setEnabled(false);
-        this->hide();
-        finish* FINISH = new finish();
-        FINISH->show();
-    }
-    int minutes = seconds / 60;
-    int remainingSeconds = seconds % 60;
-    ui->lcdNumber->display(QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(remainingSeconds, 2, 10, QChar('0')));
 
-    int kill=0;
-    QFile kill_sheeps("D:/faz2/faz2/fils/kill_sheep.txt");
-    QTextStream stream15(&kill_sheeps);
-    if(kill_sheeps.open(QIODevice::ReadOnly | QIODevice::Text)){
-        stream15 >> kill;
-        kill_sheeps.close();
-    }else{
-        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-    }
-    static int j;
-    if(kill==1){
-        j=1;
-        while(j==1){
-            int rand=qrand()%14+1;
-            for (int i=1;i<=14;i++){
-                if(connct_Sheep[i]==1){
-                    kill_Sheep[i]=2;
-
+        int kill_chick=0;
+        QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
+        QTextStream stream14(&kill_chickens);
+        if(kill_chickens.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream14 >> kill_chick;
+            kill_chickens.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
+        static int i;
+        if(kill_chick==1){
+            i=1;
+            while(i==1){
+                int rand=qrand()%14+1;
+                for (int i=1;i<=14;i++){
+                    if(connct_chicken[i]==1){
+                        kill_chicken[i]=2;
+                    }
+                }
+                if (kill_chicken[rand]==2){
+                   kill_chicken[rand]=1;
+                   i=0;
                 }
             }
-            if (kill_Sheep[rand]==2){
-               kill_Sheep[rand]=1;
-               j=0;
-            }
         }
-    }
 
 
-
-    int kill_chick=0;
-    QFile kill_chickens("D:/faz2/faz2/fils/kill_chicken.txt");
-    QTextStream stream14(&kill_chickens);
-    if(kill_chickens.open(QIODevice::ReadOnly | QIODevice::Text)){
-        stream14 >> kill_chick;
-        kill_chickens.close();
-    }else{
-        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-    }
-    static int i;
-    if(kill_chick==1){
-        i=1;
-        while(i==1){
-            int rand=qrand()%14+1;
-            for (int i=1;i<=14;i++){
-                if(connct_chicken[i]==1){
-                    kill_chicken[i]=2;
+        int kill_coww=0;
+        QFile kill_cows("D:/faz2/faz2/fils/kill_cow.txt");
+        QTextStream stream13(&kill_cows);
+        if(kill_cows.open(QIODevice::ReadOnly | QIODevice::Text)){
+            stream13 >> kill_coww;
+            kill_cows.close();
+        }else{
+            QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
+        }
+        static int k;
+        if(kill_coww==1){
+            k=1;
+            while(k==1){
+                int rand=qrand()%14+1;
+                for (int i=1;i<=14;i++){
+                    if(connct_cow[i]==1){
+                        kill_cow[i]=2;
+                    }
+                }
+                if (kill_cow[rand]==2){
+                   kill_cow[rand]=1;
+                   k=0;
                 }
             }
-            if (kill_chicken[rand]==2){
-               kill_chicken[rand]=1;
-               i=0;
-            }
         }
-    }
 
 
-    int kill_coww=0;
-    QFile kill_cows("D:/faz2/faz2/fils/kill_cow.txt");
-    QTextStream stream13(&kill_cows);
-    if(kill_cows.open(QIODevice::ReadOnly | QIODevice::Text)){
-        stream13 >> kill_coww;
-        kill_cows.close();
-    }else{
-        QMessageBox::warning(this,"EROR","The file could not be opened");                   // If the file is not opened, it will give an error
-    }
-    static int k;
-    if(kill_coww==1){
-        k=1;
-        while(k==1){
-            int rand=qrand()%14+1;
-            for (int i=1;i<=14;i++){
-                if(connct_cow[i]==1){
-                    kill_cow[i]=2;
-                }
-            }
-            if (kill_cow[rand]==2){
-               kill_cow[rand]=1;
-               k=0;
-            }
-        }
-    }
+        QFile file("D:/faz2/faz2/fils/coin.txt");
+        QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
+        QFile land("D:/faz2/faz2/fils/number_of_land.txt");
+        QFile worklan("D:/faz2/faz2/fils/workerlan.txt");
+        QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
+        QFile wheat("D:/faz2/faz2/fils/number_of_wheat.txt");
+        QFile corn("D:/faz2/faz2/fils/number_of_cron.txt");
+        QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
+        QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
+
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
+        worker.open(QIODevice::ReadOnly | QIODevice::Text);
+        land.open(QIODevice::ReadOnly | QIODevice::Text);
+        cow.open(QIODevice::ReadOnly | QIODevice::Text);
+        sheep.open(QIODevice::ReadOnly | QIODevice::Text);
+        chicken.open(QIODevice::ReadOnly | QIODevice::Text);
+        corn.open(QIODevice::ReadOnly | QIODevice::Text);
+        wheat.open(QIODevice::ReadOnly | QIODevice::Text);
+
+        QTextStream in(&file);
+        QTextStream stream(&worker);
+        QTextStream in2(&land);
+        QTextStream stream4(&cow);
+        QTextStream stream5(&sheep);
+        QTextStream stream6(&chicken);
+        QTextStream stream7(&corn);
+        QTextStream stream9(&wheat);
+
+        int number_of_land;
+        int number_of_cow;
+        int coin;
+        int number_of_wheat;
+        int number_of_chicken;
+        int number_of_corn;
+        int number_of_sheep;
+
+        int number_of_worker;
+        in >> coin;
+        stream >> number_of_worker;
+        stream4 >> number_of_cow;
+        in2 >> number_of_land;
+        stream6 >> number_of_chicken;
+        stream5 >> number_of_sheep;
+        stream7 >> number_of_corn;
+        stream9 >> number_of_wheat;
 
 
-    QFile file("D:/faz2/faz2/fils/coin.txt");
-    QFile worker("D:/faz2/faz2/fils/number_of_worker.txt");
-    QFile land("D:/faz2/faz2/fils/number_of_land.txt");
-    QFile worklan("D:/faz2/faz2/fils/workerlan.txt");
-    QFile cow("D:/faz2/faz2/fils/number_of_cow.txt");
-    QFile wheat("D:/faz2/faz2/fils/number_of_wheat.txt");
-    QFile corn("D:/faz2/faz2/fils/number_of_cron.txt");
-    QFile sheep("D:/faz2/faz2/fils/number_of_sheep.txt");
-    QFile chicken("D:/faz2/faz2/fils/number_of_chicken.txt");
-
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    worker.open(QIODevice::ReadOnly | QIODevice::Text);
-    land.open(QIODevice::ReadOnly | QIODevice::Text);
-    cow.open(QIODevice::ReadOnly | QIODevice::Text);
-    sheep.open(QIODevice::ReadOnly | QIODevice::Text);
-    chicken.open(QIODevice::ReadOnly | QIODevice::Text);
-    corn.open(QIODevice::ReadOnly | QIODevice::Text);
-    wheat.open(QIODevice::ReadOnly | QIODevice::Text);
-
-    QTextStream in(&file);
-    QTextStream stream(&worker);
-    QTextStream in2(&land);
-    QTextStream stream4(&cow);
-    QTextStream stream5(&sheep);
-    QTextStream stream6(&chicken);
-    QTextStream stream7(&corn);
-    QTextStream stream9(&wheat);
-
-    int number_of_land;
-    int number_of_cow;
-    int coin;
-    int number_of_wheat;
-    int number_of_chicken;
-    int number_of_corn;
-    int number_of_sheep;
-
-    int number_of_worker;
-    in >> coin;
-    stream >> number_of_worker;
-    stream4 >> number_of_cow;
-    in2 >> number_of_land;
-    stream6 >> number_of_chicken;
-    stream5 >> number_of_sheep;
-    stream7 >> number_of_corn;
-    stream9 >> number_of_wheat;
+        file.close();
+        worker.close();
+        land.close();
+        cow.close();
+        sheep.close();
+        chicken.close();
+        corn.close();
+        wheat.close();
 
 
-    file.close();
-    worker.close();
-    land.close();
-    cow.close();
-    sheep.close();
-    chicken.close();
-    corn.close();
-    wheat.close();
+        ui->lineEdit_coin->setText(" = " + QString::number(coin));
+        ui->lineEdit_worker->setText(" = " + QString::number(number_of_worker));
+        ui->lineEdit_land->setText(" = " + QString::number(number_of_land));
+        ui->lineEdit_cow->setText(" = " + QString::number(number_of_cow));
+        ui->label_chicken->setText(" = " + QString::number(number_of_chicken));
+        ui->label_sheep->setText(" = " + QString::number(number_of_sheep));
+        ui->label_corn->setText(" = " + QString::number(number_of_corn));
+        ui->label_wheat->setText(" = " + QString::number(number_of_wheat));
 
-
-    ui->lineEdit_coin->setText(" = " + QString::number(coin));
-    ui->lineEdit_worker->setText(" = " + QString::number(number_of_worker));
-    ui->lineEdit_land->setText(" = " + QString::number(number_of_land));
-    ui->lineEdit_cow->setText(" = " + QString::number(number_of_cow));
-    ui->label_chicken->setText(" = " + QString::number(number_of_chicken));
-    ui->label_sheep->setText(" = " + QString::number(number_of_sheep));
-    ui->label_corn->setText(" = " + QString::number(number_of_corn));
-    ui->label_wheat->setText(" = " + QString::number(number_of_wheat));
 
 
 }
@@ -8301,4 +8303,20 @@ void page2::on_toolButton_2_clicked()
     setting* SETTING = new setting();
     SETTING->show();
 }
+
+
+void page2::on_spinBox_valueChanged(int arg1)
+{
+        music->setVolume(arg1);
+}
+
+
+void page2::on_pushButton_12_clicked()
+{
+        music->setVolume(0);
+}
+
+
+
+
 

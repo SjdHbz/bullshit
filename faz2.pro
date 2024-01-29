@@ -73,4 +73,5 @@ RESOURCES += \
     look.qrc \
     lovepic.qrc \
     nx.qrc \
+    sitting.qrc \
     strrt.qrc
