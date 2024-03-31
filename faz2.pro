@@ -18,7 +18,6 @@ SOURCES += \
     hous.cpp \
     land.cpp \
     main.cpp \
-    mland.cpp \
     page1.cpp \
     page2.cpp \
     setting.cpp \
@@ -34,7 +33,6 @@ HEADERS += \
     guide.h \
     hous.h \
     land.h \
-    mland.h \
     page1.h \
     page2.h \
     setting.h \
@@ -50,7 +48,6 @@ FORMS += \
     guide.ui \
     hous.ui \
     land.ui \
-    mland.ui \
     page1.ui \
     page2.ui \
     setting.ui \

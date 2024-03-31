@@ -1,10 +1,10 @@
-#include "page1.h"
+#include "page2.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    page1 w;
+    page2 w;
     w.show();
     return a.exec();
 }

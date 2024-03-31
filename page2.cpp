@@ -11,7 +11,6 @@
 #include "sheep.h"
 #include "cow.h"
 #include "land.h"
-#include "mland.h"
 #include "hous.h"
 #include "worker.h"
 #include "QFile"
@@ -34,10 +33,7 @@
 #include "setting.h"
 #include "iostream"
 #include "algorithm"
-//#include <QVector>
 using namespace std;
-
-
 
 page2::page2(QWidget *parent) :
     QMainWindow(parent),
@@ -8315,8 +8311,3 @@ void page2::on_pushButton_12_clicked()
 {
         music->setVolume(0);
 }
-
-
-
-
-

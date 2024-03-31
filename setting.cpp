@@ -158,4 +158,3 @@ void setting::on_pushButton_Phone_clicked()
     }
     db.close();
 }
-
